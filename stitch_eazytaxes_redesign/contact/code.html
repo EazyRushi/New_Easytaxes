@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#ffdcbc",
+              "inverse-primary": "#9ecde9",
+              "on-primary-container": "#7caac5",
+              "surface-container": "#ddf0ff",
+              "surface": "#f5faff",
+              "primary": "#002839",
+              "on-secondary-fixed": "#2c1700",
+              "outline": "#71787d",
+              "tertiary-container": "#003f56",
+              "surface-bright": "#f5faff",
+              "inverse-on-surface": "#e3f3ff",
+              "on-tertiary": "#ffffff",
+              "background": "#f5faff",
+              "surface-tint": "#35647c",
+              "secondary-fixed-dim": "#ffb86b",
+              "on-surface": "#001e2d",
+              "tertiary-fixed": "#c2e8ff",
+              "on-primary-fixed": "#001e2c",
+              "on-background": "#001e2d",
+              "on-surface-variant": "#41484c",
+              "surface-container-high": "#d1ecff",
+              "secondary": "#895100",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#30afe4",
+              "surface-container-low": "#e9f5ff",
+              "surface-container-highest": "#c5e7ff",
+              "inverse-surface": "#00344a",
+              "error": "#ba1a1a",
+              "primary-container": "#043f56",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#693d00",
+              "secondary-container": "#ffa024",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#77d1ff",
+              "on-tertiary-fixed": "#001e2c",
+              "on-error": "#ffffff",
+              "surface-variant": "#c5e7ff",
+              "on-primary-fixed-variant": "#194c63",
+              "tertiary": "#002838",
+              "primary-fixed-dim": "#9ecde9",
+              "outline-variant": "#c1c7cd",
+              "on-error-container": "#93000a",
+              "surface-dim": "#b1e0ff",
+              "primary-fixed": "#c3e8ff",
+              "on-tertiary-fixed-variant": "#004d68",
+              "on-secondary-fixed-variant": "#683d00"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(0, 40, 57, 0.9);
+        backdrop-filter: blur(12px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #ffa024;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#002839] dark:bg-[#001E2D]">
+<nav class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="font-serif text-2xl font-bold text-white italic">EazyTaxes</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-serif text-lg tracking-tight font-medium text-white/80 hover:text-white transition-colors" href="#">Careers</a>
+<a class="font-serif text-lg tracking-tight font-medium text-white/80 hover:text-white transition-colors" href="#">Resources</a>
+<a class="font-serif text-lg tracking-tight font-medium text-[#FFA024] font-bold border-b-2 border-[#FFA024] pb-1" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-serif text-lg tracking-tight font-medium text-white/80 hover:text-white transition-colors">Login</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-md font-serif text-lg font-medium hover:brightness-110 transition-all">Get Started</button>
+</div>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-12 max-w-screen-2xl mx-auto mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-8">
+<span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block">Reach Out</span>
+<h1 class="font-headline text-6xl lg:text-8xl leading-none tracking-tight text-primary">
+                        Connecting <br/>
+<span class="italic font-normal">Global Expertise</span>
+</h1>
+</div>
+<div class="lg:col-span-4 pb-4">
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-sm">
+                        Our architectural approach to tax strategy starts with a single conversation. How can we elevate your financial structure today?
+                    </p>
+</div>
+</div>
+</section>
+<!-- Contact Grid (Asymmetric Layout) -->
+<section class="px-12 max-w-screen-2xl mx-auto mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<!-- Inquiry Form Container -->
+<div class="bg-surface-container-lowest p-12 lg:p-20 shadow-none relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed-dim/10 rounded-full -mr-16 -mt-16"></div>
+<h2 class="font-headline text-4xl text-primary mb-12">Submit an <span class="italic">Inquiry</span></h2>
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="relative">
+<label class="font-label text-xs uppercase tracking-widest text-secondary mb-2 block">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-2 px-0 font-body placeholder:text-outline-variant/50" placeholder="Johnathan Doe" type="text"/>
+</div>
+<div class="relative">
+<label class="font-label text-xs uppercase tracking-widest text-secondary mb-2 block">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-2 px-0 font-body placeholder:text-outline-variant/50" placeholder="j.doe@architect.com" type="email"/>
+</div>
+</div>
+<div class="relative">
+<label class="font-label text-xs uppercase tracking-widest text-secondary mb-2 block">Subject of Interest</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-2 px-0 font-body">
+<option>Corporate Restructuring</option>
+<option>International Tax Compliance</option>
+<option>Wealth Preservation</option>
+<option>General Inquiry</option>
+</select>
+</div>
+<div class="relative">
+<label class="font-label text-xs uppercase tracking-widest text-secondary mb-2 block">Your Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-2 px-0 font-body placeholder:text-outline-variant/50 resize-none" placeholder="How may we assist in your financial architecture?" rows="4"></textarea>
+</div>
+<button class="group flex items-center gap-4 bg-primary text-white px-8 py-4 rounded-md hover:bg-primary-container transition-all" type="submit">
+<span class="font-label text-sm uppercase tracking-widest">Send Inquiry</span>
+<span class="material-symbols-outlined text-secondary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Office Locations & Support -->
+<div class="flex flex-col justify-between py-8">
+<div>
+<h2 class="font-headline text-4xl text-primary mb-12">Global <span class="italic text-secondary">Foundations</span></h2>
+<div class="space-y-16">
+<!-- New York -->
+<div class="flex gap-8 group cursor-pointer">
+<div class="w-16 h-16 shrink-0 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">location_on</span>
+</div>
+<div>
+<h3 class="font-headline text-xl text-primary mb-1">New York</h3>
+<p class="text-on-surface-variant font-body mb-2">Lexington Avenue, Midtown East<br/>New York, NY 10022</p>
+<a class="font-label text-xs uppercase text-secondary tracking-widest flex items-center gap-2 border-b border-transparent hover:border-secondary w-fit transition-all" href="#">View Map <span class="material-symbols-outlined text-[14px]">open_in_new</span></a>
+</div>
+</div>
+<!-- London -->
+<div class="flex gap-8 group cursor-pointer">
+<div class="w-16 h-16 shrink-0 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">location_on</span>
+</div>
+<div>
+<h3 class="font-headline text-xl text-primary mb-1">London</h3>
+<p class="text-on-surface-variant font-body mb-2">Bishopsgate, The City<br/>London EC2M 3AB</p>
+<a class="font-label text-xs uppercase text-secondary tracking-widest flex items-center gap-2 border-b border-transparent hover:border-secondary w-fit transition-all" href="#">View Map <span class="material-symbols-outlined text-[14px]">open_in_new</span></a>
+</div>
+</div>
+<!-- Singapore -->
+<div class="flex gap-8 group cursor-pointer">
+<div class="w-16 h-16 shrink-0 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">location_on</span>
+</div>
+<div>
+<h3 class="font-headline text-xl text-primary mb-1">Singapore</h3>
+<p class="text-on-surface-variant font-body mb-2">Marina Bay Financial Centre<br/>Singapore 018983</p>
+<a class="font-label text-xs uppercase text-secondary tracking-widest flex items-center gap-2 border-b border-transparent hover:border-secondary w-fit transition-all" href="#">View Map <span class="material-symbols-outlined text-[14px]">open_in_new</span></a>
+</div>
+</div>
+</div>
+</div>
+<!-- Support Contacts -->
+<div class="mt-20 pt-12 border-t border-outline-variant/30 grid grid-cols-2 gap-8">
+<div>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-4 block">General Support</span>
+<p class="font-headline text-lg text-primary">support@eazytaxes.com</p>
+<p class="text-on-surface-variant text-sm">+1 (800) ARCH-TAX</p>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-4 block">Press Inquiries</span>
+<p class="font-headline text-lg text-primary">media@eazytaxes.com</p>
+<p class="text-on-surface-variant text-sm">+44 20 7946 0123</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Map/Texture Section -->
+<section class="h-[500px] w-full relative mb-0">
+<div class="absolute inset-0 z-0 grayscale opacity-40 mix-blend-multiply">
+<img class="w-full h-full object-cover" data-alt="Modern architectural blueprint background with clean lines and mathematical symbols in a subtle teal overlay style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7hp7H5xAiPKWAOgD2nqyYhZ6J4GtC9Sh-C0ZvioNkXCQkYXABSmYylHTwcLhcrli4gHkrbp7gN_UvVvsiNV_ywHMkhSKMuAPutD0kVfcayLeFKdEonGPH8uerGVmp9Fis_wghoanYDQrtCCtFEu9miIk3cq3fU1ro0U4l9n7BfVuG7AG1mJfmAsAlzlxV4kBoHoWTFHc5-kG1x1Izzh55EjdouIELQG1jd2VRl2jyyVRQIfwUOYM-6zY-xZHdTr4-Pw6zB5adH-RT"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="relative z-10 h-full flex items-center justify-center px-12">
+<div class="text-center">
+<h2 class="font-headline text-4xl text-primary mb-6">Designed for <span class="italic">Legacy</span></h2>
+<p class="font-body text-on-surface-variant max-w-lg mx-auto">
+                        We don't just file taxes; we build financial fortresses. Our global network is available 24/7 for our institutional partners.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-24 pb-12 bg-[#001E2D] dark:bg-[#000F16]">
+<div class="flex flex-col md:flex-row justify-between items-start px-12 max-w-screen-2xl mx-auto border-t border-white/10 pt-12">
+<div class="mb-12 md:mb-0">
+<span class="font-serif text-xl text-white mb-4 block">EazyTaxes Architectural Ledger</span>
+<p class="font-sans text-sm tracking-wide uppercase text-white/60 mb-8 max-w-xs">Precise. Authoritative. Global. The blueprint for your financial future.</p>
+<div class="flex gap-6">
+<a class="text-white/50 hover:text-[#FFA024] transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors" href="#"><span class="material-symbols-outlined">verified</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-label text-xs uppercase tracking-widest text-secondary-fixed-dim">Compliance</span>
+<a class="font-sans text-sm tracking-wide uppercase text-white/50 hover:text-[#FFA024]" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-wide uppercase text-white/50 hover:text-[#FFA024]" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label text-xs uppercase tracking-widest text-secondary-fixed-dim">Corporate</span>
+<a class="font-sans text-sm tracking-wide uppercase text-white/50 hover:text-[#FFA024]" href="#">Security</a>
+<a class="font-sans text-sm tracking-wide uppercase text-white/50 hover:text-[#FFA024]" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+<div class="px-12 max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-white/5">
+<p class="font-sans text-xs tracking-widest uppercase text-white/30">© 2024 EazyTaxes Architectural Ledger. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

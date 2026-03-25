@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#2c1700",
+              "on-primary-fixed-variant": "#194c63",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f5faff",
+              "outline-variant": "#c1c7cd",
+              "on-tertiary-fixed-variant": "#004d68",
+              "primary-fixed": "#c3e8ff",
+              "secondary-fixed-dim": "#ffb86b",
+              "on-primary-container": "#7caac5",
+              "on-error": "#ffffff",
+              "outline": "#71787d",
+              "on-surface-variant": "#41484c",
+              "on-secondary-fixed-variant": "#683d00",
+              "on-primary": "#ffffff",
+              "primary": "#002839",
+              "inverse-on-surface": "#e3f3ff",
+              "on-tertiary-fixed": "#001e2c",
+              "primary-fixed-dim": "#9ecde9",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#30afe4",
+              "tertiary-container": "#003f56",
+              "secondary-container": "#ffa024",
+              "surface-dim": "#b1e0ff",
+              "surface-container": "#ddf0ff",
+              "tertiary-fixed-dim": "#77d1ff",
+              "on-primary-fixed": "#001e2c",
+              "surface-container-highest": "#c5e7ff",
+              "secondary": "#895100",
+              "background": "#f5faff",
+              "surface-bright": "#f5faff",
+              "on-surface": "#001e2d",
+              "inverse-surface": "#00344a",
+              "tertiary": "#002838",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#e9f5ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#d1ecff",
+              "inverse-primary": "#9ecde9",
+              "secondary-fixed": "#ffdcbc",
+              "primary-container": "#043f56",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-tint": "#35647c",
+              "surface-variant": "#c5e7ff",
+              "error-container": "#ffdad6",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#693d00",
+              "on-background": "#001e2d"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-[#002839] dark:bg-[#001E2D] docked full-width top-0 z-50 no-border tonal-layering flat no-shadows">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif text-2xl italic text-white">EazyTaxes</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-300 hover:text-white transition-colors font-serif text-lg tracking-tight" href="#">Assurance</a>
+<a class="text-slate-300 hover:text-white transition-colors font-serif text-lg tracking-tight" href="#">Tax Resolution</a>
+<a class="text-slate-300 hover:text-white transition-colors font-serif text-lg tracking-tight" href="#">CFO Advisory</a>
+<a class="text-slate-300 hover:text-white transition-colors font-serif text-lg tracking-tight" href="#">Valuations</a>
+<a class="text-slate-300 hover:text-white transition-colors font-serif text-lg tracking-tight" href="#">Compliance</a>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-md font-label font-bold uppercase tracking-wider hover:brightness-110 transition-all active:scale-95">Get Started</button>
+</nav>
+</header>
+<div class="flex">
+<!-- SideNavBar - Formation & Banking Active -->
+<aside class="hidden lg:flex flex-col h-screen bg-[#043F56] dark:bg-[#001E2D] h-full w-64 fixed left-0 top-0 shadow-2xl z-40 pt-20">
+<div class="px-6 py-8">
+<h2 class="font-serif text-xl text-white">EazyTaxes</h2>
+<p class="font-sans uppercase tracking-widest text-[10px] text-on-primary-container">Architectural Ledger</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white hover:bg-[#002839] transition-transform duration-200 ease-in-out font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="gavel">gavel</span> Tax &amp; Compliance
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white hover:bg-[#002839] transition-transform duration-200 ease-in-out font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="verified_user">verified_user</span> Assurance &amp; SOC 2
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white hover:bg-[#002839] transition-transform duration-200 ease-in-out font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="account_balance_wallet">account_balance_wallet</span> Tax Resolution
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white hover:bg-[#002839] transition-transform duration-200 ease-in-out font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="insights">insights</span> CFO &amp; Advisory
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white hover:bg-[#002839] transition-transform duration-200 ease-in-out font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="query_stats">query_stats</span> Valuations
+                </a>
+<a class="flex items-center px-6 py-3 bg-[#FFA024] text-[#002839] rounded-r-lg font-bold font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="account_balance" style="font-variation-settings: 'FILL' 1;">account_balance</span> Formation &amp; Banking
+                </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 min-h-screen">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center overflow-hidden bg-primary">
+<div class="absolute inset-0 opacity-40">
+<img alt="Architectural structure" class="w-full h-full object-cover" data-alt="Modern architectural glass building facade reflecting the sky with sharp geometric lines and blue tones for a professional feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA25SPKvKn3MRnvKmwQ95ni9Um8CrHE57oBWEzTj08dMCxI60wgmz0BM4n1H8n9nmQs4ezMd3rbSiRWhvToB9Kuy3N3IQHSn_jqkrLzD-zMI6CK8PyAvnPPHvb7b-W3V1MK2ABLXMtfRp7Vvb0Bn391dLExVw2JHTPAQqfx6mgPQ20ViTYtDC8I5qIKIXtof2FRdXdavk-7S8FZsBFOB3frAmUVQSXvzox8zgRUvtwJV_Vg3ymP91mxOugxoLNhq7ZsUJe2bW8DDMUa"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+<div class="relative z-10 px-8 md:px-16 max-w-4xl">
+<span class="font-label text-secondary-container font-semibold tracking-[0.2em] uppercase mb-4 block">Institutional Framework</span>
+<h1 class="font-headline text-5xl md:text-7xl text-white leading-tight mb-6">Architecting <br/><i class="font-serif">New Ventures.</i></h1>
+<p class="font-body text-lg text-primary-fixed-dim max-w-2xl mb-10 leading-relaxed">
+                        Precision-engineered entity formation and seamless institutional banking integration. We build the structural foundation while you define the vision.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-md font-label font-bold uppercase tracking-wider hover:brightness-110 transition-all">Begin Incorporation</button>
+<button class="border border-outline-variant/30 text-white px-8 py-4 rounded-md font-label font-bold uppercase tracking-wider hover:bg-white/10 transition-all">View Structure Guide</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid - Core Pillars -->
+<section class="py-24 px-8 md:px-16 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Column 1: Entity Incorporation -->
+<div class="md:col-span-7 bg-surface-container-highest p-10 rounded-xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-6" data-icon="corporate_fare">corporate_fare</span>
+<h3 class="font-headline text-3xl mb-4 text-primary">Precision Entity Incorporation</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                                Navigate the complexities of legal structure with expert guidance. From LLCs to C-Corps, we ensure your foundation is architected for scale and tax efficiency.
+                            </p>
+</div>
+<ul class="space-y-4 font-label text-sm font-medium text-primary">
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-3" data-icon="check_circle">check_circle</span> Articles of Organization Filing</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-3" data-icon="check_circle">check_circle</span> EIN Procurement within 24 Hours</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-3" data-icon="check_circle">check_circle</span> Registered Agent Services</li>
+</ul>
+</div>
+<!-- Column 2: Banking Integration -->
+<div class="md:col-span-5 bg-primary-container p-10 rounded-xl text-white">
+<span class="material-symbols-outlined text-4xl text-secondary-container mb-6" data-icon="account_balance">account_balance</span>
+<h3 class="font-headline text-3xl mb-4">Institutional Banking</h3>
+<p class="text-on-primary-container text-lg leading-relaxed mb-8">
+                            Instant integration with tier-1 financial institutions. Open operating and payroll accounts with automated compliance layering.
+                        </p>
+<div class="bg-white/5 p-6 rounded-lg border border-white/10">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label uppercase tracking-widest text-[10px] opacity-60">Live Integration Status</span>
+<span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+</div>
+<div class="space-y-3">
+<div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[88%]"></div>
+</div>
+<div class="flex justify-between text-xs font-label">
+<span>Syncing KYC Profiles</span>
+<span>88% Complete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Structural Setup Form -->
+<div class="md:col-span-12 bg-surface-container-low p-12 rounded-xl grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-headline text-4xl mb-6 text-primary italic">Structural Setup</h2>
+<p class="text-on-surface-variant mb-8">
+                                Define the parameters of your architectural ledger. Our automated system generates the necessary legal and financial artifacts based on your specific venture needs.
+                            </p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="font-bold">01</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Identity Mapping</h4>
+<p class="text-sm text-on-surface-variant">Verify ownership and governance structures.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="font-bold">02</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Jurisdiction Selection</h4>
+<p class="text-sm text-on-surface-variant">Determine the optimal state for tax nexus.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 shadow-2xl rounded-lg">
+<form class="space-y-6">
+<div>
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant mb-2">Legal Entity Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 transition-all px-0 pb-2 text-lg" placeholder="e.g. Acme Ventures LLC" type="text"/>
+</div>
+<div>
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant mb-2">Primary Industry</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 transition-all px-0 pb-2 text-lg">
+<option>Technology &amp; SaaS</option>
+<option>Fintech</option>
+<option>Real Estate</option>
+<option>Professional Services</option>
+</select>
+</div>
+<div>
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant mb-2">Initial Funding Target</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 transition-all px-0 pb-2 text-lg" placeholder="$50,000" type="text"/>
+</div>
+<button class="w-full bg-primary text-white py-4 font-label uppercase tracking-widest font-bold hover:bg-primary-container transition-all" type="submit">Initialize Process</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Steps Section (Financial Path) -->
+<section class="bg-primary py-24 px-8 md:px-16 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<div class="max-w-xl">
+<h2 class="font-headline text-4xl text-white mb-4">The Implementation <br/><i>Blueprint.</i></h2>
+<p class="text-on-primary-container">Four stages from architectural intent to operational reality.</p>
+</div>
+<div class="mt-8 md:mt-0">
+<span class="text-secondary-container font-headline italic text-xl">Expedited: 3-5 Business Days</span>
+</div>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between gap-12">
+<!-- Connecting Line -->
+<div class="hidden md:block absolute top-10 left-0 right-0 h-px bg-secondary-fixed-dim/30"></div>
+<div class="relative z-10 md:w-1/4">
+<div class="w-20 h-20 bg-primary-container rounded-lg border border-secondary-container/30 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="design_services">design_services</span>
+</div>
+<h4 class="text-white font-bold mb-2">Consultation</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Map your venture requirements with our structural architects.</p>
+</div>
+<div class="relative z-10 md:w-1/4">
+<div class="w-20 h-20 bg-primary-container rounded-lg border border-secondary-container/30 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="draw">draw</span>
+</div>
+<h4 class="text-white font-bold mb-2">Drafting</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Preparation of operating agreements and board resolutions.</p>
+</div>
+<div class="relative z-10 md:w-1/4">
+<div class="w-20 h-20 bg-secondary-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl" data-icon="how_to_reg">how_to_reg</span>
+</div>
+<h4 class="text-white font-bold mb-2">Registration</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Secretary of State filing and Federal Tax ID acquisition.</p>
+</div>
+<div class="relative z-10 md:w-1/4">
+<div class="w-20 h-20 bg-primary-container rounded-lg border border-secondary-container/30 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="payments">payments</span>
+</div>
+<h4 class="text-white font-bold mb-2">Activation</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Bank account funding and automated ledger initialization.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Institutional Partners -->
+<section class="py-20 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="text-primary font-serif font-bold text-2xl">CHASE Institutional</div>
+<div class="text-primary font-serif font-bold text-2xl">MERCURY Business</div>
+<div class="text-primary font-serif font-bold text-2xl">SVB Financial</div>
+<div class="text-primary font-serif font-bold text-2xl">BREX Enterprise</div>
+<div class="text-primary font-serif font-bold text-2xl">AMEX Corporate</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full border-t border-[#043F56]/10 bg-[#F5FAFF] dark:bg-[#001E2D] tonal-layering surface-container-low">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+<div class="mb-6 md:mb-0">
+<div class="font-serif font-bold text-[#002839] dark:text-[#FFA024] text-xl mb-2">EazyTaxes</div>
+<p class="font-serif text-sm italic text-[#043F56] opacity-70">© 2024 EazyTaxes. Architectural precision in financial compliance.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] transition-opacity font-serif text-sm italic" href="#">Privacy Policy</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] transition-opacity font-serif text-sm italic" href="#">Terms of Service</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] transition-opacity font-serif text-sm italic" href="#">Contact</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] transition-opacity font-serif text-sm italic" href="#">Whitepapers</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<!-- Floating Action Button - Contextual to Service -->
+<button class="fixed bottom-8 right-8 bg-secondary-container text-on-secondary-container w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add_business">add_business</span>
+</button>
+</body></html>

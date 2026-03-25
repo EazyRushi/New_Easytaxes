@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Careers | EazyTaxes Architectural Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#ffdcbc",
+                        "inverse-primary": "#9ecde9",
+                        "on-primary-container": "#7caac5",
+                        "surface-container": "#ddf0ff",
+                        "surface": "#f5faff",
+                        "primary": "#002839",
+                        "on-secondary-fixed": "#2c1700",
+                        "outline": "#71787d",
+                        "tertiary-container": "#003f56",
+                        "surface-bright": "#f5faff",
+                        "inverse-on-surface": "#e3f3ff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f5faff",
+                        "surface-tint": "#35647c",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "on-surface": "#001e2d",
+                        "tertiary-fixed": "#c2e8ff",
+                        "on-primary-fixed": "#001e2c",
+                        "on-background": "#001e2d",
+                        "on-surface-variant": "#41484c",
+                        "surface-container-high": "#d1ecff",
+                        "secondary": "#895100",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#30afe4",
+                        "surface-container-low": "#e9f5ff",
+                        "surface-container-highest": "#c5e7ff",
+                        "inverse-surface": "#00344a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#043f56",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#693d00",
+                        "secondary-container": "#ffa024",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#77d1ff",
+                        "on-tertiary-fixed": "#001e2c",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#c5e7ff",
+                        "on-primary-fixed-variant": "#194c63",
+                        "tertiary": "#002838",
+                        "primary-fixed-dim": "#9ecde9",
+                        "outline-variant": "#c1c7cd",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#b1e0ff",
+                        "primary-fixed": "#c3e8ff",
+                        "on-tertiary-fixed-variant": "#004d68",
+                        "on-secondary-fixed-variant": "#683d00"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .text-editorial-lg {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .ghost-border {
+            outline: 1px solid rgba(193, 199, 205, 0.15);
+        }
+        .grain-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Header / TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#002839] dark:bg-[#001E2D] flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto shadow-none">
+<div class="font-serif text-2xl font-bold text-white italic">EazyTaxes</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-[#FFA024] font-bold border-b-2 border-[#FFA024] pb-1 font-serif text-lg tracking-tight" href="#">Careers</a>
+<a class="text-white/80 hover:text-white transition-colors font-serif text-lg tracking-tight font-medium" href="#">Resources</a>
+<a class="text-white/80 hover:text-white transition-colors font-serif text-lg tracking-tight font-medium" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-white/80 hover:text-white font-medium text-lg font-serif">Login</button>
+<button class="bg-[#FFA024] text-[#693D00] px-6 py-2 rounded-md font-bold hover:brightness-110 transition-all">Get Started</button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center bg-primary text-white overflow-hidden">
+<div class="grain-texture absolute inset-0"></div>
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-8 z-10">
+<span class="font-label text-secondary-fixed-dim tracking-[0.2em] uppercase text-sm mb-6 block">Join the Architectural Ledger</span>
+<h1 class="font-headline text-editorial-lg mb-8">Crafting the <span class="italic">future</span> of financial clarity.</h1>
+<p class="font-body text-xl text-on-primary-container max-w-2xl leading-relaxed">
+                        We don't just process data; we design financial security. At EazyTaxes, we're looking for architects of strategy and builders of trust.
+                    </p>
+<div class="mt-12 flex gap-6">
+<a class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-md font-bold text-lg hover:brightness-110 transition-all flex items-center gap-2" href="#roles">
+                            View Open Roles
+                            <span class="material-symbols-outlined">arrow_downward</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-4 relative hidden md:block">
+<div class="absolute -right-24 -top-24 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl"></div>
+<img class="rounded-xl shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-[3/4]" data-alt="Modern minimalist office interior with floor to ceiling windows, sleek architectural lines, and professional business setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7gSzFgg7jqWUncAEr75wIVb3yzulGYuIZREtZ8TO3ZkIIAXv-DnspyrekS5nvlS70joIkHTdGOvlVZcSSga_yspLCONfeHg3-PtUpPeMqYb7WOHP1yZcPZPSaom4PPaNo5osOsgYoAHDOaU8EB_oLOxlOWNJXvn8F0ltWhxWAymKSol12o2QyeiZhjNZEkncsJsIiq8QYQw5zqF9JSsgXlfm79a6enMiIO-MkW6TIPRenRQ7NhCGIuxTRRGdlCEd7lRpo48AzjWqc"/>
+</div>
+</div>
+</section>
+<!-- Our Mission -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-20 items-start">
+<div class="md:col-span-4 sticky top-32">
+<h2 class="font-headline text-5xl text-primary leading-tight">Our <span class="italic text-secondary">Mission</span></h2>
+<div class="mt-8 h-1 w-24 bg-secondary-container"></div>
+</div>
+<div class="md:col-span-8 space-y-20">
+<div class="space-y-6">
+<h3 class="font-headline text-3xl text-primary">Redefining the Financial Canvas</h3>
+<p class="text-body text-lg text-on-surface-variant leading-relaxed max-w-3xl">
+                                We believe tax strategy is an art form. It requires precision, foresight, and a deep understanding of the structures that support global commerce. Our mission is to provide every client with a bespoke financial blueprint that stands the test of time.
+                            </p>
+</div>
+<!-- Bento Grid Stats/Values -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-10 space-y-4">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<h4 class="font-headline text-2xl text-primary">Structural Integrity</h4>
+<p class="text-on-surface-variant">We prioritize ethical foundations and rigorous compliance in every strategy we deploy.</p>
+</div>
+<div class="bg-primary p-10 space-y-4 text-white">
+<span class="material-symbols-outlined text-4xl text-secondary-container" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<h4 class="font-headline text-2xl">Bespoke Design</h4>
+<p class="text-on-primary-container">No templates. No generic advice. Every solution is custom-built for the unique landscape of our clients.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Open Roles Section -->
+<section class="py-32 bg-primary text-white" id="roles">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-secondary-fixed-dim tracking-[0.2em] uppercase text-sm mb-4 block">Current Opportunities</span>
+<h2 class="font-headline text-5xl">Select your <span class="italic">vantage point.</span></h2>
+</div>
+<div class="bg-white/5 p-2 rounded-lg flex gap-4">
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container font-bold rounded">All Positions</button>
+<button class="px-6 py-2 text-white/60 hover:text-white transition-colors">Taxation</button>
+<button class="px-6 py-2 text-white/60 hover:text-white transition-colors">Audit</button>
+</div>
+</div>
+<!-- Job Listings (Editorial Style) -->
+<div class="space-y-4">
+<!-- Role 1 -->
+<div class="group relative overflow-hidden bg-primary-container p-12 transition-all hover:bg-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-4 mb-2">
+<span class="font-label text-xs py-1 px-3 bg-secondary-container/20 text-secondary-container rounded-full uppercase tracking-widest">Leadership</span>
+<span class="font-label text-xs text-white/40 uppercase tracking-widest">New York / Remote</span>
+</div>
+<h3 class="font-headline text-3xl group-hover:text-secondary-container transition-colors">Senior Tax Strategist</h3>
+<p class="text-on-primary-container max-w-xl">Lead high-net-worth portfolio restructuring and architectural tax planning for global entities.</p>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl text-white/30">$180k – $240k</span>
+<button class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-secondary-container group-hover:border-secondary-container group-hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+<!-- Role 2 -->
+<div class="group relative overflow-hidden bg-primary-container p-12 transition-all hover:bg-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-4 mb-2">
+<span class="font-label text-xs py-1 px-3 bg-secondary-container/20 text-secondary-container rounded-full uppercase tracking-widest">Compliance</span>
+<span class="font-label text-xs text-white/40 uppercase tracking-widest">Chicago</span>
+</div>
+<h3 class="font-headline text-3xl group-hover:text-secondary-container transition-colors">Audit Manager</h3>
+<p class="text-on-primary-container max-w-xl">Oversee complex financial verification processes with an eye for architectural precision and detail.</p>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl text-white/30">$140k – $190k</span>
+<button class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-secondary-container group-hover:border-secondary-container group-hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+<!-- Role 3 -->
+<div class="group relative overflow-hidden bg-primary-container p-12 transition-all hover:bg-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-4 mb-2">
+<span class="font-label text-xs py-1 px-3 bg-secondary-container/20 text-secondary-container rounded-full uppercase tracking-widest">M&amp;A</span>
+<span class="font-label text-xs text-white/40 uppercase tracking-widest">London / Remote</span>
+</div>
+<h3 class="font-headline text-3xl group-hover:text-secondary-container transition-colors">M&amp;A Analyst</h3>
+<p class="text-on-primary-container max-w-xl">Conduct rigorous due diligence and structural analysis for mid-market acquisitions and mergers.</p>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl text-white/30">$120k – $165k</span>
+<button class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-secondary-container group-hover:border-secondary-container group-hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Life at EazyTaxes -->
+<section class="py-32 bg-surface overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+<div class="md:col-span-6">
+<h2 class="font-headline text-5xl text-primary mb-8">Life within the <span class="italic">ledger.</span></h2>
+<p class="text-body text-xl text-on-surface-variant leading-relaxed">
+                            We cultivate a culture of quiet focus and intense collaboration. Our spaces—both physical and digital—are designed to foster deep work and radical transparency.
+                        </p>
+</div>
+</div>
+<!-- Visual Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[600px]">
+<div class="md:col-span-2 relative group overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Candid shot of a diverse team collaborating in a sun-drenched, high-end architectural studio workspace with warm wood accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1yvm3KY1UJHRZt9u7wESvwTQyIMeT7uWA7Ei17yMRYAPnW_huuJ3BNWIVO2U4Mm812lQ2542ji4RoGX1dkC28DxoG7clljt2VAoc4Lt9hTlz0Mdh_4q003V16qveAyWurw7BIneDrNHy_MjO5Us57QwT71dFExocyCPb1Jl4xVq_SmFOU64PS9xyIQ_Mv5Q_x6M6t7MW3bBnZx21NkdExpXtj65_1xLNbQhk7k7RNu0QdFE1DIBWCKBKbi_CgfphmeZSbeO7jOjTj"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors"></div>
+<div class="absolute bottom-8 left-8 text-white z-10">
+<p class="font-headline text-2xl">Collaborative Studios</p>
+</div>
+</div>
+<div class="relative group overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Close-up of high-quality financial journals, fountain pens, and architectural blueprints on a clean light-colored desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD36WO3YP4JciHmdtnx28nU47R8E06eqEHqw6UkOd-aj1tQkmPCbPGvJ9oLrYtazZ_W3cAX0YyrbHPJmqENxJ90g6ZCEt5YISfMrZ27Idc6AtO8INih6QkHhbrVsp4lw6AJpWulXTIl6mkmwBFtbpaVKVrc_VoFIajc_YSWmLSU1h8BM2NoP94gkAaoRs1HHbvsfJxN1NGlF2RJNU7_0s23eJWAlHO6rDIG2zNZt_jUnXUm1JKnxiQqhvIN5efvuQNaWlCUuEbbPtuA"/>
+<div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/0 transition-colors"></div>
+</div>
+<div class="relative group overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A focused professional using multiple screens displaying complex financial models in a minimalist, dimly lit home office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtU9hJTD8iZpYOpIkoXebC74ZrKcToVVq_a1SYlJ0RvWiIxB_NjY1jhSlL4GZmW7nXWLyNNa2U7yl8AX68e1HfxAdW5wxecrJSaYauHUEtZ5UdlrkNJOxNdJl95N3Pi6dXoa2WaW53DYsiSOctwpGL1IRXwpbhDM3xIQo2qKSdLTe44aAcO22jNcH6WhEnm0ohriulft0tXyQ0H6VrhQwHRG84tc_4ohD3GmiijK8EyoTZmt1CyShjTmCFoPLuoo-JB8pjxmoAwJK6"/>
+<div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/0 transition-colors"></div>
+</div>
+<div class="md:col-span-2 bg-surface-container-highest p-12 flex flex-col justify-end">
+<h4 class="font-headline text-3xl text-primary mb-4">Unparalleled Benefits</h4>
+<ul class="grid grid-cols-2 gap-y-4 gap-x-8">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Global Mobility Programs
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Private Health Concierge
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Radical Sabbaticals
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Performance Ledger Bonuses
+                            </li>
+</ul>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Interior of a luxury boutique workspace with dark walls, gold lighting, and premium furniture reflecting a sense of authority" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuVtyiFUt-FVRyRqP7BVPGeBssPdz22B8GyDFZH5QUV0KCxwVNy57VS4tLhdC0gbvKG5vhx9Ug0mL4pjF4vX9MyJoFcFUjfFRUPaBVl5BZZrZK5W7DiFz-maRI8yp_k2bhA0-ZKmPK0pIJHXX251xItOe9qflTXCotVTUN_d16f5b2IdeFbr1JJKlbp4Ff2lunlG-4yq6gMjsJ7AdR_hxrF_wF-f_4l9FhoGYTK7p4jtMM-vE1sjd4iDcCS4EBIBzkxQDhMtjIomru"/>
+<div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/0 transition-colors"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary text-white text-center">
+<div class="max-w-4xl mx-auto px-12">
+<h2 class="font-headline text-5xl mb-8">Ready to draft your <span class="italic text-secondary-container">legacy?</span></h2>
+<p class="text-xl text-on-primary-container mb-12">If you don't see a role that fits your blueprint, reach out. We're always looking for exceptional architects.</p>
+<button class="bg-secondary-container text-on-secondary-container px-12 py-5 rounded-md font-bold text-xl hover:brightness-110 transition-all">Submit General Application</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-24 pb-12 bg-[#001E2D] dark:bg-[#000F16] border-t border-white/10 tonal-shift-bg">
+<div class="flex flex-col md:flex-row justify-between items-start px-12 max-w-screen-2xl mx-auto">
+<div class="mb-12 md:mb-0">
+<span class="font-serif text-xl text-white mb-4 block">EazyTaxes Architectural Ledger</span>
+<p class="text-white/40 max-w-xs font-sans text-sm tracking-wide uppercase">Precision in every calculation. Authority in every strategy.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<span class="text-white font-bold text-sm uppercase tracking-widest">Company</span>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Careers</a>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Resources</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white font-bold text-sm uppercase tracking-widest">Legal</span>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Privacy Policy</a>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white font-bold text-sm uppercase tracking-widest">Support</span>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Security</a>
+<a class="text-white/50 hover:text-[#FFA024] transition-colors font-sans text-sm tracking-wide uppercase" href="#">Accessibility</a>
+</div>
+</div>
+</div>
+<div class="px-12 max-w-screen-2xl mx-auto mt-24 pt-8 border-t border-white/5 text-center md:text-left">
+<span class="font-sans text-sm tracking-wide uppercase text-white/60">© 2024 EazyTaxes Architectural Ledger. All rights reserved.</span>
+</div>
+</footer>
+</body></html>

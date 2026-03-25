@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#2c1700",
+              "on-primary-fixed-variant": "#194c63",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f5faff",
+              "outline-variant": "#c1c7cd",
+              "on-tertiary-fixed-variant": "#004d68",
+              "primary-fixed": "#c3e8ff",
+              "secondary-fixed-dim": "#ffb86b",
+              "on-primary-container": "#7caac5",
+              "on-error": "#ffffff",
+              "outline": "#71787d",
+              "on-surface-variant": "#41484c",
+              "on-secondary-fixed-variant": "#683d00",
+              "on-primary": "#ffffff",
+              "primary": "#002839",
+              "inverse-on-surface": "#e3f3ff",
+              "on-tertiary-fixed": "#001e2c",
+              "primary-fixed-dim": "#9ecde9",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#30afe4",
+              "tertiary-container": "#003f56",
+              "secondary-container": "#ffa024",
+              "surface-dim": "#b1e0ff",
+              "surface-container": "#ddf0ff",
+              "tertiary-fixed-dim": "#77d1ff",
+              "on-primary-fixed": "#001e2c",
+              "surface-container-highest": "#c5e7ff",
+              "secondary": "#895100",
+              "background": "#f5faff",
+              "surface-bright": "#f5faff",
+              "on-surface": "#001e2d",
+              "inverse-surface": "#00344a",
+              "tertiary": "#002838",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#e9f5ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#d1ecff",
+              "inverse-primary": "#9ecde9",
+              "secondary-fixed": "#ffdcbc",
+              "primary-container": "#043f56",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-tint": "#35647c",
+              "surface-variant": "#c5e7ff",
+              "error-container": "#ffdad6",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#693d00",
+              "on-background": "#001e2d"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(245, 250, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0, 40, 57, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar Component -->
+<header class="bg-[#002839] dark:bg-[#001E2D] docked full-width top-0 z-50 no-border tonal-layering flat no-shadows sticky">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif text-2xl italic text-white">EazyTaxes</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Assurance</a>
+<a class="font-serif text-lg tracking-tight text-[#FFA024] font-bold border-b-2 border-[#FFA024] pb-1" href="#">Tax Resolution</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">CFO Advisory</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Valuations</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Compliance</a>
+</nav>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-md font-label font-semibold uppercase tracking-wider text-sm hover:brightness-110 transition-all duration-300 active:opacity-80 active:scale-95">
+                Get Started
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section: Strategic Resolution -->
+<section class="relative min-h-[819px] flex items-center overflow-hidden bg-primary text-white">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Professional architectural office interior" class="w-full h-full object-cover" data-alt="Modern architectural office interior with large windows, clean lines, and soft atmospheric blue lighting at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBRx867VMEd3CaATg9NC-6j-S3q3mEsIni5R9VMRxwxb2GGcFx8ZaYSTFzdJmmYk5TfZmYC55ektINxJoaR0hk5oRkqMxpM493WBIJV7kJPBzsuSc2ObhJkWuCKOGQ6cgieNW1xlHPo0IK7twIqJpUXi-Yg6CMACe4xgpnTx6zdhBSRozmLDog-IJYlp_VRQp8hEo-AvkPv1UV49tgsJN07ebXwOXxlKGUxd7zieZhB9VFjbIeD5kHQEHQU_EFiPCzKjIniuPzzOBJ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<span class="font-label text-secondary-fixed-dim uppercase tracking-[0.3em] text-sm mb-6 block">The Architectural Ledger</span>
+<h1 class="font-headline text-6xl md:text-8xl mb-8 leading-tight">
+                        Strategic <br/>
+<span class="italic font-normal">Resolution.</span>
+</h1>
+<p class="text-xl md:text-2xl font-body text-on-primary-container leading-relaxed mb-10 max-w-xl">
+                        Restoring financial equilibrium through meticulous IRS negotiation and bespoke debt restructuring. Experience clarity in complexity.
+                    </p>
+<div class="flex gap-6">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-md font-label font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all">
+                            Consult a Specialist
+                        </button>
+</div>
+</div>
+</div>
+<!-- Progress Line Indicator (Custom) -->
+<div class="absolute bottom-0 right-0 w-1/3 h-px bg-secondary-fixed-dim/30 hidden lg:block"></div>
+</section>
+<!-- Solutions Grid (Bento Style) -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Header Card -->
+<div class="md:col-span-12 mb-12">
+<h2 class="font-headline text-4xl text-primary mb-4">Core Solutions</h2>
+<p class="font-body text-on-surface-variant max-w-2xl">We approach tax debt with the precision of an architect, rebuilding your financial standing from the foundation up.</p>
+</div>
+<!-- IRS Negotiation -->
+<div class="md:col-span-7 bg-primary-container p-12 flex flex-col justify-between min-h-[400px] text-white overflow-hidden relative group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-secondary-container mb-6">gavel</span>
+<h3 class="font-headline text-3xl mb-4">IRS Negotiation</h3>
+<p class="font-body text-on-primary-container text-lg max-w-md">Our advocates engage directly with the IRS to secure Offers in Compromise, installment agreements, and penalty abatements.</p>
+</div>
+<div class="mt-8 relative z-10">
+<a class="font-label uppercase tracking-widest text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            View Methodology <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Aesthetic texture -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl group-hover:bg-secondary-container/10 transition-colors"></div>
+</div>
+<!-- Debt Restructuring -->
+<div class="md:col-span-5 bg-surface-container-highest p-10 flex flex-col justify-between border-l-4 border-secondary-container">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">account_balance_wallet</span>
+<h3 class="font-headline text-2xl text-primary mb-4">Debt Restructuring</h3>
+<p class="font-body text-on-surface-variant">Strategic realignment of liabilities to preserve cash flow and protect enterprise value.</p>
+</div>
+<div class="mt-6">
+<ul class="space-y-3 font-label text-xs uppercase tracking-wider text-primary font-semibold">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Liability Audit</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Cashflow Protection</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Creditor Mediation</li>
+</ul>
+</div>
+</div>
+<!-- Outcome Focused -->
+<div class="md:col-span-5 bg-surface-container-low p-10">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-headline text-2xl text-primary mb-4">Favorable Outcomes</h3>
+<p class="font-body text-on-surface-variant">Our objective is a clean slate. We focus on long-term sustainability and compliance integrity.</p>
+</div>
+<!-- Image Feature -->
+<div class="md:col-span-7 relative overflow-hidden h-[300px] md:h-auto min-h-[300px]">
+<img alt="Financial analysis papers" class="w-full h-full object-cover" data-alt="Minimalist top-down view of high-quality financial ledger papers and a fountain pen on a clean teal desk surface with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAHlln-B9r5s5Y9aWQd8rRVYr5pmUossnw6xomNZG6qApr2i7H3KcnD1r2nlfthRSXZxa88efSRSFqFELYoODlgLQsipiBYg4-fNCLxGjpcnyyFRKl4ZhsLKyAT4UcOwcWm_qWQDdxMyBfX2Z2-_0S_x8WKMUCZV2fiVAglQvF_Sg656Wsr43-s-lD4I_oZ5pEe0_NliZFfceO2nvznhyJbg6ZSkyaNbNCiXy7HtXVwhrVEkjnXt5UX_GYiwUdK-uPlpPoykr_M6o"/>
+<div class="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-500"></div>
+</div>
+</div>
+</section>
+<!-- Sequential Process Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-xl">
+<span class="font-label text-secondary uppercase tracking-widest text-sm mb-4 block">The Resolution Journey</span>
+<h2 class="font-headline text-5xl text-primary">A Sequential Path to <span class="italic font-normal">Restoration.</span></h2>
+</div>
+<div class="text-right">
+<p class="font-body text-on-surface-variant max-w-xs ml-auto">Four deliberate phases to transition from debt to absolute compliance.</p>
+</div>
+</div>
+<div class="relative">
+<!-- Path Line -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-outline-variant/30 -translate-y-1/2 hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="group">
+<div class="w-16 h-16 rounded-full bg-primary text-secondary-container flex items-center justify-center mb-8 font-headline text-2xl group-hover:scale-110 transition-transform">01</div>
+<h4 class="font-headline text-xl text-primary mb-4">Diagnosis</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">A comprehensive forensic review of your tax history and current notices to identify structural vulnerabilities.</p>
+</div>
+<!-- Step 2 -->
+<div class="group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-primary flex items-center justify-center mb-8 font-headline text-2xl group-hover:scale-110 transition-transform">02</div>
+<h4 class="font-headline text-xl text-primary mb-4">Intervention</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Immediate halt of aggressive collection actions including levies and garnishments through formal representation.</p>
+</div>
+<!-- Step 3 -->
+<div class="group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-primary flex items-center justify-center mb-8 font-headline text-2xl group-hover:scale-110 transition-transform">03</div>
+<h4 class="font-headline text-xl text-primary mb-4">Negotiation</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Strategic dialogue with governing bodies to finalize settlement terms or restructured payment plans.</p>
+</div>
+<!-- Step 4 -->
+<div class="group">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-primary flex items-center justify-center mb-8 font-headline text-2xl group-hover:scale-110 transition-transform">04</div>
+<h4 class="font-headline text-xl text-primary mb-4">Resolution</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Finalization of all agreements and implementation of compliance protocols to prevent future liabilities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8">
+<div class="max-w-5xl mx-auto bg-primary text-white p-12 md:p-20 relative overflow-hidden text-center">
+<div class="relative z-10">
+<h2 class="font-headline text-4xl md:text-5xl mb-8 leading-tight">Secure your financial <span class="italic font-normal">legacy</span> today.</h2>
+<p class="font-body text-on-primary-container text-lg mb-12 max-w-2xl mx-auto opacity-80">Join the thousands of professionals who have restored their fiscal stability through EazyTaxes Tax Resolution services.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-md font-label font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all">
+                            Schedule Case Review
+                        </button>
+<button class="bg-transparent border border-white/20 text-white px-10 py-4 rounded-md font-label font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
+                            Request Whitepaper
+                        </button>
+</div>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,100 L100,0 L100,100 Z" fill="white"></path>
+</svg>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full border-t border-[#043F56]/10 tonal-layering surface-container-low bg-[#F5FAFF] dark:bg-[#001E2D]">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="font-serif font-bold text-[#002839] dark:text-[#FFA024] text-xl mb-2">EazyTaxes</div>
+<p class="font-serif text-sm italic text-[#043F56] opacity-70 max-w-xs">
+                    © 2024 EazyTaxes. Architectural precision in financial compliance.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-serif text-sm italic text-[#043F56] opacity-70 transition-opacity hover:opacity-100 hover:text-[#FFA024]" href="#">Privacy Policy</a>
+<a class="font-serif text-sm italic text-[#043F56] opacity-70 transition-opacity hover:opacity-100 hover:text-[#FFA024]" href="#">Terms of Service</a>
+<a class="font-serif text-sm italic text-[#043F56] opacity-70 transition-opacity hover:opacity-100 hover:text-[#FFA024]" href="#">Contact</a>
+<a class="font-serif text-sm italic text-[#043F56] opacity-70 transition-opacity hover:opacity-100 hover:text-[#FFA024]" href="#">Whitepapers</a>
+</div>
+</div>
+</footer>
+</body></html>

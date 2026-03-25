@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assurance &amp; SOC 2 | EazyTaxes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#2c1700",
+              "on-primary-fixed-variant": "#194c63",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f5faff",
+              "outline-variant": "#c1c7cd",
+              "on-tertiary-fixed-variant": "#004d68",
+              "primary-fixed": "#c3e8ff",
+              "secondary-fixed-dim": "#ffb86b",
+              "on-primary-container": "#7caac5",
+              "on-error": "#ffffff",
+              "outline": "#71787d",
+              "on-surface-variant": "#41484c",
+              "on-secondary-fixed-variant": "#683d00",
+              "on-primary": "#ffffff",
+              "primary": "#002839",
+              "inverse-on-surface": "#e3f3ff",
+              "on-tertiary-fixed": "#001e2c",
+              "primary-fixed-dim": "#9ecde9",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#30afe4",
+              "tertiary-container": "#003f56",
+              "secondary-container": "#ffa024",
+              "surface-dim": "#b1e0ff",
+              "surface-container": "#ddf0ff",
+              "tertiary-fixed-dim": "#77d1ff",
+              "on-primary-fixed": "#001e2c",
+              "surface-container-highest": "#c5e7ff",
+              "secondary": "#895100",
+              "background": "#f5faff",
+              "surface-bright": "#f5faff",
+              "on-surface": "#001e2d",
+              "inverse-surface": "#00344a",
+              "tertiary": "#002838",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#e9f5ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#d1ecff",
+              "inverse-primary": "#9ecde9",
+              "secondary-fixed": "#ffdcbc",
+              "primary-container": "#043f56",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-tint": "#35647c",
+              "surface-variant": "#c5e7ff",
+              "error-container": "#ffdad6",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#693d00",
+              "on-background": "#001e2d"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layering {
+            background: linear-gradient(180deg, #f5faff 0%, #e9f5ff 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #002839 0%, #043f56 100%);
+        }
+        .glass-nav {
+            background: rgba(245, 250, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .noise-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-[#002839] dark:bg-[#001E2D] docked full-width top-0 z-50 no-border tonal-layering flat no-shadows sticky">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif text-2xl italic text-white">EazyTaxes</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-serif text-lg tracking-tight text-[#FFA024] font-bold border-b-2 border-[#FFA024] pb-1" href="#">Assurance</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Tax Resolution</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">CFO Advisory</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Valuations</a>
+<a class="font-serif text-lg tracking-tight text-slate-300 hover:text-white transition-colors" href="#">Compliance</a>
+</nav>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded hover:brightness-110 transition-all font-label font-bold uppercase tracking-wider text-xs">
+                Get Started
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="hero-gradient relative overflow-hidden py-24 lg:py-40">
+<div class="noise-texture absolute inset-0 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-secondary-fixed-dim font-label text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                        Assurance Division
+                    </div>
+<h1 class="font-headline text-5xl md:text-7xl text-white leading-tight">
+                        Trust through <br/>
+<span class="italic text-secondary-container">Rigor.</span>
+</h1>
+<p class="text-on-primary-container text-xl max-w-xl leading-relaxed">
+                        Navigate the complexities of institutional trust with our architectural approach to SOC 2 compliance and financial statement audits. Precision is not an option; it is our foundation.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-md font-label font-bold uppercase tracking-widest transition-all hover:brightness-110 active:scale-95">
+                            Speak with an Auditor
+                        </button>
+<button class="border border-white/20 text-white px-8 py-4 rounded-md font-label font-bold uppercase tracking-widest transition-all hover:bg-white/5">
+                            View Certifications
+                        </button>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Modern architectural interior of a financial institution with glass panels and clean geometric lines, professional atmosphere, cool lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe1b4n8AMC00ZYurq7yhYU-eMQpAu5eudmrymap6XnydVKo7vpXPG-_t_D7NIZwNUeVQ_WwovtKVjHYGYl4MgFnnyt0T-BXdrvhmrhUWEhY-Oe3v_C6M-QzmJhOCgM5Ya1WcvBJ1muy8tc03T8PpjHwVSpTFt1mQ7bGVkjHw3-SeaPs3W4V57mJYLcsSyWrxw2Ya1gwi2ow4Dm8rCLX7GSgtx3mspKtyapKz6PeHpsP-AfDXK7WeXOg2H6KvGQmwYxnRiOIoBxr1GJ"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-lg shadow-xl max-w-xs">
+<p class="font-headline italic text-primary text-lg mb-2">"Absolute precision in every ledger."</p>
+<div class="w-12 h-1 bg-secondary-container mb-4"></div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">The EazyTaxes Standard</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SOC 2 Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-sm uppercase tracking-[0.2em] text-secondary font-bold">Information Security</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary mt-4">SOC 2 Type I &amp; II Compliance</h2>
+</div>
+<p class="text-on-surface-variant md:max-w-xs font-body italic">
+                        Securing your digital infrastructure with audits that go beyond the checkbox.
+                    </p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-highest p-12 rounded-lg flex flex-col justify-between group hover:bg-primary-container transition-colors duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-secondary-container" data-icon="security">security</span>
+<h3 class="font-headline text-2xl text-primary mb-4 group-hover:text-white transition-colors">Type I Readiness &amp; Report</h3>
+<p class="text-on-surface-variant leading-relaxed group-hover:text-on-primary-container">
+                                A point-in-time assessment of your system’s design. We validate that your controls are suitably designed to meet the trust service criteria.
+                            </p>
+</div>
+<div class="mt-12 flex items-center gap-4 text-secondary font-label font-bold uppercase tracking-widest group-hover:text-secondary-container cursor-pointer">
+                            Phase Details <span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-highest p-12 rounded-lg flex flex-col justify-between group hover:bg-primary-container transition-colors duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-8 group-hover:text-secondary-container" data-icon="verified">verified</span>
+<h3 class="font-headline text-2xl text-primary mb-4 group-hover:text-white transition-colors">Type II Operational Excellence</h3>
+<p class="text-on-surface-variant leading-relaxed group-hover:text-on-primary-container">
+                                A rigorous evaluation of control effectiveness over a period of 6-12 months. The ultimate hallmark of operational maturity for SaaS leaders.
+                            </p>
+</div>
+<div class="mt-12 flex items-center gap-4 text-secondary font-label font-bold uppercase tracking-widest group-hover:text-secondary-container cursor-pointer">
+                            Request Sample Report <span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audit Phases (Grid Based) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20 text-center">
+<h2 class="font-headline text-4xl text-primary mb-4">The Architectural Audit Journey</h2>
+<div class="w-24 h-1 bg-secondary-container mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-4 gap-4">
+<!-- Phase 1 -->
+<div class="bg-surface-container-lowest p-8 border-l-4 border-secondary-fixed-dim">
+<span class="font-label text-4xl font-bold opacity-10 block mb-4">01</span>
+<h4 class="font-headline text-xl text-primary mb-3">Scoping</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Identifying key Trust Service Criteria (TSC) relevant to your specific business model and client expectations.</p>
+</div>
+<!-- Phase 2 -->
+<div class="bg-surface-container-lowest p-8 border-l-4 border-secondary-fixed-dim">
+<span class="font-label text-4xl font-bold opacity-10 block mb-4">02</span>
+<h4 class="font-headline text-xl text-primary mb-3">Gap Analysis</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Rigorous testing of current controls to uncover vulnerabilities before the formal audit period begins.</p>
+</div>
+<!-- Phase 3 -->
+<div class="bg-surface-container-lowest p-8 border-l-4 border-secondary-fixed-dim">
+<span class="font-label text-4xl font-bold opacity-10 block mb-4">03</span>
+<h4 class="font-headline text-xl text-primary mb-3">Remediation</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Strategic guidance on implementing missing controls and formalizing documentation for compliance.</p>
+</div>
+<!-- Phase 4 -->
+<div class="bg-surface-container-lowest p-8 border-l-4 border-secondary-fixed-dim">
+<span class="font-label text-4xl font-bold opacity-10 block mb-4">04</span>
+<h4 class="font-headline text-xl text-primary mb-3">Examination</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Formal field work where our auditors collect evidence and finalize the opinion report for stakeholders.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial Statement Audits -->
+<section class="py-24">
+<div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close up of architectural drawings and financial charts on a light wooden table, bright natural light, minimalist and professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMhMvhLL2deL_2OsMwGlx6XE_T20GbQvsnRs0guLMyabPrdE99WYir62bHmuJiq4TwbSNkE0JfvDRbJaOkGWNq1_DXSk-JF2xsGF6RFf6dn-SakqK3b5nS_bw7dhq2-hn_NAQU3g0mWOPTsG513ka7yu9wO2JlrObwE3Rt4yxckP72-CeYwf9ZOkm52_dJGFnkCvn8pdyRP-LK2_l5vaHDfjeaMlF6oR9TuRFiRXU_fCCxhUh9KXyPqlh9GmLW-pLQ7HSy_6BaW5e"/>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden mt-8">
+<img class="w-full h-full object-cover" data-alt="Professional business consultant in a high-end office setting, soft morning light, executive presence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvF6Q_ONxUoEFRhARQT4c7a4mpLvHFbfhuUvmPGCOhpYzxsQlZLQe7xJCc4ht091BittKOc_NK1cF-joUFSYx-P9fSbXfULcsyg09mfGwwUgkpaWTUzcamAr6N9Bs5B9-MImjJyrlXdXll3WJ8C04hH1HrotYLb7t2LtFWsYUSVGYKkawXAyyn0z1ghfkXL9OBl42eg_ZdSgbOmm3L6I4LQQiOUYR19U-KEv--hk73G5YogE9IGogBCevA742LvsxkhZNEk2zpPuZM"/>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<span class="font-label text-sm uppercase tracking-[0.2em] text-secondary font-bold">Institutional Assurance</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary leading-tight">Financial Statement <br/><span class="italic">Audit &amp; Review</span></h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        For organizations requiring the highest level of assurance for investors, lenders, or regulators. We provide comprehensive audits, reviews, and compilations that stand up to the most intense scrutiny.
+                    </p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<div>
+<h5 class="font-bold text-primary">Annual Statutory Audits</h5>
+<p class="text-sm text-on-surface-variant">Full-scope verification of balance sheets and income statements.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<div>
+<h5 class="font-bold text-primary">Review Engagements</h5>
+<p class="text-sm text-on-surface-variant">Analytical procedures providing limited assurance for mid-market growth.</p>
+</div>
+</li>
+</ul>
+<button class="bg-primary text-white px-8 py-4 rounded-md font-label font-bold uppercase tracking-widest hover:bg-primary-container transition-all">
+                        Schedule an Assessment
+                    </button>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary-container py-24 relative overflow-hidden">
+<div class="noise-texture absolute inset-0 pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-8 text-center relative z-10">
+<h2 class="font-headline text-4xl md:text-5xl text-white mb-8">Ready to cement your <br/><span class="italic text-secondary-container">market authority?</span></h2>
+<p class="text-on-primary-container text-xl mb-12">Join 500+ technology leaders who trust EazyTaxes for their assurance needs.</p>
+<div class="bg-surface p-1 rounded-lg inline-flex max-w-md w-full">
+<input class="bg-transparent border-none focus:ring-0 flex-grow px-6 py-4 font-body" placeholder="Email Address" type="email"/>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-md font-label font-bold uppercase tracking-widest">Connect</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#043F56]/10 tonal-layering surface-container-low flat">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="font-serif font-bold text-[#002839] dark:text-[#FFA024] text-xl mb-2">EazyTaxes</div>
+<p class="font-serif text-sm italic text-[#043F56] opacity-70">© 2024 EazyTaxes. Architectural precision in financial compliance.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] font-serif text-sm italic transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] font-serif text-sm italic transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] font-serif text-sm italic transition-opacity" href="#">Contact</a>
+<a class="text-[#043F56] opacity-70 hover:opacity-100 hover:text-[#FFA024] font-serif text-sm italic transition-opacity" href="#">Whitepapers</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EazyTaxes | Editorial Financial Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#ffb86b",
+                        "outline": "#71787d",
+                        "surface-dim": "#b1e0ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004d68",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#001e2d",
+                        "surface-container-high": "#d1ecff",
+                        "surface": "#f5faff",
+                        "inverse-primary": "#9ecde9",
+                        "tertiary-fixed-dim": "#77d1ff",
+                        "secondary": "#895100",
+                        "background": "#f5faff",
+                        "on-surface-variant": "#41484c",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#001e2c",
+                        "on-secondary-fixed": "#2c1700",
+                        "secondary-container": "#ffa024",
+                        "tertiary": "#002838",
+                        "on-primary-fixed": "#001e2c",
+                        "surface-container": "#ddf0ff",
+                        "inverse-on-surface": "#e3f3ff",
+                        "inverse-surface": "#00344a",
+                        "outline-variant": "#c1c7cd",
+                        "surface-bright": "#f5faff",
+                        "on-surface": "#001e2d",
+                        "primary-container": "#043f56",
+                        "secondary-fixed": "#ffdcbc",
+                        "on-secondary-container": "#693d00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#9ecde9",
+                        "surface-container-highest": "#c5e7ff",
+                        "primary-fixed": "#c3e8ff",
+                        "primary": "#002839",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#35647c",
+                        "tertiary-fixed": "#c2e8ff",
+                        "surface-container-low": "#e9f5ff",
+                        "on-primary-container": "#7caac5",
+                        "on-tertiary-container": "#30afe4",
+                        "tertiary-container": "#003f56",
+                        "surface-variant": "#c5e7ff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#194c63",
+                        "on-secondary-fixed-variant": "#683d00"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #002839 0%, #043f56 100%);
+        }
+        .glass-nav {
+            background: rgba(245, 250, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<div class="text-2xl font-headline font-bold text-primary">EazyTaxes</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-[#FFA024] font-bold border-b-2 border-[#FFA024] pb-1 font-body text-sm uppercase tracking-widest" href="#">Services</a>
+<a class="text-primary-container hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest" href="#">Resources</a>
+<a class="text-primary-container hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest" href="#">Tax Tools</a>
+<a class="text-primary-container hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest" href="#">Pricing</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-primary font-medium hover:opacity-80 transition-all font-label text-sm">Log In</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-lg font-label font-semibold text-sm hover:brightness-110 active:scale-95 transition-all">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section: The Architectural Ledger -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden editorial-gradient">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBZsr86lDU-qDJ0C6HXEOr8EeWZvA8uncQL6kS9430EOV_3Hf8NkT9AkdrjTtn3gySxuat3GT9K2WRm-lnTYNBjlgAEp6_G-QXy2B-3332UJDuepFiuBOgSAtnscOwpp_LGT-o292csqJ5E_0kAnIjFQxVn-hk4JuDOIHF1C0MeTNO-ojSNKrmwtTl5sVKfPEN8MtRA8vJXf0oC46fK2u1bJRmk66_Tz9MKM8ywYs4M51hRSC_87UA0NXlri4ckjXQXnbJeObTNn-i');"></div>
+<div class="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+<div class="lg:col-span-8 flex flex-col justify-center">
+<span class="font-label text-secondary-fixed-dim tracking-[0.2em] uppercase text-sm mb-6 block">Strategic Financial Architecture</span>
+<h1 class="font-headline text-6xl md:text-8xl text-on-primary leading-tight mb-8 tracking-tight">
+                        Clarity. Control. <br/>
+<span class="italic font-normal text-secondary-fixed-dim">Accountability.</span>
+</h1>
+<p class="font-body text-xl text-on-primary-container max-w-2xl mb-12 leading-relaxed">
+                        Transforming complex tax frameworks into strategic assets. Experience a partnership built on editorial precision and uncompromising financial standards.
+                    </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-lg font-label font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-primary/20">Book a Consultation</button>
+<button class="border border-on-primary/20 text-on-primary px-10 py-4 rounded-lg font-label font-bold text-lg hover:bg-on-primary/10 transition-all">View Our Method</button>
+</div>
+</div>
+<div class="lg:col-span-4 relative hidden lg:block">
+<div class="w-full h-[600px] bg-surface-container-low rounded-xl relative overflow-hidden transform translate-y-12">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="High-end professional financial ledger and office workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtC0XZ5hGdShLoH79QyzNgPVL7-i7X38cyjuPzWgot_WAAIFZtao-W13JMFevNKmEhSHXQUomUEAYIgcgDmr3mT2wD3p1qDpbSYlxGheeD79oOuOCGgCIxpT_y4MevdWrsMTQdCKdVWg1qJDYwFgO8lrSBmFdpsZbejkfUOaJxg5sxM7aSRmRMnYJY019uD9RdfPnhZulGznPHZ07N56X4BuoNyjY6_jf9uf0k3ggeX7L_Iy4Ya8KtRKZRIyDlk9DCV8-EKOO78zBK"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute bottom-0 left-0 p-8 bg-primary/90 text-on-primary w-full">
+<p class="font-headline italic text-lg text-secondary-fixed-dim">"Precision is the only metric that matters."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section: Bento Grid Layout -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20">
+<h2 class="font-headline text-5xl text-primary mb-4">Core Ecosystem</h2>
+<div class="h-1 w-24 bg-secondary-container"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-10 flex flex-col justify-between group hover:bg-surface-container-high transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-8">account_balance_wallet</span>
+<h3 class="font-headline text-2xl mb-4 text-primary">Tax &amp; Compliance</h3>
+<p class="text-on-surface-variant leading-relaxed">Full-spectrum reporting and regulatory adherence tailored for scaling enterprises.</p>
+</div>
+<a class="mt-12 font-label font-bold text-xs uppercase tracking-widest text-secondary flex items-center group-hover:translate-x-2 transition-transform" href="#">Explore Solution <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 2 -->
+<div class="bg-primary p-10 flex flex-col justify-between text-on-primary group transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary-fixed-dim mb-8">verified</span>
+<h3 class="font-headline text-2xl mb-4">Assurance &amp; SOC 2</h3>
+<p class="text-on-primary-container leading-relaxed">Establishing trust through rigorous audit cycles and security certification mastery.</p>
+</div>
+<a class="mt-12 font-label font-bold text-xs uppercase tracking-widest text-secondary-fixed-dim flex items-center group-hover:translate-x-2 transition-transform" href="#">View Framework <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-10 flex flex-col justify-between group hover:bg-surface-container-high transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-8">insights</span>
+<h3 class="font-headline text-2xl mb-4 text-primary">Tax Resolution</h3>
+<p class="text-on-surface-variant leading-relaxed">Navigating complex disputes and securing favorable outcomes with tax authorities.</p>
+</div>
+<a class="mt-12 font-label font-bold text-xs uppercase tracking-widest text-secondary flex items-center group-hover:translate-x-2 transition-transform" href="#">Get Resolution <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-highest p-10 flex flex-col justify-between group hover:bg-surface-container-high transition-all duration-500 md:col-span-2">
+<div class="flex flex-col md:flex-row gap-10">
+<div class="md:w-1/2">
+<span class="material-symbols-outlined text-4xl text-secondary mb-8">query_stats</span>
+<h3 class="font-headline text-3xl mb-4 text-primary">CFO &amp; Advisory</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">Fractional executive leadership providing the roadmap for long-term capitalization and fiscal resilience.</p>
+</div>
+<div class="md:w-1/2 bg-surface p-6 rounded-lg self-center">
+<ul class="space-y-4">
+<li class="flex items-center text-sm font-label font-medium"><span class="w-1.5 h-1.5 bg-secondary-container rounded-full mr-3"></span>STRATEGIC CAPITAL PLANNING</li>
+<li class="flex items-center text-sm font-label font-medium"><span class="w-1.5 h-1.5 bg-secondary-container rounded-full mr-3"></span>M&amp;A READINESS</li>
+<li class="flex items-center text-sm font-label font-medium"><span class="w-1.5 h-1.5 bg-secondary-container rounded-full mr-3"></span>TREASURY MANAGEMENT</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-secondary-container/10 p-10 flex flex-col justify-between group hover:bg-secondary-container/20 transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-8">analytics</span>
+<h3 class="font-headline text-2xl mb-4 text-primary">Valuations</h3>
+<p class="text-on-surface-variant leading-relaxed">Data-driven appraisal models for 409A, taxation, and transactional fairness.</p>
+</div>
+<a class="mt-12 font-label font-bold text-xs uppercase tracking-widest text-secondary flex items-center group-hover:translate-x-2 transition-transform" href="#">Request Report <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-low p-10 flex flex-col justify-between group hover:bg-surface-container-high transition-all duration-500 md:col-span-3">
+<div class="flex flex-col md:flex-row items-center justify-between">
+<div class="max-w-md">
+<span class="material-symbols-outlined text-4xl text-secondary mb-8">domain</span>
+<h3 class="font-headline text-2xl mb-4 text-primary">Formation &amp; Banking</h3>
+<p class="text-on-surface-variant leading-relaxed">End-to-end structural setup for new ventures, from entity incorporation to institutional banking integration.</p>
+</div>
+<button class="mt-8 md:mt-0 bg-primary text-on-primary px-8 py-3 font-label font-bold rounded hover:bg-primary-container transition-colors">Start Formation</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Section: Tonal Layering -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="aspect-square bg-surface-container-highest rounded-full flex items-center justify-center p-12">
+<img class="w-full h-full object-cover rounded-full grayscale mix-blend-multiply" data-alt="Two professionals discussing financial documents over a desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkW2863ljjlj9B5ngaqrJE9qnkFwQDIK9K7y21QxM_N5BaSWtMUdVtoghtGvpxWJvt3vDpUy_8eUD-mYjYCx9V2xNjeP9EZRBRXaAD1vBy_J6O-_sgrAc0GzQpsEjGbPdriWbw9WPiuknCNuww02G2t4UvVKjdlcipKzizrTqe9Q_kvsn81XaICSqcuiD5Eu1o-ucYPTpZO7Vaj-JDBsnkK2GoJHnAg-LkaObTAB4rT9S4Qv6EMWrIRMY8J1SUX-29N4kDzXLyhohF"/>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-secondary-container p-8 shadow-2xl max-w-xs">
+<p class="text-on-secondary-container font-headline text-2xl leading-tight">A long-term partner for your financial evolution.</p>
+</div>
+</div>
+<div>
+<span class="font-label text-secondary tracking-widest uppercase text-sm mb-6 block">Beyond Transactional</span>
+<h2 class="font-headline text-5xl text-primary leading-tight mb-8">We don't just file taxes; we build <span class="italic">defensible frameworks</span>.</h2>
+<p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Our approach is rooted in the belief that financial services should be proactive, not reactive. We integrate into your executive workflow to provide real-time accountability and strategic foresight.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="font-headline text-3xl text-primary mb-2">99.8%</p>
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-tighter">Compliance Accuracy</p>
+</div>
+<div>
+<p class="font-headline text-3xl text-primary mb-2">12+</p>
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-tighter">Global Jurisdictions</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Section: Editorial Clarity -->
+<section class="py-32 bg-surface-container-highest">
+<div class="max-w-7xl mx-auto px-8">
+<div class="max-w-3xl">
+<h2 class="font-headline text-5xl text-primary mb-12">Tailored support for every stage of the <span class="italic text-secondary">Capital Cycle.</span></h2>
+</div>
+<div class="flex flex-col space-y-px bg-outline-variant/20">
+<!-- Segment 1 -->
+<div class="bg-surface p-12 flex flex-col md:flex-row justify-between items-start md:items-center group hover:bg-primary hover:text-on-primary transition-all duration-300">
+<div class="max-w-lg">
+<h4 class="font-headline text-2xl mb-2">Emerging Startups</h4>
+<p class="text-on-surface-variant group-hover:text-on-primary-container transition-colors">Setting the foundation with scalable entity structures and early-stage compliance.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary-container mt-4 md:mt-0">rocket_launch</span>
+</div>
+<!-- Segment 2 -->
+<div class="bg-surface p-12 flex flex-col md:flex-row justify-between items-start md:items-center group hover:bg-primary hover:text-on-primary transition-all duration-300">
+<div class="max-w-lg">
+<h4 class="font-headline text-2xl mb-2">Scale-up Enterprises</h4>
+<p class="text-on-surface-variant group-hover:text-on-primary-container transition-colors">Sophisticated CFO advisory and audit readiness for high-growth trajectories.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary-container mt-4 md:mt-0">trending_up</span>
+</div>
+<!-- Segment 3 -->
+<div class="bg-surface p-12 flex flex-col md:flex-row justify-between items-start md:items-center group hover:bg-primary hover:text-on-primary transition-all duration-300">
+<div class="max-w-lg">
+<h4 class="font-headline text-2xl mb-2">Institutional Clients</h4>
+<p class="text-on-surface-variant group-hover:text-on-primary-container transition-colors">Complex global tax management and resolution for established market leaders.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-secondary-container mt-4 md:mt-0">corporate_fare</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Professionalism Section: Dark Mode Contrast -->
+<section class="py-32 bg-primary text-on-primary overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="font-headline text-5xl mb-8 leading-tight">Uncompromising Professionalism &amp; <span class="text-secondary-fixed-dim">Technical Depth.</span></h2>
+<p class="text-lg text-on-primary-container mb-12 leading-relaxed">
+                            Our team consists of veteran CPAs and advisors who treat financial reporting as a craft. We uphold the highest standards of the AICPA and global tax authorities to ensure your assets are protected and your growth is legitimate.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="bg-secondary-container/20 p-2 rounded">
+<span class="material-symbols-outlined text-secondary-fixed-dim">verified_user</span>
+</div>
+<div>
+<h5 class="font-headline text-xl mb-1">Ethical Integrity</h5>
+<p class="text-on-primary-container text-sm">Transparency in every audit trail and advisory session.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="bg-secondary-container/20 p-2 rounded">
+<span class="material-symbols-outlined text-secondary-fixed-dim">security</span>
+</div>
+<div>
+<h5 class="font-headline text-xl mb-1">Data Sovereignty</h5>
+<p class="text-on-primary-container text-sm">Military-grade encryption for all financial sensitive documents.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<img class="w-full h-auto grayscale rounded-lg opacity-60" data-alt="Close up of a luxury watch and professional executive attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJlJMbFhlKdAFoq4X0MZPTwdXwin8GFSEzRWbLZk1V8dpQVrWMlYPiOvzv9kV6TDo6cBfD2ZyDHEF8PYY1E1O-mjesc_c0-k3KOp8O68KBDbaQv7VwsUtdR77SCC42cLhWvQj78XiXWMowOxp5bRgZXCujaQl8bX2Go2zUtMVPBOZmnYUtlHa9aFhk97OnYG7srfeBR2qmVpL9aYEH-2dhkvNv0_ws7whwsj-6KzkKjBM8P5izmjG9Wh67u-fYzqJl-EEiVAmxEZ3c"/>
+<div class="absolute inset-0 border-[20px] border-primary translate-x-10 translate-y-10 -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Operations: The Financial Path -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8 text-center mb-20">
+<span class="font-label text-secondary tracking-widest uppercase text-sm mb-6 block">Global Reach</span>
+<h2 class="font-headline text-5xl text-primary">Operating Across Borders.</h2>
+</div>
+<div class="max-w-7xl mx-auto px-8 relative">
+<!-- Visual Path Connector -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-secondary-fixed-dim -z-10 hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="bg-surface-container-lowest p-8 text-center shadow-lg hover:-translate-y-2 transition-transform">
+<div class="text-primary font-headline text-xl mb-2">North America</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">Primary Hubs</p>
+</div>
+<div class="bg-surface-container-lowest p-8 text-center shadow-lg hover:-translate-y-2 transition-transform">
+<div class="text-primary font-headline text-xl mb-2">European Union</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">Tax Nexus</p>
+</div>
+<div class="bg-surface-container-lowest p-8 text-center shadow-lg hover:-translate-y-2 transition-transform">
+<div class="text-primary font-headline text-xl mb-2">Middle East</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">Emerging Markets</p>
+</div>
+<div class="bg-surface-container-lowest p-8 text-center shadow-lg hover:-translate-y-2 transition-transform">
+<div class="text-primary font-headline text-xl mb-2">Asia Pacific</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">Trade Corridors</p>
+</div>
+</div>
+</div>
+<div class="max-w-4xl mx-auto px-8 mt-24 text-center">
+<p class="italic font-headline text-2xl text-on-surface-variant leading-relaxed">
+                    "Taxation is no longer a local concern. We provide the global perspective necessary for the modern digital economy."
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer: Tonal Shift -->
+<footer class="bg-[#002839] pt-32 pb-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
+<div class="col-span-1 md:col-span-1">
+<div class="text-3xl font-headline italic text-secondary-container mb-8">EazyTaxes</div>
+<p class="text-on-primary-container text-sm leading-relaxed mb-8">
+                    Editorial Financial Excellence for the modern enterprise. Defining the new standard in tax resolution and strategic advisory.
+                </p>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full border border-on-primary/10 flex items-center justify-center text-on-primary hover:bg-secondary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+<a class="w-10 h-10 rounded-full border border-on-primary/10 flex items-center justify-center text-on-primary hover:bg-secondary-container transition-colors" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-8">Services</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Tax &amp; Compliance</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Tax Resolution</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Assurance &amp; SOC 2</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">CFO &amp; Advisory</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-8">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Tax Guides</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">White Papers</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Calculator Tools</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Knowledge Base</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-8">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Cookie Settings</a></li>
+<li><a class="text-surface-container-highest/60 hover:text-secondary-container transition-all hover:translate-x-1 block text-sm" href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pt-20 mt-20 border-t border-on-primary/10 flex flex-col md:flex-row justify-between items-center text-on-primary-container text-xs">
+<p>© 2024 EazyTaxes. Editorial Financial Excellence.</p>
+<div class="mt-4 md:mt-0 flex space-x-8">
+<span>Certified Public Accountants</span>
+<span>SEC Registered</span>
+</div>
+</div>
+</footer>
+</body></html>
