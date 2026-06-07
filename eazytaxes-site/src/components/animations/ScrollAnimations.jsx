@@ -235,20 +235,37 @@ export function HorizontalScroll({ children, className = '', containerClassName 
 // ============================================================
 // 8. ScrollCounter — Number count-up tied to scroll
 // ============================================================
-export function ScrollCounter({ target, suffix = '', prefix = '', className = '', decimals = 0, offset = ["start 0.9", "center center"] }) {
+export function ScrollCounter({ target, suffix = '', prefix = '', className = '', decimals = 0 }) {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset,
-  });
-
-  const rounded = useTransform(scrollYProgress, [0, 1], [0, target]);
-  const springVal = useSpring(rounded, { stiffness: 50, damping: 20 });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
   const [displayVal, setDisplayVal] = useState(0);
 
-  useMotionValueEvent(springVal, "change", (v) => {
-    setDisplayVal(decimals > 0 ? v.toFixed(decimals) : Math.round(v));
-  });
+  useEffect(() => {
+    if (inView) {
+      let startTimestamp = null;
+      const duration = 1500; // 1.5 seconds count up
+      let animationFrameId;
+
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        // Ease out quad
+        const easeProgress = progress * (2 - progress);
+        const currentVal = easeProgress * target;
+        
+        setDisplayVal(decimals > 0 ? currentVal.toFixed(decimals) : Math.round(currentVal));
+
+        if (progress < 1) {
+          animationFrameId = window.requestAnimationFrame(step);
+        } else {
+          setDisplayVal(decimals > 0 ? target.toFixed(decimals) : target);
+        }
+      };
+
+      animationFrameId = window.requestAnimationFrame(step);
+      return () => window.cancelAnimationFrame(animationFrameId);
+    }
+  }, [inView, target, decimals]);
 
   if (prefersReducedMotion()) {
     return <span ref={ref} className={className}>{prefix}{decimals > 0 ? target.toFixed(decimals) : target}{suffix}</span>;
@@ -260,6 +277,7 @@ export function ScrollCounter({ target, suffix = '', prefix = '', className = ''
     </span>
   );
 }
+
 
 // ============================================================
 // 9. ScrollRotate — Rotation tied to scroll

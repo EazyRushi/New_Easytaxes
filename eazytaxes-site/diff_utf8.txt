@@ -1,0 +1,2484 @@
+﻿diff --git a/eazytaxes-site/package-lock.json b/eazytaxes-site/package-lock.json
+index 1b901ce..590905e 100644
+--- a/eazytaxes-site/package-lock.json
++++ b/eazytaxes-site/package-lock.json
+@@ -12,6 +12,7 @@
+         "framer-motion": "^12.38.0",
+         "lenis": "^1.3.20",
+         "postcss": "^8.5.8",
++        "puppeteer": "^25.1.0",
+         "react": "^19.2.4",
+         "react-dom": "^19.2.4",
+         "react-router-dom": "^7.13.2",
+@@ -633,6 +634,30 @@
+         "url": "https://github.com/sponsors/Boshen"
+       }
+     },
++    "node_modules/@puppeteer/browsers": {
++      "version": "3.0.4",
++      "resolved": "https://registry.npmjs.org/@puppeteer/browsers/-/browsers-3.0.4.tgz",
++      "integrity": "sha512-HGM8iAmGTf+Y7t0373szVbTmt3d7vPkYL/1bpOkOFO0YUYLgSeuYBCzESklogNPvOBnZ/MRD5f07OkpqH1trtA==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "modern-tar": "^0.7.6",
++        "yargs": "^17.7.2"
++      },
++      "bin": {
++        "browsers": "lib/main-cli.js"
++      },
++      "engines": {
++        "node": ">=22.12.0"
++      },
++      "peerDependencies": {
++        "proxy-agent": ">=8.0.1"
++      },
++      "peerDependenciesMeta": {
++        "proxy-agent": {
++          "optional": true
++        }
++      }
++    },
+     "node_modules/@rolldown/binding-android-arm64": {
+       "version": "1.0.0-rc.11",
+       "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm64/-/binding-android-arm64-1.0.0-rc.11.tgz",
+@@ -1008,11 +1033,19 @@
+         "url": "https://github.com/sponsors/epoberezkin"
+       }
+     },
++    "node_modules/ansi-regex": {
++      "version": "5.0.1",
++      "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
++      "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=8"
++      }
++    },
+     "node_modules/ansi-styles": {
+       "version": "4.3.0",
+       "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
+       "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "color-convert": "^2.0.1"
+@@ -1284,11 +1317,49 @@
+         "node": ">= 6"
+       }
+     },
++    "node_modules/chromium-bidi": {
++      "version": "16.0.1",
++      "resolved": "https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-16.0.1.tgz",
++      "integrity": "sha512-J63PGu/9PpeCwLIcKYyzWP6yaVL5pxuBc0shlYCYM8BaAkmlwiQboXO1iNbOgSDbVklEyYFfNEcHD8oOAWacUA==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "mitt": "^3.0.1",
++        "zod": "^3.24.1"
++      },
++      "engines": {
++        "node": ">=20.19.0 <22.0.0 || >=22.12.0"
++      },
++      "peerDependencies": {
++        "devtools-protocol": "*"
++      }
++    },
++    "node_modules/chromium-bidi/node_modules/zod": {
++      "version": "3.25.76",
++      "resolved": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
++      "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
++      "license": "MIT",
++      "funding": {
++        "url": "https://github.com/sponsors/colinhacks"
++      }
++    },
++    "node_modules/cliui": {
++      "version": "8.0.1",
++      "resolved": "https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz",
++      "integrity": "sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==",
++      "license": "ISC",
++      "dependencies": {
++        "string-width": "^4.2.0",
++        "strip-ansi": "^6.0.1",
++        "wrap-ansi": "^7.0.0"
++      },
++      "engines": {
++        "node": ">=12"
++      }
++    },
+     "node_modules/color-convert": {
+       "version": "2.0.1",
+       "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+       "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "color-name": "~1.1.4"
+@@ -1301,7 +1372,6 @@
+       "version": "1.1.4",
+       "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+       "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/commander": {
+@@ -1409,6 +1479,13 @@
+         "node": ">=8"
+       }
+     },
++    "node_modules/devtools-protocol": {
++      "version": "0.0.1624250",
++      "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1624250.tgz",
++      "integrity": "sha512-YFAat/lOiIk0ARmBweG+ygrEcbZrq5B9urRyUoeQKp53MlidHXE2TmTbxKcaXoQj7u/aX+jebDO4BW55rs0WwA==",
++      "license": "BSD-3-Clause",
++      "peer": true
++    },
+     "node_modules/didyoumean": {
+       "version": "1.2.2",
+       "resolved": "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz",
+@@ -1427,6 +1504,12 @@
+       "integrity": "sha512-L2C7Q279W2D/J4PLZLk7sebOILDSWos7bMsMNN06rK482umHUrh/3lM8G7IlHFOYip2oAg5nha1rCMxr/rs6ZQ==",
+       "license": "ISC"
+     },
++    "node_modules/emoji-regex": {
++      "version": "8.0.0",
++      "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz",
++      "integrity": "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==",
++      "license": "MIT"
++    },
+     "node_modules/escalade": {
+       "version": "3.2.0",
+       "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz",
+@@ -1845,6 +1928,15 @@
+         "node": ">=6.9.0"
+       }
+     },
++    "node_modules/get-caller-file": {
++      "version": "2.0.5",
++      "resolved": "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz",
++      "integrity": "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==",
++      "license": "ISC",
++      "engines": {
++        "node": "6.* || 8.* || >= 10.*"
++      }
++    },
+     "node_modules/glob-parent": {
+       "version": "6.0.2",
+       "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz",
+@@ -1982,6 +2074,15 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/is-fullwidth-code-point": {
++      "version": "3.0.0",
++      "resolved": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
++      "integrity": "sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=8"
++      }
++    },
+     "node_modules/is-glob": {
+       "version": "4.0.3",
+       "resolved": "https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz",
+@@ -2501,6 +2602,21 @@
+         "node": "*"
+       }
+     },
++    "node_modules/mitt": {
++      "version": "3.0.1",
++      "resolved": "https://registry.npmjs.org/mitt/-/mitt-3.0.1.tgz",
++      "integrity": "sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==",
++      "license": "MIT"
++    },
++    "node_modules/modern-tar": {
++      "version": "0.7.6",
++      "resolved": "https://registry.npmjs.org/modern-tar/-/modern-tar-0.7.6.tgz",
++      "integrity": "sha512-sweCIVXzx1aIGTCdzcMlSZt1h8k5Tmk08VNAuRk3IU28XamGiOH5ypi11g6De2CH7PhYqSSnGy2A/EFhbWnVKg==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=18.0.0"
++      }
++    },
+     "node_modules/motion-dom": {
+       "version": "12.38.0",
+       "resolved": "https://registry.npmjs.org/motion-dom/-/motion-dom-12.38.0.tgz",
+@@ -2895,6 +3011,44 @@
+         "node": ">=6"
+       }
+     },
++    "node_modules/puppeteer": {
++      "version": "25.1.0",
++      "resolved": "https://registry.npmjs.org/puppeteer/-/puppeteer-25.1.0.tgz",
++      "integrity": "sha512-7L6/0JM7XStK99lIL4xQySyNEXNfII6pk0BxkI5kKBTOhR7AsoQiv067YTsE/rIXxQiq9ajlO4WcqBjS/FWK1A==",
++      "hasInstallScript": true,
++      "license": "Apache-2.0",
++      "dependencies": {
++        "@puppeteer/browsers": "3.0.4",
++        "chromium-bidi": "16.0.1",
++        "devtools-protocol": "0.0.1624250",
++        "lilconfig": "^3.1.3",
++        "puppeteer-core": "25.1.0",
++        "typed-query-selector": "^2.12.2"
++      },
++      "bin": {
++        "puppeteer": "lib/puppeteer/node/cli.js"
++      },
++      "engines": {
++        "node": ">=22.12.0"
++      }
++    },
++    "node_modules/puppeteer-core": {
++      "version": "25.1.0",
++      "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-25.1.0.tgz",
++      "integrity": "sha512-jKzy5y4WG6uNuFbTWgW1D7mqoT9o0nllc/6a1DGF775T1mPmgw3scdFEtEq67yVFikavQmbYq6NLfbTfxHSlqQ==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "@puppeteer/browsers": "3.0.4",
++        "chromium-bidi": "16.0.1",
++        "devtools-protocol": "0.0.1624250",
++        "typed-query-selector": "^2.12.2",
++        "webdriver-bidi-protocol": "0.4.2",
++        "ws": "^8.21.0"
++      },
++      "engines": {
++        "node": ">=22.12.0"
++      }
++    },
+     "node_modules/queue-microtask": {
+       "version": "1.2.3",
+       "resolved": "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz",
+@@ -3009,6 +3163,15 @@
+         "url": "https://github.com/sponsors/jonschlinkert"
+       }
+     },
++    "node_modules/require-directory": {
++      "version": "2.1.1",
++      "resolved": "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz",
++      "integrity": "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
+     "node_modules/resolve": {
+       "version": "1.22.11",
+       "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz",
+@@ -3167,6 +3330,32 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/string-width": {
++      "version": "4.2.3",
++      "resolved": "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
++      "integrity": "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==",
++      "license": "MIT",
++      "dependencies": {
++        "emoji-regex": "^8.0.0",
++        "is-fullwidth-code-point": "^3.0.0",
++        "strip-ansi": "^6.0.1"
++      },
++      "engines": {
++        "node": ">=8"
++      }
++    },
++    "node_modules/strip-ansi": {
++      "version": "6.0.1",
++      "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
++      "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
++      "license": "MIT",
++      "dependencies": {
++        "ansi-regex": "^5.0.1"
++      },
++      "engines": {
++        "node": ">=8"
++      }
++    },
+     "node_modules/strip-json-comments": {
+       "version": "3.1.1",
+       "resolved": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz",
+@@ -3338,6 +3527,12 @@
+         "node": ">= 0.8.0"
+       }
+     },
++    "node_modules/typed-query-selector": {
++      "version": "2.12.2",
++      "resolved": "https://registry.npmjs.org/typed-query-selector/-/typed-query-selector-2.12.2.tgz",
++      "integrity": "sha512-EOPFbyIub4ngnEdqi2yOcNeDLaX/0jcE1JoAXQDDMIthap7FoN795lc/SHfIq2d416VufXpM8z/lD+WRm2gfOQ==",
++      "license": "MIT"
++    },
+     "node_modules/update-browserslist-db": {
+       "version": "1.2.3",
+       "resolved": "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz",
+@@ -3463,6 +3658,12 @@
+         }
+       }
+     },
++    "node_modules/webdriver-bidi-protocol": {
++      "version": "0.4.2",
++      "resolved": "https://registry.npmjs.org/webdriver-bidi-protocol/-/webdriver-bidi-protocol-0.4.2.tgz",
++      "integrity": "sha512-VSV+fzfChirL3e7jay2yUC7B4HQCGtEWEg/MSSQbK+qWbqeGlRLlXTzPpYr3XGUvbpDHumWZBJxgesg4N7dbtA==",
++      "license": "Apache-2.0"
++    },
+     "node_modules/which": {
+       "version": "2.0.2",
+       "resolved": "https://registry.npmjs.org/which/-/which-2.0.2.tgz",
+@@ -3489,6 +3690,53 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/wrap-ansi": {
++      "version": "7.0.0",
++      "resolved": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz",
++      "integrity": "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==",
++      "license": "MIT",
++      "dependencies": {
++        "ansi-styles": "^4.0.0",
++        "string-width": "^4.1.0",
++        "strip-ansi": "^6.0.0"
++      },
++      "engines": {
++        "node": ">=10"
++      },
++      "funding": {
++        "url": "https://github.com/chalk/wrap-ansi?sponsor=1"
++      }
++    },
++    "node_modules/ws": {
++      "version": "8.21.0",
++      "resolved": "https://registry.npmjs.org/ws/-/ws-8.21.0.tgz",
++      "integrity": "sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      },
++      "peerDependencies": {
++        "bufferutil": "^4.0.1",
++        "utf-8-validate": ">=5.0.2"
++      },
++      "peerDependenciesMeta": {
++        "bufferutil": {
++          "optional": true
++        },
++        "utf-8-validate": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/y18n": {
++      "version": "5.0.8",
++      "resolved": "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz",
++      "integrity": "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==",
++      "license": "ISC",
++      "engines": {
++        "node": ">=10"
++      }
++    },
+     "node_modules/yallist": {
+       "version": "3.1.1",
+       "resolved": "https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz",
+@@ -3496,6 +3744,33 @@
+       "dev": true,
+       "license": "ISC"
+     },
++    "node_modules/yargs": {
++      "version": "17.7.2",
++      "resolved": "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz",
++      "integrity": "sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==",
++      "license": "MIT",
++      "dependencies": {
++        "cliui": "^8.0.1",
++        "escalade": "^3.1.1",
++        "get-caller-file": "^2.0.5",
++        "require-directory": "^2.1.1",
++        "string-width": "^4.2.3",
++        "y18n": "^5.0.5",
++        "yargs-parser": "^21.1.1"
++      },
++      "engines": {
++        "node": ">=12"
++      }
++    },
++    "node_modules/yargs-parser": {
++      "version": "21.1.1",
++      "resolved": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz",
++      "integrity": "sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==",
++      "license": "ISC",
++      "engines": {
++        "node": ">=12"
++      }
++    },
+     "node_modules/yocto-queue": {
+       "version": "0.1.0",
+       "resolved": "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz",
+diff --git a/eazytaxes-site/package.json b/eazytaxes-site/package.json
+index b96a689..a7e043d 100644
+--- a/eazytaxes-site/package.json
++++ b/eazytaxes-site/package.json
+@@ -14,6 +14,7 @@
+     "framer-motion": "^12.38.0",
+     "lenis": "^1.3.20",
+     "postcss": "^8.5.8",
++    "puppeteer": "^25.1.0",
+     "react": "^19.2.4",
+     "react-dom": "^19.2.4",
+     "react-router-dom": "^7.13.2",
+diff --git a/eazytaxes-site/src/App.jsx b/eazytaxes-site/src/App.jsx
+index 63dfb77..6fa4a66 100644
+--- a/eazytaxes-site/src/App.jsx
++++ b/eazytaxes-site/src/App.jsx
+@@ -18,6 +18,8 @@ import FormationBanking from './pages/FormationBanking';
+ import Resources from './pages/Resources';
+ import Careers from './pages/Careers';
+ import Contact from './pages/Contact';
++import Pricing from './pages/Pricing';
++import Calculators from './pages/Calculators';
+ 
+ const pageVariants = {
+   initial: { opacity: 0 },
+@@ -48,6 +50,8 @@ function AnimatedRoutes() {
+           <Route path="/resources" element={<Resources />} />
+           <Route path="/careers" element={<Careers />} />
+           <Route path="/contact" element={<Contact />} />
++          <Route path="/pricing" element={<Pricing />} />
++          <Route path="/calculators" element={<Calculators />} />
+           {/* Fallback */}
+           <Route path="*" element={<Home />} />
+         </Routes>
+@@ -60,9 +64,9 @@ function App() {
+   return (
+     <Router>
+       <LenisProvider>
+-        <div className="flex flex-col min-h-screen bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
++        <div className="flex flex-col min-h-screen bg-white text-gray-900 font-body selection:bg-orange-100 selection:text-brand-orange">
+           <Navbar />
+-          <main className="flex-grow pt-20">
++          <main className="flex-grow">
+             <AnimatedRoutes />
+           </main>
+           <Footer />
+diff --git a/eazytaxes-site/src/components/Footer.jsx b/eazytaxes-site/src/components/Footer.jsx
+index 7d2b166..0537b2e 100644
+--- a/eazytaxes-site/src/components/Footer.jsx
++++ b/eazytaxes-site/src/components/Footer.jsx
+@@ -1,127 +1,121 @@
+ import { Link } from 'react-router-dom';
+-import { ScrollFadeUp, ScrollSlideIn, ScrollStagger, ScrollClipReveal, ScrollScale } from './animations/ScrollAnimations';
+-
+-const serviceLinks = [
+-  { label: 'Tax & Compliance', href: '/ustax' },
+-  { label: 'Tax Resolution', href: '/tax-resolution' },
+-  { label: 'Assurance & SOC 2', href: '/assurance-soc2' },
+-  { label: 'CFO & Advisory', href: '/cfo-advisory' },
+-];
+-
+-const resourceLinks = [
+-  { label: 'Tax Guides', href: '/resources' },
+-  { label: 'White Papers', href: '/resources' },
+-  { label: 'Calculator Tools', href: '/resources' },
+-  { label: 'Knowledge Base', href: '/resources' },
+-];
+-
+-const legalLinks = [
+-  { label: 'Privacy Policy', href: '/privacy-policy' },
+-  { label: 'Terms of Service', href: '/terms-of-service' },
+-  { label: 'Cookie Settings', href: '#' },
+-  { label: 'Contact Us', href: '/contact' },
+-];
+ 
+ export default function Footer() {
+   return (
+-    <ScrollClipReveal direction="bottom" offset={["start 0.95", "start 0.65"]}>
+-      <footer className="bg-primary pt-20 pb-10">
+-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+-            {/* Brand */}
+-            <ScrollSlideIn direction="down" distance={40} offset={["start 0.95", "start 0.55"]}>
+-              <div className="sm:col-span-2 md:col-span-1">
+-                <div className="text-3xl font-headline italic text-secondary-container mb-6">EazyTaxes</div>
+-                <p className="text-on-primary-container text-sm leading-relaxed mb-8 max-w-xs">
+-                  Editorial Financial Excellence for the modern enterprise. Defining the new standard in tax resolution and strategic advisory.
+-                </p>
+-                <div className="flex space-x-3">
+-                  <a
+-                    href="#"
+-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-primary hover:bg-secondary-container hover:text-on-secondary-container transition-colors"
+-                  >
+-                    <span className="material-symbols-outlined text-sm">public</span>
+-                  </a>
+-                  <a
+-                    href="mailto:support@eazytaxes.com"
+-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-primary hover:bg-secondary-container hover:text-on-secondary-container transition-colors"
+-                  >
+-                    <span className="material-symbols-outlined text-sm">alternate_email</span>
+-                  </a>
+-                </div>
++    <footer className="bg-[#242424] text-white pt-12 pb-6 font-label">
++      <div className="max-w-[1200px] mx-auto px-6">
++        
++        {/* Top Section - Logo & Button */}
++        <div className="flex flex-col md:flex-row justify-between items-center mb-16 pb-8 border-b border-gray-700 gap-8">
++          <div className="flex items-center gap-6">
++            <Link to="/" className="flex items-center gap-2">
++              <svg viewBox="0 0 40 40" className="h-10 w-10 text-brand-orange">
++                <path fill="currentColor" d="M20 2L2 34h36L20 2zm0 8.5l11.5 20.5H8.5L20 10.5z" />
++              </svg>
++              <div className="flex flex-col">
++                <span className="font-headline font-bold text-lg text-white leading-none uppercase tracking-tight">Eazy<span className="font-light">Taxes</span></span>
+               </div>
+-            </ScrollSlideIn>
++            </Link>
++            
++            <div className="hidden md:flex gap-6 text-sm font-bold ml-8">
++              <Link to="/services" className="hover:text-brand-orange transition-colors">Services</Link>
++              <Link to="/company" className="hover:text-brand-orange transition-colors">The Company</Link>
++              <Link to="/pricing" className="hover:text-brand-orange transition-colors">Pricing</Link>
++              <Link to="/blog" className="hover:text-brand-orange transition-colors">Blog</Link>
++              <Link to="/support" className="hover:text-brand-orange transition-colors">Support</Link>
++            </div>
++          </div>
++          
++          <Link to="/contact" className="inline-block bg-brand-blue hover:bg-brand-blueHover text-white font-bold rounded-full px-6 py-3 transition-all text-sm">
++            Schedule a Consultation {'>'}
++          </Link>
++        </div>
+ 
+-            {/* Services */}
+-            <ScrollFadeUp offset={["start 0.95", "start 0.55"]}>
+-              <div>
+-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Services</h4>
+-                <ul className="space-y-3">
+-                  {serviceLinks.map((link) => (
+-                    <li key={link.href}>
+-                      <Link
+-                        to={link.href}
+-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
+-                      >
+-                        {link.label}
+-                      </Link>
+-                    </li>
+-                  ))}
+-                </ul>
+-              </div>
+-            </ScrollFadeUp>
++        {/* Links Grid */}
++        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
++          
++          <div>
++            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">Services</h4>
++            <ul className="space-y-3 text-sm text-gray-300">
++              <li><Link to="/support" className="hover:text-white transition-colors">Small Business Support</Link></li>
++              <li><Link to="/tax-prep" className="hover:text-white transition-colors">Tax Preparation</Link></li>
++              <li><Link to="/advisory" className="hover:text-white transition-colors">Tax Advisory</Link></li>
++              <li><Link to="/quarterly" className="hover:text-white transition-colors">Quarterly Est. Taxes</Link></li>
++              <li><Link to="/audit" className="hover:text-white transition-colors">Audit Defense</Link></li>
++            </ul>
++          </div>
++          
++          <div>
++            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider opacity-0 hidden md:block">Services Cont.</h4>
++            <ul className="space-y-3 text-sm text-gray-300">
++              <li><Link to="/income-taxes" className="hover:text-white transition-colors">Income Taxes</Link></li>
++              <li><Link to="/start" className="hover:text-white transition-colors">Start a Business</Link></li>
++              <li><Link to="/ein" className="hover:text-white transition-colors">File an EIN</Link></li>
++              <li><Link to="/bookkeeping" className="hover:text-white transition-colors">Bookkeeping</Link></li>
++              <li><Link to="/payroll" className="hover:text-white transition-colors">Payroll</Link></li>
++            </ul>
++          </div>
+ 
+-            {/* Resources */}
+-            <ScrollFadeUp offset={["start 0.95", "start 0.5"]}>
+-              <div>
+-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Resources</h4>
+-                <ul className="space-y-3">
+-                  {resourceLinks.map((link) => (
+-                    <li key={link.label}>
+-                      <Link
+-                        to={link.href}
+-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
+-                      >
+-                        {link.label}
+-                      </Link>
+-                    </li>
+-                  ))}
+-                </ul>
+-              </div>
+-            </ScrollFadeUp>
++          <div>
++            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">The Company</h4>
++            <ul className="space-y-3 text-sm text-gray-300">
++              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
++              <li><Link to="/locations" className="hover:text-white transition-colors">Locations</Link></li>
++              <li><Link to="/partnerships" className="hover:text-white transition-colors">Partnerships</Link></li>
++              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
++            </ul>
++          </div>
+ 
+-            {/* Legal */}
+-            <ScrollFadeUp offset={["start 0.95", "start 0.45"]}>
+-              <div>
+-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Legal</h4>
+-                <ul className="space-y-3">
+-                  {legalLinks.map((link) => (
+-                    <li key={link.label}>
+-                      <Link
+-                        to={link.href}
+-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
+-                      >
+-                        {link.label}
+-                      </Link>
+-                    </li>
+-                  ))}
+-                </ul>
+-              </div>
+-            </ScrollFadeUp>
++          <div>
++            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">Resource Hub</h4>
++            <ul className="space-y-3 text-sm text-gray-300">
++              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
++              <li><Link to="/industries" className="hover:text-white transition-colors">Industries</Link></li>
++              <li><Link to="/calculators" className="hover:text-white transition-colors">Calculators</Link></li>
++              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
++            </ul>
+           </div>
+ 
+-          {/* Bottom bar */}
+-          <ScrollFadeUp offset={["start 0.98", "start 0.8"]}>
+-            <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-on-primary-container/50 text-xs gap-4">
+-              <p>┬⌐ 2024 EazyTaxes. Editorial Financial Excellence.</p>
+-              <div className="flex space-x-6">
+-                <span>Certified Public Accountants</span>
+-                <span>SEC Registered</span>
+-              </div>
+-            </div>
+-          </ScrollFadeUp>
+         </div>
+-      </footer>
+-    </ScrollClipReveal>
++
++        {/* Bottom Social & Certs */}
++        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700 gap-6">
++          <div className="flex gap-4">
++            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">facebook</span>
++            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">camera_alt</span>
++            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">play_circle</span>
++            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">work</span>
++          </div>
++
++          <div className="flex gap-8 items-center">
++             <div className="flex items-center gap-2 text-xs text-gray-400">
++                <span className="material-symbols-outlined text-2xl">verified_user</span>
++                <div>
++                  <p className="font-bold text-white">A+ Rating</p>
++                  <p>Accredited Business</p>
++                </div>
++             </div>
++             <div className="flex items-center gap-2 text-xs text-gray-400">
++                <span className="material-symbols-outlined text-2xl">security</span>
++                <div>
++                  <p className="font-bold text-white">SOC 2 Type 1</p>
++                  <p>Tested & Approved</p>
++                </div>
++             </div>
++          </div>
++        </div>
++
++        {/* Copyright */}
++        <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-[10px] text-gray-500">
++          <div className="flex gap-4 mb-4 md:mb-0">
++            <Link to="/terms" className="hover:text-gray-300">Terms of Service</Link>
++            <Link to="/privacy" className="hover:text-gray-300">Privacy Policy</Link>
++            <Link to="/do-not-sell" className="hover:text-gray-300">Do Not Sell My Info</Link>
++          </div>
++          <p>┬⌐ Copyright {new Date().getFullYear()}. All Rights Reserved.</p>
++        </div>
++
++      </div>
++    </footer>
+   );
+ }
+diff --git a/eazytaxes-site/src/components/Navbar.jsx b/eazytaxes-site/src/components/Navbar.jsx
+index 5733e54..31b9699 100644
+--- a/eazytaxes-site/src/components/Navbar.jsx
++++ b/eazytaxes-site/src/components/Navbar.jsx
+@@ -1,202 +1,391 @@
+ import { useState, useEffect, useRef } from 'react';
+ import { Link, useLocation } from 'react-router-dom';
+-import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+-
+-const navLinks = [
+-  { label: 'Services', href: '/', dropdown: [
+-    { label: 'Tax & Compliance', href: '/ustax' },
+-    { label: 'Assurance & SOC 2', href: '/assurance-soc2' },
+-    { label: 'Tax Resolution', href: '/tax-resolution' },
+-    { label: 'CFO & Advisory', href: '/cfo-advisory' },
+-    { label: 'Valuations', href: '/valuations' },
+-    { label: 'Formation & Banking', href: '/formation-banking' },
+-  ]},
+-  { label: 'Resources', href: '/resources' },
+-  { label: 'Careers', href: '/careers' },
+-  { label: 'Contact', href: '/contact' },
++import { motion, AnimatePresence } from 'framer-motion';
++
++/* ΓöÇΓöÇΓöÇ Dropdown Data ΓöÇΓöÇΓöÇ */
++const servicesDropdown = {
++  columns: [
++    {
++      heading: 'Tax Services',
++      links: [
++        { label: 'Tax Preparation', desc: 'Federal & state filings', href: '/ustax', icon: 'receipt_long' },
++        { label: 'Tax Resolution', desc: 'IRS negotiation & audit support', href: '/tax-resolution', icon: 'gavel' },
++        { label: 'Tax Advisory', desc: 'Year-round tax strategy', href: '/cfo-advisory', icon: 'lightbulb' },
++      ]
++    },
++    {
++      heading: 'Business Services',
++      links: [
++        { label: 'Bookkeeping', desc: 'Monthly reconciliation & reports', href: '/ustax', icon: 'menu_book' },
++        { label: 'Business Formation', desc: 'LLC, S-Corp, EIN & banking', href: '/formation-banking', icon: 'business_center' },
++        { label: 'Payroll', desc: 'Employee payments & compliance', href: '/formation-banking', icon: 'payments' },
++      ]
++    },
++    {
++      heading: 'Specialized',
++      links: [
++        { label: 'CFO Advisory', desc: 'Fractional CFO services', href: '/cfo-advisory', icon: 'trending_up' },
++        { label: 'Assurance & SOC 2', desc: 'Audit-ready compliance', href: '/assurance-soc2', icon: 'verified_user' },
++        { label: 'Valuations', desc: 'Business valuation services', href: '/valuations', icon: 'analytics' },
++      ]
++    },
++  ],
++  featured: {
++    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80',
++    title: 'Tax Savings Calculator',
++    desc: 'See how much you could save with EazyTaxes.',
++    href: '/#calculator',
++  }
++};
++
++const companyDropdown = [
++  { label: 'About Us', desc: 'Our story and mission', href: '/contact', icon: 'info' },
++  { label: 'Careers', desc: 'Join the EazyTaxes team', href: '/careers', icon: 'work' },
++  { label: 'Contact Us', desc: 'Get in touch', href: '/contact', icon: 'mail' },
++];
++
++const resourceDropdown = [
++  { label: 'Blog', desc: 'Tax tips & business insights', href: '/resources', icon: 'article' },
++  { label: 'Resources', desc: 'Guides, tools & calculators', href: '/resources', icon: 'library_books' },
++  { label: 'FAQ', desc: 'Common questions answered', href: '/resources', icon: 'help' },
++  { label: 'Industries', desc: 'Solutions by industry', href: '/resources', icon: 'category' },
++];
++
++const taxDropdown = [
++  { label: 'Income Taxes', desc: 'Personal & business income tax', href: '/ustax', icon: 'account_balance' },
++  { label: 'Quarterly Estimates', desc: 'Stay ahead of deadlines', href: '/ustax', icon: 'calendar_month' },
++  { label: 'Audit Defense', desc: 'Protection when it counts', href: '/tax-resolution', icon: 'shield' },
++  { label: 'File an EIN', desc: 'Get your business started', href: '/formation-banking', icon: 'badge' },
+ ];
+ 
+ export default function Navbar() {
+   const [scrolled, setScrolled] = useState(false);
+-  const [hidden, setHidden] = useState(false);
++  const [activeDropdown, setActiveDropdown] = useState(null);
+   const [mobileOpen, setMobileOpen] = useState(false);
++  const [mobileSub, setMobileSub] = useState(null);
+   const location = useLocation();
+-  const lastScrollY = useRef(0);
++  const navRef = useRef(null);
++  const timeoutRef = useRef(null);
+ 
+-  // Scroll-direction hide/reveal
+   useEffect(() => {
+-    const handleScroll = () => {
+-      const currentScrollY = window.scrollY;
+-      const isScrollingDown = currentScrollY > lastScrollY.current;
+-
+-      setScrolled(currentScrollY > 40);
+-
+-      if (currentScrollY > 200) {
+-        setHidden(isScrollingDown);
+-      } else {
+-        setHidden(false);
+-      }
+-
+-      lastScrollY.current = currentScrollY;
+-    };
+-
++    const handleScroll = () => setScrolled(window.scrollY > 20);
+     window.addEventListener('scroll', handleScroll, { passive: true });
+     return () => window.removeEventListener('scroll', handleScroll);
+   }, []);
+ 
+   useEffect(() => {
+     setMobileOpen(false);
++    setActiveDropdown(null);
++    setMobileSub(null);
+   }, [location]);
+ 
+-  const isActive = (href) => location.pathname === href;
++  useEffect(() => {
++    const handleClick = (e) => {
++      if (navRef.current && !navRef.current.contains(e.target)) {
++        setActiveDropdown(null);
++      }
++    };
++    document.addEventListener('mousedown', handleClick);
++    return () => document.removeEventListener('mousedown', handleClick);
++  }, []);
++
++  const handleMouseEnter = (name) => {
++    clearTimeout(timeoutRef.current);
++    setActiveDropdown(name);
++  };
++  const handleMouseLeave = () => {
++    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
++  };
++
++  /* ΓöÇΓöÇΓöÇ Simple link list dropdown ΓöÇΓöÇΓöÇ */
++  const renderSimpleDropdown = (items) => (
++    <motion.div
++      initial={{ opacity: 0, y: 8 }}
++      animate={{ opacity: 1, y: 0 }}
++      exit={{ opacity: 0, y: 8 }}
++      transition={{ duration: 0.2 }}
++      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[320px] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 p-2 z-50"
++      onMouseEnter={() => clearTimeout(timeoutRef.current)}
++      onMouseLeave={handleMouseLeave}
++    >
++      {items.map((item) => (
++        <Link
++          key={item.label}
++          to={item.href}
++          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
++        >
++          <div className="w-9 h-9 rounded-lg bg-orange-50 text-brand-orange flex items-center justify-center flex-shrink-0 group-hover:bg-orange-100 transition-colors">
++            <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
++          </div>
++          <div>
++            <p className="font-bold text-sm text-gray-900 group-hover:text-brand-orange transition-colors">{item.label}</p>
++            <p className="text-xs text-gray-500 mt-0.5">{item.desc}</p>
++          </div>
++        </Link>
++      ))}
++    </motion.div>
++  );
++
++  /* ΓöÇΓöÇΓöÇ Mega dropdown for Services ΓöÇΓöÇΓöÇ */
++  const renderServicesDropdown = () => (
++    <motion.div
++      initial={{ opacity: 0, y: 8 }}
++      animate={{ opacity: 1, y: 0 }}
++      exit={{ opacity: 0, y: 8 }}
++      transition={{ duration: 0.2 }}
++      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 p-6 z-50"
++      onMouseEnter={() => clearTimeout(timeoutRef.current)}
++      onMouseLeave={handleMouseLeave}
++    >
++      <div className="grid grid-cols-4 gap-6">
++        {servicesDropdown.columns.map((col) => (
++          <div key={col.heading}>
++            <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3 px-1">{col.heading}</h4>
++            <div className="space-y-1">
++              {col.links.map((item) => (
++                <Link
++                  key={item.label}
++                  to={item.href}
++                  className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-gray-50 transition-colors group"
++                >
++                  <span className="material-symbols-outlined text-[18px] text-brand-orange mt-0.5">{item.icon}</span>
++                  <div>
++                    <p className="font-semibold text-sm text-gray-900 group-hover:text-brand-orange transition-colors">{item.label}</p>
++                    <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">{item.desc}</p>
++                  </div>
++                </Link>
++              ))}
++            </div>
++          </div>
++        ))}
++        {/* Featured Card */}
++        <div className="bg-gray-50 rounded-xl overflow-hidden">
++          <img src={servicesDropdown.featured.image} alt="" className="w-full h-28 object-cover" />
++          <div className="p-3">
++            <p className="font-bold text-sm mb-1">{servicesDropdown.featured.title}</p>
++            <p className="text-[11px] text-gray-500 mb-3">{servicesDropdown.featured.desc}</p>
++            <Link to={servicesDropdown.featured.href} className="text-xs font-bold text-brand-orange hover:underline">
++              Try it now ΓåÆ
++            </Link>
++          </div>
++        </div>
++      </div>
++    </motion.div>
++  );
++
++  const navItems = [
++    { name: 'Services', dropdown: 'services' },
++    { name: 'The Company', dropdown: 'company' },
++    { name: 'Pricing', href: '/pricing' },
++    { name: 'Resource Hub', dropdown: 'resources' },
++    { name: '1099', dropdown: '1099' },
++  ];
+ 
+   return (
+-    <>
+-      <motion.nav
+-        initial={{ y: 0 }}
+-        animate={{
+-          y: hidden ? -100 : 0,
+-        }}
+-        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+-          scrolled ? 'glass-nav shadow-editorial h-16' : 'glass-nav h-20'
+-        }`}
+-      >
+-        <div className="flex justify-between items-center max-w-7xl mx-auto px-6 lg:px-8 h-full">
++    <header className="fixed inset-x-0 top-0 z-50 px-4 xl:px-6 pt-3 xl:pt-4">
++      <div className="mx-auto flex justify-center w-full max-w-[1400px]" ref={navRef}>
++        
++        {/* ΓòÉΓòÉΓòÉ DESKTOP ΓòÉΓòÉΓòÉ */}
++        <div className={`hidden xl:flex w-full items-center justify-between rounded-full px-6 pr-3 h-[64px] transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)]' : 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)]'}`}>
++          
+           {/* Logo */}
+-          <Link to="/" className="text-2xl font-headline font-bold text-primary flex-shrink-0">
+-            <motion.span
+-              animate={{ scale: scrolled ? 0.9 : 1 }}
+-              transition={{ duration: 0.3 }}
+-              className="inline-block origin-left"
+-            >
+-              EazyTaxes
+-            </motion.span>
++          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
++            <svg viewBox="0 0 40 40" className="h-9 w-9 text-brand-orange">
++              <path fill="currentColor" d="M20 2L2 34h36L20 2zm0 8.5l11.5 20.5H8.5L20 10.5z" />
++            </svg>
++            <span className="font-bold text-lg text-gray-900 leading-none tracking-tight">
++              Eazy<span className="text-brand-orange">Taxes</span>
++            </span>
+           </Link>
+ 
+-          {/* Desktop Nav */}
+-          <div className="hidden md:flex items-center space-x-8">
+-            {/* Services Dropdown */}
+-            <div className="relative group">
+-              <button
+-                className={`nav-link font-label text-sm uppercase tracking-widest transition-colors ${
+-                  ['/ustax','/assurance-soc2','/tax-resolution','/cfo-advisory','/valuations','/formation-banking'].includes(location.pathname)
+-                    ? 'text-secondary-container'
+-                    : 'text-primary hover:text-secondary'
+-                }`}
+-              >
+-                Services
+-              </button>
+-              {/* Dropdown */}
+-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-surface-container-lowest shadow-editorial rounded-lg py-2 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+-                {navLinks[0].dropdown.map((item, i) => (
+-                  <Link
+-                    key={item.href}
+-                    to={item.href}
+-                    className="block px-4 py-2.5 text-sm font-label text-on-surface hover:bg-surface-container-low hover:text-secondary transition-colors"
+-                  >
+-                    {item.label}
+-                  </Link>
+-                ))}
+-              </div>
+-            </div>
+-            {navLinks.slice(1).map((link) => (
+-              <Link
+-                key={link.href}
+-                to={link.href}
+-                className={`nav-link font-label text-sm uppercase tracking-widest transition-colors ${
+-                  isActive(link.href)
+-                    ? 'text-secondary-container active'
+-                    : 'text-primary hover:text-secondary'
+-                }`}
+-              >
+-                {link.label}
+-              </Link>
+-            ))}
+-          </div>
++          {/* Center Nav Pill */}
++          <nav className="relative">
++            <ul className="flex h-11 items-center rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100/80">
++              {navItems.map((item, i) => (
++                <li key={item.name} className="h-full flex items-stretch relative">
++                  {i !== 0 && <div className="w-px my-2.5 bg-gray-200/60"></div>}
++                  
++                  {item.href ? (
++                    <Link
++                      to={item.href}
++                      className="group flex items-center px-5 font-bold text-[13px] text-gray-700 hover:text-brand-orange transition-colors h-full"
++                    >
++                      {item.name}
++                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1 text-gray-300 group-hover:text-brand-orange transition-colors">
++                        <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
++                      </svg>
++                    </Link>
++                  ) : (
++                    <button
++                      onMouseEnter={() => handleMouseEnter(item.name)}
++                      onMouseLeave={handleMouseLeave}
++                      onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
++                      className={`group flex items-center px-5 font-bold text-[13px] transition-colors h-full ${activeDropdown === item.name ? 'text-brand-orange' : 'text-gray-700 hover:text-brand-orange'}`}
++                    >
++                      {item.name}
++                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={`ml-1 transition-all duration-200 ${activeDropdown === item.name ? 'rotate-180 text-brand-orange' : 'text-gray-300 group-hover:text-brand-orange'}`}>
++                        <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
++                      </svg>
++                    </button>
++                  )}
++
++                  {/* Dropdowns */}
++                  <AnimatePresence>
++                    {activeDropdown === 'Services' && item.name === 'Services' && renderServicesDropdown()}
++                    {activeDropdown === 'The Company' && item.name === 'The Company' && renderSimpleDropdown(companyDropdown)}
++                    {activeDropdown === 'Resource Hub' && item.name === 'Resource Hub' && renderSimpleDropdown(resourceDropdown)}
++                    {activeDropdown === '1099' && item.name === '1099' && renderSimpleDropdown(taxDropdown)}
++                  </AnimatePresence>
++                </li>
++              ))}
++            </ul>
++          </nav>
+ 
+-          {/* CTA Buttons */}
+-          <div className="hidden md:flex items-center space-x-5">
+-            <Link to="/contact" className="text-primary font-medium hover:opacity-75 transition-all font-label text-sm">
+-              Log In
++          {/* Right CTA */}
++          <div className="flex items-center gap-3 flex-shrink-0">
++            <Link
++              to="/contact"
++              className="hidden 2xl:inline-flex items-center text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors"
++            >
++              <span className="material-symbols-outlined text-[18px] mr-1">call</span>
++              (800) 555-1040
+             </Link>
+             <Link
+               to="/contact"
+-              className="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-lg font-label font-semibold text-sm hover:brightness-110 active:scale-95 transition-all"
++              className="inline-flex items-center justify-center font-bold text-white text-sm rounded-full px-6 py-2.5 bg-gradient-to-b from-[#fba000] to-[#f96300] hover:from-[#fcbf00] hover:to-[#f84500] shadow-[0_4px_14px_rgba(250,130,0,0.35)] hover:shadow-[0_6px_20px_rgba(250,130,0,0.5)] transition-all"
+             >
+-              Get Started
++              Sign In
++              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1">
++                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
++              </svg>
+             </Link>
+           </div>
++        </div>
+ 
+-          {/* Mobile Hamburger */}
+-          <button
+-            onClick={() => setMobileOpen(!mobileOpen)}
+-            className="md:hidden flex flex-col space-y-1.5 p-2"
+-            aria-label="Toggle menu"
+-          >
+-            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
+-            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+-            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
++        {/* ΓòÉΓòÉΓòÉ MOBILE ΓòÉΓòÉΓòÉ */}
++        <div className={`xl:hidden flex w-full items-center justify-between rounded-full px-4 h-[56px] transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)]' : 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)]'}`}>
++          <Link to="/" className="flex items-center gap-2">
++            <svg viewBox="0 0 40 40" className="h-8 w-8 text-brand-orange">
++              <path fill="currentColor" d="M20 2L2 34h36L20 2zm0 8.5l11.5 20.5H8.5L20 10.5z" />
++            </svg>
++            <span className="font-bold text-base text-gray-900 tracking-tight">
++              Eazy<span className="text-brand-orange">Taxes</span>
++            </span>
++          </Link>
++          <button onClick={() => setMobileOpen(!mobileOpen)} className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
++            <span className="material-symbols-outlined text-gray-700">{mobileOpen ? 'close' : 'menu'}</span>
+           </button>
+         </div>
+-      </motion.nav>
++      </div>
+ 
+-      {/* Mobile Menu Overlay */}
++      {/* ΓòÉΓòÉΓòÉ MOBILE MENU ΓòÉΓòÉΓòÉ */}
+       <AnimatePresence>
+         {mobileOpen && (
+           <motion.div
+-            initial={{ opacity: 0 }}
+-            animate={{ opacity: 1 }}
+-            exit={{ opacity: 0 }}
+-            className="fixed inset-0 z-40 md:hidden"
+-            onClick={() => setMobileOpen(false)}
++            initial={{ opacity: 0, y: -10 }}
++            animate={{ opacity: 1, y: 0 }}
++            exit={{ opacity: 0, y: -10 }}
++            transition={{ duration: 0.2 }}
++            className="xl:hidden absolute top-[72px] left-3 right-3 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-2xl border border-gray-100 overflow-hidden max-h-[80vh] overflow-y-auto"
+           >
+-            <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm" />
++            <div className="p-4 space-y-1">
++              
++              {/* Services */}
++              <MobileAccordion title="Services" isOpen={mobileSub === 'services'} toggle={() => setMobileSub(mobileSub === 'services' ? null : 'services')}>
++                {servicesDropdown.columns.flatMap(col => col.links).map(item => (
++                  <Link key={item.label} to={item.href} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50">
++                    <span className="material-symbols-outlined text-brand-orange text-[18px]">{item.icon}</span>
++                    <div>
++                      <p className="font-semibold text-sm">{item.label}</p>
++                      <p className="text-[11px] text-gray-400">{item.desc}</p>
++                    </div>
++                  </Link>
++                ))}
++              </MobileAccordion>
++
++              {/* The Company */}
++              <MobileAccordion title="The Company" isOpen={mobileSub === 'company'} toggle={() => setMobileSub(mobileSub === 'company' ? null : 'company')}>
++                {companyDropdown.map(item => (
++                  <Link key={item.label} to={item.href} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50">
++                    <span className="material-symbols-outlined text-brand-orange text-[18px]">{item.icon}</span>
++                    <span className="font-semibold text-sm">{item.label}</span>
++                  </Link>
++                ))}
++              </MobileAccordion>
++
++              {/* Pricing */}
++              <Link to="/pricing" className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 font-bold text-gray-800">
++                Pricing
++                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400">
++                  <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
++                </svg>
++              </Link>
++
++              {/* Resource Hub */}
++              <MobileAccordion title="Resource Hub" isOpen={mobileSub === 'resources'} toggle={() => setMobileSub(mobileSub === 'resources' ? null : 'resources')}>
++                {resourceDropdown.map(item => (
++                  <Link key={item.label} to={item.href} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50">
++                    <span className="material-symbols-outlined text-brand-orange text-[18px]">{item.icon}</span>
++                    <span className="font-semibold text-sm">{item.label}</span>
++                  </Link>
++                ))}
++              </MobileAccordion>
++
++              {/* 1099 */}
++              <MobileAccordion title="1099" isOpen={mobileSub === '1099'} toggle={() => setMobileSub(mobileSub === '1099' ? null : '1099')}>
++                {taxDropdown.map(item => (
++                  <Link key={item.label} to={item.href} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50">
++                    <span className="material-symbols-outlined text-brand-orange text-[18px]">{item.icon}</span>
++                    <span className="font-semibold text-sm">{item.label}</span>
++                  </Link>
++                ))}
++              </MobileAccordion>
++
++              <div className="pt-3 border-t border-gray-100 mt-3">
++                <Link
++                  to="/contact"
++                  className="flex items-center justify-center w-full font-bold text-white text-sm rounded-full py-3.5 bg-gradient-to-b from-[#fba000] to-[#f96300] shadow-[0_4px_14px_rgba(250,130,0,0.35)]"
++                >
++                  Sign In
++                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1">
++                    <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
++                  </svg>
++                </Link>
++              </div>
++            </div>
+           </motion.div>
+         )}
+       </AnimatePresence>
++    </header>
++  );
++}
+ 
+-      {/* Mobile Drawer */}
+-      <motion.div
+-        animate={{ x: mobileOpen ? 0 : '-100%' }}
+-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+-        className="fixed top-0 left-0 h-full w-80 bg-surface-container-lowest z-50 md:hidden pt-20 pb-8 px-6 overflow-y-auto"
++/* ΓöÇΓöÇΓöÇ Mobile Accordion Component ΓöÇΓöÇΓöÇ */
++function MobileAccordion({ title, isOpen, toggle, children }) {
++  return (
++    <div>
++      <button
++        onClick={toggle}
++        className={`flex items-center justify-between w-full p-3 rounded-xl font-bold text-sm transition-colors ${isOpen ? 'text-brand-orange bg-orange-50' : 'text-gray-800 hover:bg-gray-50'}`}
+       >
+-        <div className="space-y-1">
+-          <p className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4 mt-2">Services</p>
+-          {navLinks[0].dropdown.map((item) => (
+-            <Link
+-              key={item.href}
+-              to={item.href}
+-              className="block py-3 px-3 text-sm font-label text-on-surface hover:bg-surface-container-low hover:text-secondary rounded transition-colors"
+-            >
+-              {item.label}
+-            </Link>
+-          ))}
+-          <div className="h-px bg-outline-variant/30 my-4" />
+-          {navLinks.slice(1).map((link) => (
+-            <Link
+-              key={link.href}
+-              to={link.href}
+-              className={`block py-3 px-3 text-sm font-label rounded transition-colors ${
+-                isActive(link.href)
+-                  ? 'text-secondary-container bg-surface-container-low'
+-                  : 'text-on-surface hover:bg-surface-container-low hover:text-secondary'
+-              }`}
+-            >
+-              {link.label}
+-            </Link>
+-          ))}
+-          <div className="pt-6">
+-            <Link
+-              to="/contact"
+-              className="block w-full text-center bg-secondary-container text-on-secondary-container px-5 py-3 rounded-lg font-label font-semibold text-sm hover:brightness-110 transition-all"
+-            >
+-              Get Started
+-            </Link>
+-          </div>
+-        </div>
+-      </motion.div>
+-    </>
++        {title}
++        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-200 ${isOpen ? 'rotate-180 text-brand-orange' : 'text-gray-400'}`}>
++          <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
++        </svg>
++      </button>
++      <AnimatePresence>
++        {isOpen && (
++          <motion.div
++            initial={{ height: 0, opacity: 0 }}
++            animate={{ height: 'auto', opacity: 1 }}
++            exit={{ height: 0, opacity: 0 }}
++            transition={{ duration: 0.2 }}
++            className="overflow-hidden pl-2"
++          >
++            {children}
++          </motion.div>
++        )}
++      </AnimatePresence>
++    </div>
+   );
+ }
+diff --git a/eazytaxes-site/src/index.css b/eazytaxes-site/src/index.css
+index 7532ac5..519786a 100644
+--- a/eazytaxes-site/src/index.css
++++ b/eazytaxes-site/src/index.css
+@@ -1,41 +1,34 @@
+-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600&family=Work+Sans:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
++@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ :root {
+-  --primary: #002839;
+-  --primary-container: #043f56;
+-  --secondary: #895100;
+-  --secondary-container: #ffa024;
+-  --surface: #f5faff;
++  --primary: #333333;
++  --secondary: #fa8200;
++  --surface: #f5f5f5;
++  --header-bg: rgba(255, 255, 255, 0.95);
++  --backdrop-blur-header: 12px;
+ }
+ 
+ * {
+   box-sizing: border-box;
+ }
+ 
++/* Lenis smooth scroll */
+ html.lenis, html.lenis body {
+   height: auto;
+ }
+-
+ .lenis.lenis-smooth {
+   scroll-behavior: auto !important;
+ }
+-
+ .lenis.lenis-smooth [data-lenis-prevent] {
+   overscroll-behavior: contain;
+ }
+-
+ .lenis.lenis-stopped {
+   overflow: hidden;
+ }
+ 
+-/* GPU acceleration hints for scroll-animated elements */
+-.will-change-transform {
+-  will-change: transform;
+-}
+-
+ @media (prefers-reduced-motion: reduce) {
+   *, *::before, *::after {
+     animation-duration: 0.01ms !important;
+@@ -46,12 +39,13 @@ html.lenis, html.lenis body {
+ 
+ body {
+   font-family: 'Inter', system-ui, sans-serif;
+-  background-color: #f5faff;
+-  color: #001e2d;
++  background-color: #ffffff;
++  color: #333333;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ 
++/* Material Symbols */
+ .material-symbols-outlined {
+   font-family: 'Material Symbols Outlined';
+   font-weight: normal;
+@@ -65,134 +59,17 @@ body {
+   word-wrap: normal;
+   direction: ltr;
+   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
++  vertical-align: middle;
+ }
+ 
+-/* Editorial gradient hero */
+-.editorial-gradient {
+-  background: linear-gradient(135deg, #002839 0%, #043f56 100%);
+-}
+-
+-/* Glassmorphism nav */
+-.glass-nav {
+-  background: rgba(245, 250, 255, 0.85);
+-  backdrop-filter: blur(12px);
+-  -webkit-backdrop-filter: blur(12px);
+-}
+-
+-/* Scroll reveal animations */
+-.reveal {
+-  opacity: 0;
+-  transform: translateY(40px);
+-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.reveal.visible {
+-  opacity: 1;
+-  transform: translateY(0);
+-}
+-
+-.reveal-left {
+-  opacity: 0;
+-  transform: translateX(-40px);
+-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.reveal-left.visible {
+-  opacity: 1;
+-  transform: translateX(0);
+-}
+-
+-.reveal-right {
+-  opacity: 0;
+-  transform: translateX(40px);
+-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.reveal-right.visible {
+-  opacity: 1;
+-  transform: translateX(0);
+-}
+-
+-.reveal-scale {
+-  opacity: 0;
+-  transform: scale(0.95);
+-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.reveal-scale.visible {
+-  opacity: 1;
+-  transform: scale(1);
+-}
+-
+-/* Stagger delay helpers */
+-.delay-100 { transition-delay: 100ms; }
+-.delay-200 { transition-delay: 200ms; }
+-.delay-300 { transition-delay: 300ms; }
+-.delay-400 { transition-delay: 400ms; }
+-.delay-500 { transition-delay: 500ms; }
+-.delay-600 { transition-delay: 600ms; }
+-.delay-700 { transition-delay: 700ms; }
+-.delay-800 { transition-delay: 800ms; }
+-
+-/* Path line animation */
+-@keyframes pathGrow {
+-  from { width: 0; }
+-  to { width: 100%; }
+-}
+-
+-.path-line {
+-  width: 0;
+-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.path-line.visible {
+-  width: 100%;
+-}
+-
+-/* Noise grain texture overlay */
+-.noise-overlay::after {
+-  content: '';
+-  position: absolute;
+-  inset: 0;
+-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+-  pointer-events: none;
+-  opacity: 0.06;
+-  mix-blend-mode: overlay;
+-}
+-
+-/* Mobile menu */
+-.mobile-menu {
+-  transform: translateX(-100%);
+-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+-}
+-
+-.mobile-menu.open {
+-  transform: translateX(0);
+-}
+-
+-/* Hover link underline slide */
+-.nav-link {
+-  position: relative;
+-}
+-
+-.nav-link::after {
+-  content: '';
+-  position: absolute;
+-  bottom: -4px;
+-  left: 0;
+-  width: 0;
+-  height: 2px;
+-  background: #ffa024;
+-  transition: width 0.25s ease;
+-}
++/* Custom scrollbar */
++::-webkit-scrollbar { width: 8px; }
++::-webkit-scrollbar-track { background: #f5f5f5; }
++::-webkit-scrollbar-thumb { background: #cccccc; border-radius: 4px; }
++::-webkit-scrollbar-thumb:hover { background: #999999; }
+ 
+-.nav-link:hover::after,
+-.nav-link.active::after {
+-  width: 100%;
++/* Scroll reveal helpers (used by ScrollAnimations) */
++.will-change-transform {
++  will-change: transform;
+ }
+ 
+-/* Custom scrollbar */
+-::-webkit-scrollbar { width: 6px; }
+-::-webkit-scrollbar-track { background: #e9f5ff; }
+-::-webkit-scrollbar-thumb { background: #043f56; border-radius: 3px; }
+-::-webkit-scrollbar-thumb:hover { background: #002839; }
+diff --git a/eazytaxes-site/src/pages/Home.jsx b/eazytaxes-site/src/pages/Home.jsx
+index 72cdfd6..5a80f29 100644
+--- a/eazytaxes-site/src/pages/Home.jsx
++++ b/eazytaxes-site/src/pages/Home.jsx
+@@ -1,361 +1,610 @@
+-import React, { useRef } from 'react';
++import React, { useState, useEffect, useRef } from 'react';
+ import { Link } from 'react-router-dom';
+-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+-import {
+-  ScrollFadeUp,
+-  ScrollScale,
+-  ScrollParallax,
+-  ScrollRevealText,
+-  ScrollSlideIn,
+-  ScrollStagger,
+-  ScrollBlurReveal,
+-  ScrollClipReveal,
+-  ScrollLineGrow,
+-  ScrollCounter,
+-  SectionExit,
+-} from '../components/animations/ScrollAnimations';
+-import { VerticalScrollLine, ParallaxImage } from '../components/animations/ScrollReveal';
++import { motion, useInView } from 'framer-motion';
++
++/* ΓöÇΓöÇΓöÇ Animated Counter Hook ΓöÇΓöÇΓöÇ */
++function AnimatedCounter({ target, prefix = '', suffix = '', duration = 2000 }) {
++  const [count, setCount] = useState(0);
++  const ref = useRef(null);
++  const inView = useInView(ref, { once: true, margin: '-50px' });
++
++  useEffect(() => {
++    if (!inView) return;
++    let start = 0;
++    const step = target / (duration / 16);
++    const timer = setInterval(() => {
++      start += step;
++      if (start >= target) { setCount(target); clearInterval(timer); }
++      else setCount(Math.floor(start));
++    }, 16);
++    return () => clearInterval(timer);
++  }, [inView, target, duration]);
++
++  return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>;
++}
++
++/* ΓöÇΓöÇΓöÇ Rotating Words ΓöÇΓöÇΓöÇ */
++const rotatingWords = ['bookkeeping', 'taxes', 'payroll', 'advisory'];
++
++function RotatingWord() {
++  const [index, setIndex] = useState(0);
++  useEffect(() => {
++    const timer = setInterval(() => setIndex(i => (i + 1) % rotatingWords.length), 2500);
++    return () => clearInterval(timer);
++  }, []);
++
++  return (
++    <span className="relative inline-block min-w-[280px] text-left">
++      {rotatingWords.map((word, i) => (
++        <motion.span
++          key={word}
++          initial={{ opacity: 0, y: 20 }}
++          animate={{ opacity: i === index ? 1 : 0, y: i === index ? 0 : -20 }}
++          transition={{ duration: 0.4 }}
++          className="absolute left-0 text-brand-orange"
++        >
++          {word}
++        </motion.span>
++      ))}
++    </span>
++  );
++}
+ 
+ export default function Home() {
+-  const { scrollYProgress } = useScroll();
+-  const progressScale = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
++  const [revenue, setRevenue] = useState(250000);
++  const [employees, setEmployees] = useState(10);
++  const [taxRate, setTaxRate] = useState(25);
++  const [testimonialIdx, setTestimonialIdx] = useState(0);
++
++  const calculateSavings = () => {
++    return ((revenue * (taxRate / 100)) * 0.15).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
++  };
++
++  const testimonials = [
++    { quote: "I've worked with EazyTaxes for 3 years now. Their professionalism and responsiveness is unmatched. My taxes are done right, every single time.", name: "Sarah Chen", company: "Bloom Studio LLC", role: "Founder" },
++    { quote: "Switching to EazyTaxes saved us over $12,000 in our first year. The quarterly strategy sessions alone are worth the investment.", name: "Marcus Rivera", company: "Rivera Construction", role: "CEO" },
++    { quote: "As a freelancer, taxes used to terrify me. Now I just send my docs and everything is handled. Best decision I ever made.", name: "Priya Patel", company: "Independent Consultant", role: "Self-Employed" },
++  ];
+ 
+   return (
+-    <div className="w-full bg-surface">
+-      {/* Global Scroll Progress Bar */}
+-      <motion.div
+-        className="fixed top-0 left-0 h-1 bg-secondary-fixed-dim z-[60] origin-left"
+-        style={{ width: progressScale }}
+-      />
+-
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 1: Hero ΓÇö Scrub-based reveals with exit fade */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <SectionExit>
+-        <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-surface -mt-20 pt-24 pb-16 border-b border-outline-variant/10 text-center">
+-
+-          <div className="max-w-5xl mx-auto px-6 lg:px-8 w-full relative z-10 flex flex-col items-center">
+-
+-            {/* Badge ΓÇö time-based entrance, visible immediately */}
+-            <motion.div
+-              initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+-              className="mb-6"
+-            >
+-              <span className="inline-block px-4 py-2 border border-outline-variant/50 rounded-full font-label text-secondary tracking-[0.2em] uppercase text-[10px] relative overflow-hidden group hover:border-secondary transition-colors cursor-default">
+-                <span className="relative z-10 flex items-center gap-2">
+-                  <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+-                  The Architectural Ledger
+-                </span>
+-                <span className="absolute inset-0 bg-secondary/5 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></span>
+-              </span>
+-            </motion.div>
++    <div className="bg-white text-gray-900 overflow-hidden font-body">
++
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 1. HERO SECTION */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="relative w-full h-screen min-h-[700px] max-h-[1000px] flex flex-col overflow-hidden">
++        {/* Background */}
++        <div className="absolute inset-0 z-0">
++          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50 z-10"></div>
++          <img
++            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=80"
++            alt="Small business owner working"
++            className="w-full h-full object-cover"
++          />
++        </div>
+ 
+-            {/* Headline ΓÇö time-based stagger, fully visible at first glance */}
+-            <motion.h1
+-              initial={{ opacity: 0, y: 40 }}
+-              animate={{ opacity: 1, y: 0 }}
+-              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+-              className="font-headline text-6xl md:text-8xl lg:text-[8.5rem] text-primary leading-[0.85] tracking-tight mb-6 w-full flex flex-col items-center"
+-            >
+-              <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 mb-[-0.1em]">
+-                <span>Clarity.</span>
+-                <span>Control.</span>
++        {/* Headline + CTA ΓÇö positioned in upper-center */}
++        <div className="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-6 -mt-16">
++          <motion.h1
++            initial={{ opacity: 0, y: 30 }}
++            animate={{ opacity: 1, y: 0 }}
++            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
++            className="text-[2.5rem] sm:text-5xl md:text-[4.2rem] font-extrabold text-white leading-[1.15] mb-8 max-w-[800px]"
++          >
++            You grow your business.<br/>
++            We'll handle the <RotatingWord />
++          </motion.h1>
++
++          <motion.div
++            initial={{ opacity: 0, y: 20 }}
++            animate={{ opacity: 1, y: 0 }}
++            transition={{ delay: 0.3, duration: 0.6 }}
++          >
++            <Link to="/contact" className="inline-flex items-center justify-center bg-[#1b75ff] hover:bg-[#155bcd] text-white font-bold rounded-full px-9 py-4 text-base shadow-[0_6px_25px_rgba(27,117,255,0.4)] hover:shadow-[0_8px_35px_rgba(27,117,255,0.5)] transition-all hover:-translate-y-0.5">
++              Schedule a Free Consultation
++              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-2">
++                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
++              </svg>
++            </Link>
++          </motion.div>
++        </div>
++
++        {/* ΓöÇΓöÇ Chat Bubble Conversations ΓöÇΓöÇ */}
++        {/* LEFT conversation */}
++        <motion.div
++          initial={{ opacity: 0, y: 40 }}
++          animate={{ opacity: 1, y: 0 }}
++          transition={{ delay: 0.6, duration: 0.7 }}
++          className="absolute left-[3%] xl:left-[6%] bottom-[6%] z-20 hidden md:block"
++        >
++          {/* Question card */}
++          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] px-5 py-4 w-[280px]">
++            <div className="flex justify-between items-start mb-2">
++              <span className="font-bold text-[13px] text-gray-900">Marty's Malt Shop</span>
++              <div className="w-6 h-6 bg-blue-50 rounded flex items-center justify-center flex-shrink-0 ml-2">
++                <span className="material-symbols-outlined text-[14px] text-blue-500">store</span>
+               </div>
++            </div>
++            <p className="text-[13px] text-gray-500 leading-relaxed">Can you provide an update on my tax return?</p>
++          </div>
++
++          {/* Dashed connector line */}
++          <svg width="60" height="30" className="ml-4" viewBox="0 0 60 30" fill="none">
++            <path d="M10 0 L10 15 Q10 25 20 25 L50 25" stroke="white" strokeWidth="2" strokeDasharray="5 4" opacity="0.5"/>
++          </svg>
++
++          {/* Reply card */}
++          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] px-5 py-4 w-[260px] ml-12 -mt-1">
++            <div className="flex justify-between items-start mb-2">
++              <span className="font-bold text-[13px] text-gray-900">Steve @ EazyTaxes</span>
++              <div className="w-6 h-6 bg-orange-50 rounded flex items-center justify-center flex-shrink-0 ml-2">
++                <svg viewBox="0 0 20 20" className="w-3.5 h-3.5 text-brand-orange">
++                  <path fill="currentColor" d="M10 1L1 17h18L10 1zm0 4.25l5.75 10.25H4.25L10 5.25z"/>
++                </svg>
++              </div>
++            </div>
++            <p className="text-[13px] text-gray-500 leading-relaxed">Yes, it's ready for your review!</p>
++          </div>
++        </motion.div>
++
++        {/* RIGHT conversation */}
++        <motion.div
++          initial={{ opacity: 0, y: 40 }}
++          animate={{ opacity: 1, y: 0 }}
++          transition={{ delay: 0.8, duration: 0.7 }}
++          className="absolute right-[3%] xl:right-[6%] bottom-[8%] z-20 hidden lg:block"
++        >
++          {/* Question card */}
++          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] px-5 py-4 w-[290px]">
++            <div className="flex justify-between items-start mb-2">
++              <span className="font-bold text-[13px] text-gray-900">Sparkle Car Wash</span>
++              <div className="w-6 h-6 bg-blue-50 rounded flex items-center justify-center flex-shrink-0 ml-2">
++                <span className="material-symbols-outlined text-[14px] text-blue-500">store</span>
++              </div>
++            </div>
++            <p className="text-[13px] text-gray-500 leading-relaxed">I have a question about my business structure - can you give me some guidance?</p>
++          </div>
++
++          {/* Dashed connector line */}
++          <svg width="60" height="30" className="ml-4" viewBox="0 0 60 30" fill="none">
++            <path d="M10 0 L10 15 Q10 25 20 25 L50 25" stroke="white" strokeWidth="2" strokeDasharray="5 4" opacity="0.5"/>
++          </svg>
++
++          {/* Reply card */}
++          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] px-5 py-4 w-[270px] ml-12 -mt-1">
++            <div className="flex justify-between items-start mb-2">
++              <span className="font-bold text-[13px] text-gray-900">Lori @ EazyTaxes</span>
++              <div className="w-6 h-6 bg-orange-50 rounded flex items-center justify-center flex-shrink-0 ml-2">
++                <svg viewBox="0 0 20 20" className="w-3.5 h-3.5 text-brand-orange">
++                  <path fill="currentColor" d="M10 1L1 17h18L10 1zm0 4.25l5.75 10.25H4.25L10 5.25z"/>
++                </svg>
++              </div>
++            </div>
++            <p className="text-[13px] text-gray-500 leading-relaxed">Of course! Let's set up a time to discuss this.</p>
++          </div>
++        </motion.div>
++      </section>
++
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 2. PROACTIVE STRATEGY */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-[#f8f8f8] relative overflow-hidden">
++        <div className="max-w-[1100px] mx-auto px-6 text-center">
++          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
++            <h2 className="text-3xl md:text-[2.75rem] font-extrabold mb-6 leading-tight">
++              <span className="text-brand-orange">Tax Season</span> isn't a surprise when<br className="hidden md:block"/> you have a proactive strategy
++            </h2>
++            <p className="text-lg text-gray-500 mb-16 max-w-2xl mx-auto">
++              Our year-round process combines planning, software, and a team of experts tailored to your industry, location, and goals.
++            </p>
++          </motion.div>
++
++          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
++            {[
++              { icon: 'payments', title: 'Payroll', desc: 'Manages employee payments, tax withholdings, and payroll compliance.', color: 'bg-orange-50 text-brand-orange' },
++              { icon: 'query_stats', title: 'Tax Planning', desc: 'Year-round tax strategy that adapts to your business changes.', color: 'bg-blue-50 text-blue-600' },
++              { icon: 'account_balance', title: 'Bookkeeping', desc: 'Accurate monthly books and financial statements delivered on time.', color: 'bg-green-50 text-green-600' },
++            ].map((card, i) => (
+               <motion.div
++                key={card.title}
+                 initial={{ opacity: 0, y: 30 }}
+-                animate={{ opacity: 1, y: 0 }}
+-                transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+-                className="italic font-normal text-secondary mt-[-0.05em]"
++                whileInView={{ opacity: 1, y: 0 }}
++                viewport={{ once: true }}
++                transition={{ delay: i * 0.15 }}
++                className="bg-white shadow-[0_4px_25px_rgba(0,0,0,0.06)] rounded-2xl p-7 text-left hover:shadow-[0_8px_35px_rgba(0,0,0,0.1)] transition-shadow"
+               >
+-                Accountability.
++                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${card.color}`}>
++                  <span className="material-symbols-outlined">{card.icon}</span>
++                </div>
++                <h3 className="font-bold text-lg mb-2">{card.title}</h3>
++                <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+               </motion.div>
+-            </motion.h1>
+-
+-            {/* Description */}
+-            <motion.p
+-              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+-              transition={{ duration: 0.9, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+-              className="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed px-4 max-w-3xl mb-10"
+-            >
+-              Transforming complex tax frameworks into strategic assets. Experience a partnership built on unprecedented editorial precision.
+-            </motion.p>
+-
+-            {/* CTA Buttons */}
+-            <motion.div
+-              initial={{ opacity: 0, y: 20 }}
+-              animate={{ opacity: 1, y: 0 }}
+-              transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+-              className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 justify-center"
+-            >
+-              <Link to="/contact" className="relative overflow-hidden group bg-primary text-white px-12 py-5 rounded-sm font-label font-bold text-xs md:text-sm tracking-widest uppercase shadow-xl hover:-translate-y-1 transition-transform w-fit">
+-                <span className="relative z-10">Enter The Firm</span>
+-                <span className="absolute inset-0 bg-primary-container translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></span>
+-              </Link>
++            ))}
++          </div>
++        </div>
++      </section>
+ 
+-              <Link to="/cfo-advisory" className="group font-label text-xs md:text-sm tracking-widest uppercase text-primary flex items-center gap-4 hover:text-secondary transition-colors w-fit">
+-                <span className="w-12 h-px bg-outline-variant group-hover:w-20 group-hover:bg-secondary transition-all duration-500"></span>
+-                View Methodology
+-              </Link>
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 3. TEAM OF EXPERTS */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-white relative">
++        <div className="max-w-[1200px] mx-auto px-6">
++          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
++            <h2 className="text-3xl md:text-[2.75rem] font-extrabold leading-tight">
++              A team of experts,<br/>
++              <span className="text-brand-orange">dedicated to your success</span>
++            </h2>
++          </motion.div>
++
++          {/* Top Row */}
++          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-6">
++            {[
++              { title: 'Tax Preparer', desc: 'Handles your tax filings accurately and on time, maximizing deductions.', icon: 'description', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80' },
++              { title: 'Tax Advisor', desc: 'Develops proactive tax strategies to minimize your tax burden year-round.', icon: 'lightbulb', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80' },
++            ].map((role, i) => (
++              <motion.div key={role.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
++                className="bg-[#f8f8f8] rounded-2xl p-5 flex gap-4 items-start hover:bg-gray-100 transition-colors"
++              >
++                <img src={role.img} alt={role.title} className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
++                <div>
++                  <h4 className="font-bold mb-1">{role.title}</h4>
++                  <p className="text-sm text-gray-500 leading-relaxed">{role.desc}</p>
++                </div>
++              </motion.div>
++            ))}
++          </div>
++
++          {/* Center Node */}
++          <div className="flex justify-center mb-6">
++            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
++              className="bg-white border-2 border-gray-200 shadow-md rounded-xl px-8 py-4 flex items-center gap-3"
++            >
++              <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
++                <span className="material-symbols-outlined text-brand-orange">storefront</span>
++              </div>
++              <span className="font-bold">Your Company</span>
+             </motion.div>
+           </div>
+ 
+-          {/* Scroll Indicator */}
+-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex-col items-center gap-4 hidden lg:flex pb-8">
+-            <div className="w-px h-32 bg-outline-variant/40 overflow-hidden relative">
+-              <motion.div
+-                animate={{ y: ["-100%", "100%"] }}
+-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+-                className="w-full h-1/2 bg-primary"
+-              />
+-            </div>
++          {/* Bottom Row */}
++          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
++            {[
++              { title: 'Bookkeeper', desc: 'Keeps your financial records organized so you always know where you stand.', icon: 'account_balance_wallet', img: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=200&q=80' },
++              { title: 'Payroll Specialist', desc: 'Manages employee payments, tax withholdings, and compliance.', icon: 'payments', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80' },
++            ].map((role, i) => (
++              <motion.div key={role.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
++                className="bg-[#f8f8f8] rounded-2xl p-5 flex gap-4 items-start hover:bg-gray-100 transition-colors"
++              >
++                <img src={role.img} alt={role.title} className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
++                <div>
++                  <h4 className="font-bold mb-1">{role.title}</h4>
++                  <p className="text-sm text-gray-500 leading-relaxed">{role.desc}</p>
++                </div>
++              </motion.div>
++            ))}
+           </div>
+-        </section>
+-      </SectionExit>
+-
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 2: The Problem ΓÇö Scroll-linked text reveal */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <section className="py-32 md:py-48 bg-white text-center px-6">
+-        <div className="max-w-4xl mx-auto">
+-          <ScrollFadeUp offset={["start 0.9", "start 0.6"]}>
+-            <span className="font-label text-secondary uppercase tracking-widest text-sm mb-8 pb-1 block">The Complexity Threshold</span>
+-          </ScrollFadeUp>
+-
+-          <h2 className="font-headline text-4xl md:text-6xl text-primary leading-tight">
+-            <ScrollRevealText
+-              text="Scaling an enterprise introduces chaotic complexity. The modern financial landscape is unforgiving to those without structure."
+-              className="justify-center text-balance"
+-              tag="span"
+-            />
+-          </h2>
+ 
+-          <ScrollLineGrow
+-            direction="vertical"
+-            className="w-px h-24 bg-secondary mx-auto mt-16"
+-            offset={["start 0.7", "start 0.3"]}
+-          />
++          {/* Tab Switcher */}
++          <div className="flex justify-center gap-3 mt-12">
++            {['Team', 'Services', 'Software'].map((tab, i) => (
++              <button key={tab} className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${i === 0 ? 'bg-gray-900 text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
++                {tab}
++              </button>
++            ))}
++          </div>
+         </div>
+       </section>
+ 
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 3: Sticky Scroll ΓÇö The Solution Ecosystem */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <section className="relative bg-surface-container-low pt-24 pb-48 px-6 lg:px-8">
+-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+-
+-          {/* Left Column: Sticky Narrative */}
+-          <div className="lg:w-5/12 relative">
+-            <div className="sticky top-32 pt-10">
+-              <ScrollSlideIn direction="left" distance={60}>
+-                <h2 className="font-headline text-5xl md:text-7xl text-primary mb-8 leading-tight">Our <span className="italic">Architectural</span> Method.</h2>
+-                <p className="font-body text-xl text-on-surface-variant leading-relaxed">
+-                  We don't just file paperwork. We rebuild your financial foundation using our core ecosystem of specialized divisions, designed to protect and amplify enterprise value.
+-                </p>
+-                <div className="mt-12 hidden lg:block">
+-                  <VerticalScrollLine height="200px" />
+-                </div>
+-              </ScrollSlideIn>
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 4. VIDEO EXPLAINER */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-[#f8f8f8]">
++        <div className="max-w-[1000px] mx-auto px-6 text-center">
++          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
++            className="text-3xl md:text-[2.75rem] font-extrabold mb-14"
++          >
++            A different kind of <span className="text-brand-orange">accounting firm</span>
++          </motion.h2>
++          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
++            className="relative aspect-video bg-gray-900 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.2)] group cursor-pointer"
++          >
++            <img
++              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
++              alt="Video thumbnail"
++              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
++            />
++            <div className="absolute inset-0 flex items-center justify-center">
++              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-300">
++                <svg viewBox="0 0 24 24" className="w-8 h-8 text-brand-orange fill-current ml-1">
++                  <path d="M8 5v14l11-7z" />
++                </svg>
++              </div>
+             </div>
+-          </div>
++          </motion.div>
++        </div>
++      </section>
+ 
+-          {/* Right Column: Scrolling Cards with scroll-linked reveals */}
+-          <div className="lg:w-7/12 flex flex-col gap-20 lg:gap-24 lg:pt-32">
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 5. FEATURED IN */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-16 bg-white border-y border-gray-100">
++        <div className="max-w-[1000px] mx-auto px-6">
++          <h3 className="text-center text-2xl font-bold mb-10">Featured in</h3>
++          <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
++            {['Forbes', 'Bloomberg', 'Inc.', 'Entrepreneur', 'TechCrunch'].map(name => (
++              <span key={name} className="text-2xl font-extrabold text-gray-900 tracking-tight">{name}</span>
++            ))}
++          </div>
++        </div>
++      </section>
+ 
+-            <ScrollScale className="bg-surface p-10 md:p-14 border border-outline-variant/30 rounded-2xl shadow-ambient sticky top-28" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-secondary-container opacity-20 block mb-6">01</span>
+-              <h3 className="font-headline text-3xl md:text-4xl text-primary mb-6">Tax & Compliance</h3>
+-              <p className="text-on-surface-variant text-lg leading-relaxed mb-10">Full-spectrum reporting and regulatory adherence tailored for scaling enterprises across multi-state and global jurisdictions.</p>
+-              <Link to="/ustax" className="font-label font-bold text-sm uppercase tracking-widest text-secondary flex items-center hover:translate-x-2 transition-transform w-fit">
+-                Explore Division <span className="material-symbols-outlined ml-2">east</span>
+-              </Link>
+-            </ScrollScale>
+-
+-            <ScrollScale className="bg-primary text-on-primary p-10 md:p-14 border border-outline-variant/10 rounded-2xl shadow-editorial sticky top-32" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-secondary-fixed-dim opacity-30 block mb-6">02</span>
+-              <h3 className="font-headline text-3xl md:text-4xl mb-6">Assurance & SOC 2</h3>
+-              <p className="text-on-primary-container text-lg leading-relaxed mb-10">Institutional-grade security validations and financial statement audits. Establishing absolute trust through rigorous engineering.</p>
+-              <Link to="/assurance-soc2" className="font-label font-bold text-sm uppercase tracking-widest text-secondary-fixed-dim flex items-center hover:translate-x-2 transition-transform w-fit">
+-                View Framework <span className="material-symbols-outlined ml-2">east</span>
+-              </Link>
+-            </ScrollScale>
+-
+-            <ScrollScale className="bg-secondary-container text-on-secondary-container p-10 md:p-14 rounded-2xl shadow-ambient sticky top-36" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-white opacity-40 block mb-6">03</span>
+-              <h3 className="font-headline text-3xl md:text-4xl mb-6">CFO & Advisory</h3>
+-              <p className="text-on-secondary-fixed-variant text-lg leading-relaxed mb-10">Fractional executive leadership providing the roadmap for long-term capitalization, M&A readiness, and fiscal resilience.</p>
+-              <Link to="/cfo-advisory" className="font-label font-bold text-sm uppercase tracking-widest text-primary flex items-center hover:translate-x-2 transition-transform w-fit">
+-                Discover Strategic Value <span className="material-symbols-outlined ml-2">east</span>
+-              </Link>
+-            </ScrollScale>
+-
+-            <ScrollScale className="bg-surface-container-highest p-10 md:p-14 border border-outline-variant/20 rounded-2xl shadow-ambient sticky top-40" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-secondary-container opacity-20 block mb-6">04</span>
+-              <h3 className="font-headline text-3xl md:text-4xl text-primary mb-6">Tax Resolution</h3>
+-              <p className="text-on-surface-variant text-lg leading-relaxed mb-10">Strategic IRS negotiation and debt restructuring, restoring financial equilibrium through meticulous advocacy and compliance engineering.</p>
+-              <Link to="/tax-resolution" className="font-label font-bold text-sm uppercase tracking-widest text-secondary flex items-center hover:translate-x-2 transition-transform w-fit">
+-                View Solutions <span className="material-symbols-outlined ml-2">east</span>
+-              </Link>
+-            </ScrollScale>
+-
+-            <ScrollScale className="bg-primary-container text-white p-10 md:p-14 rounded-2xl shadow-editorial sticky top-44" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-secondary-fixed-dim opacity-30 block mb-6">05</span>
+-              <h3 className="font-headline text-3xl md:text-4xl mb-6">Valuations</h3>
+-              <p className="text-on-primary-container text-lg leading-relaxed mb-10">Data-driven appraisal models for 409A, taxation, and transactional fairness. Defensible frameworks for high-stakes capital events.</p>
+-              <Link to="/valuations" className="font-label font-bold text-sm uppercase tracking-widest text-secondary-fixed-dim flex items-center hover:translate-x-2 transition-transform w-fit">
+-                Request Valuation <span className="material-symbols-outlined ml-2">east</span>
+-              </Link>
+-            </ScrollScale>
+-
+-            <ScrollScale className="bg-surface p-10 md:p-14 border border-outline-variant/30 rounded-2xl shadow-ambient sticky top-48" scaleRange={[0.88, 1]} offset={["start 0.9", "center center"]}>
+-              <span className="font-headline text-5xl text-secondary-container opacity-20 block mb-6">06</span>
+-              <h3 className="font-headline text-3xl md:text-4xl text-primary mb-6">Formation & Banking</h3>
+-              <p className="text-on-surface-variant text-lg leading-relaxed mb-10">End-to-end structural setup from entity incorporation to institutional banking integration, designed for growth-stage enterprises.</p>
+-              <Link to="/formation-banking" className="font-label font-bold text-sm uppercase tracking-widest text-secondary flex items-center hover:translate-x-2 transition-transform w-fit">
+-                Start Formation <span className="material-symbols-outlined ml-2">east</span>
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 6. CONTENT BLOCKS */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-white">
++        <div className="max-w-[1200px] mx-auto px-6 space-y-32">
++
++          {/* Block 1 */}
++          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
++            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
++              <div className="aspect-[4/3] bg-blue-50 rounded-[32px] overflow-hidden">
++                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Team working" className="w-full h-full object-cover" />
++              </div>
++              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-card flex items-center gap-3">
++                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600">
++                  <span className="material-symbols-outlined">trending_up</span>
++                </div>
++                <div>
++                  <p className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Savings</p>
++                  <p className="font-bold text-xl">$3,469</p>
++                </div>
++              </div>
++            </motion.div>
++            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
++              <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
++                Good accountants answer questions. Great ones <span className="text-brand-orange">prevent</span> them.
++              </h2>
++              <p className="text-lg text-gray-500 mb-8 leading-relaxed">
++                See the difference proactive accounting makes when you're not scrambling for answers at tax time.
++              </p>
++              <Link to="/contact" className="inline-flex items-center bg-[#1b75ff] hover:bg-[#155bcd] text-white font-bold rounded-full px-8 py-4 shadow-md transition-all hover:-translate-y-0.5">
++                Schedule a Free Consultation
++                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+               </Link>
+-            </ScrollScale>
++            </motion.div>
++          </div>
+ 
++          {/* Block 2 */}
++          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
++            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-2 lg:order-1">
++              <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
++                What's your time <span className="text-brand-orange">worth?</span>
++              </h2>
++              <p className="text-lg text-gray-500 mb-8 leading-relaxed">
++                Stop spending it on spreadsheets and tax codes ΓÇö let us handle the numbers while you grow your business.
++              </p>
++              <Link to="/pricing" className="inline-flex items-center bg-brand-orange hover:bg-brand-orangeDark text-white font-bold rounded-full px-8 py-4 shadow-md transition-all hover:-translate-y-0.5">
++                View Pricing
++                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
++              </Link>
++            </motion.div>
++            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative order-1 lg:order-2">
++              <div className="aspect-[4/3] bg-orange-50 rounded-[32px] overflow-hidden">
++                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" alt="Business meeting" className="w-full h-full object-cover" />
++              </div>
++              <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-card">
++                <p className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">Medium Size Company</p>
++                <p className="text-xs text-gray-400 mb-1">Flat Rate</p>
++                <p className="font-bold text-3xl">$850</p>
++              </div>
++            </motion.div>
+           </div>
+         </div>
+       </section>
+ 
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 4: Data Visualization ΓÇö Parallax + counters */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <ScrollClipReveal direction="bottom" offset={["start 0.85", "start 0.35"]} className="relative">
+-        <section className="py-32 bg-primary overflow-hidden relative">
+-          <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+-
+-            <ScrollSlideIn direction="left" distance={80}>
+-              <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl relative w-full lg:w-4/5 mx-auto lg:ml-0">
+-                <ParallaxImage
+-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkW2863ljjlj9B5ngaqrJE9qnkFwQDIK9K7y21QxM_N5BaSWtMUdVtoghtGvpxWJvt3vDpUy_8eUD-mYjYCx9V2xNjeP9EZRBRXaAD1vBy_J6O-_sgrAc0GzQpsEjGbPdriWbw9WPiuknCNuww02G2t4UvVKjdlcipKzizrTqe9Q_kvsn81XaICSqcuiD5Eu1o-ucYPTpZO7Vaj-JDBsnkK2GoJHnAg-LkaObTAB4rT9S4Qv6EMWrIRMY8J1SUX-29N4kDzXLyhohF"
+-                  alt="Financial Analysis"
+-                  className="grayscale mix-blend-multiply opacity-80"
+-                  containerClassName="w-full h-full bg-surface-container-highest"
+-                />
+-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent"></div>
+-                <div className="absolute bottom-10 left-10">
+-                  <p className="font-headline text-7xl md:text-[6rem] text-secondary-fixed-dim leading-none">
+-                    <ScrollCounter target={99.8} suffix="%" decimals={1} offset={["start 0.95", "start 0.85"]} />
+-                  </p>
+-                  <p className="font-label uppercase tracking-widest text-white mt-4 text-sm font-bold">Audit Success Rate</p>
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 7. CUSTOMER SPOTLIGHT */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-[#f8f8f8]">
++        <div className="max-w-[1100px] mx-auto px-6">
++          <h2 className="text-center text-3xl md:text-[2.75rem] font-extrabold mb-16">
++            Customer <span className="text-brand-orange">spotlight</span>
++          </h2>
++          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
++            {/* Images Grid */}
++            <div className="grid grid-cols-2 gap-4">
++              <div className="space-y-4">
++                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
++                  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80" alt="Customer" className="w-full h-full object-cover" />
++                </div>
++                <div className="aspect-square rounded-2xl overflow-hidden">
++                  <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" alt="Customer" className="w-full h-full object-cover" />
+                 </div>
+               </div>
+-            </ScrollSlideIn>
++              <div className="space-y-4 pt-8">
++                <div className="aspect-square rounded-2xl overflow-hidden">
++                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" alt="Customer" className="w-full h-full object-cover" />
++                </div>
++                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
++                  <img src="https://images.unsplash.com/photo-1556742208-999815fca738?auto=format&fit=crop&w=400&q=80" alt="Customer" className="w-full h-full object-cover" />
++                </div>
++              </div>
++            </div>
+ 
+-            <div className="text-white">
+-              <ScrollBlurReveal offset={["start 0.8", "start 0.4"]}>
+-                <h2 className="font-headline text-5xl md:text-6xl mb-8 leading-tight">Data, <span className="italic text-secondary-fixed-dim">Quantified.</span></h2>
+-                <p className="font-body text-xl text-on-primary-container leading-relaxed mb-12">
+-                  We believe in objective truth. Our proprietary forensic tools eliminate human error, ensuring your ledgers are impenetrable during regulatory scrutiny.
+-                </p>
+-              </ScrollBlurReveal>
++            {/* Testimonial */}
++            <div>
++              <div className="relative min-h-[200px]">
++                {testimonials.map((t, i) => (
++                  <motion.div
++                    key={i}
++                    initial={false}
++                    animate={{ opacity: i === testimonialIdx ? 1 : 0, x: i === testimonialIdx ? 0 : 20 }}
++                    className={`${i === testimonialIdx ? '' : 'absolute top-0 pointer-events-none'}`}
++                  >
++                    <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">"{t.quote}"</p>
++                    <div className="flex items-center gap-4">
++                      <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-lg">
++                        {t.name[0]}
++                      </div>
++                      <div>
++                        <p className="font-bold">{t.name}</p>
++                        <p className="text-sm text-gray-500">{t.company}</p>
++                      </div>
++                    </div>
++                  </motion.div>
++                ))}
++              </div>
+ 
+-              <ScrollStagger staggerAmount={0.15} className="space-y-8 border-l border-white/20 pl-8" offset={["start 0.85", "start 0.25"]}>
++              <div className="flex items-center gap-3 mt-10">
++                {testimonials.map((_, i) => (
++                  <button
++                    key={i}
++                    onClick={() => setTestimonialIdx(i)}
++                    className={`w-10 h-10 rounded-full font-bold text-sm transition-all ${i === testimonialIdx ? 'bg-brand-orange text-white shadow-md' : 'bg-white border border-gray-200 text-gray-500 hover:border-brand-orange'}`}
++                  >
++                    {i + 1}
++                  </button>
++                ))}
++              </div>
++            </div>
++          </div>
++        </div>
++      </section>
++
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 8. CALCULATOR */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section id="calculator" className="py-24 bg-white">
++        <div className="max-w-[1000px] mx-auto px-6">
++          <div className="bg-[#f8f8f8] rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.04)] p-8 md:p-12">
++            <div className="flex items-center gap-3 mb-2">
++              <div className="w-10 h-10 bg-orange-100 text-brand-orange rounded-xl flex items-center justify-center">
++                <span className="material-symbols-outlined">calculate</span>
++              </div>
++              <h3 className="text-2xl font-bold">Calculator</h3>
++            </div>
++            <p className="text-gray-400 mb-10 text-sm">Adjust the sliders below to match your business details</p>
++
++            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
++              <div className="space-y-8">
++                {/* Revenue Slider */}
+                 <div>
+-                  <h4 className="font-headline text-3xl mb-2 text-white">
+-                    <ScrollCounter target={500} suffix="+" offset={["start 0.95", "start 0.85"]} />
+-                  </h4>
+-                  <p className="font-label text-sm uppercase tracking-widest text-on-primary-container">Entities Restructured</p>
++                  <div className="flex justify-between items-end mb-3">
++                    <label className="font-bold text-sm flex items-center gap-2">
++                      <span className="material-symbols-outlined text-orange-400 text-[18px]">trending_up</span>
++                      Annual Revenue
++                    </label>
++                    <span className="font-bold text-base tabular-nums">${revenue.toLocaleString()}</span>
++                  </div>
++                  <input type="range" min="50000" max="2000000" step="10000" value={revenue} onChange={(e) => setRevenue(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-orange" />
++                  <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-semibold"><span>$50k</span><span>$2M+</span></div>
+                 </div>
++                {/* Employees Slider */}
+                 <div>
+-                  <h4 className="font-headline text-3xl mb-2 text-white">$2.4B</h4>
+-                  <p className="font-label text-sm uppercase tracking-widest text-on-primary-container">Capital Advised</p>
++                  <div className="flex justify-between items-end mb-3">
++                    <label className="font-bold text-sm flex items-center gap-2">
++                      <span className="material-symbols-outlined text-blue-400 text-[18px]">group</span>
++                      Number of Employees
++                    </label>
++                    <span className="font-bold text-base tabular-nums">{employees}</span>
++                  </div>
++                  <input type="range" min="1" max="100" value={employees} onChange={(e) => setEmployees(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500" />
++                  <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-semibold"><span>1</span><span>100+</span></div>
+                 </div>
++                {/* Tax Rate Slider */}
+                 <div>
+-                  <h4 className="font-headline text-3xl mb-2 text-white">Zero</h4>
+-                  <p className="font-label text-sm uppercase tracking-widest text-on-primary-container">Material Weaknesses</p>
++                  <div className="flex justify-between items-end mb-3">
++                    <label className="font-bold text-sm flex items-center gap-2">
++                      <span className="material-symbols-outlined text-green-400 text-[18px]">receipt</span>
++                      Current Tax Rate
++                    </label>
++                    <span className="font-bold text-base tabular-nums">{taxRate}%</span>
++                  </div>
++                  <input type="range" min="10" max="45" value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-500" />
++                  <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-semibold"><span>10%</span><span>45%</span></div>
+                 </div>
+-              </ScrollStagger>
+-            </div>
+-          </div>
+-        </section>
+-      </ScrollClipReveal>
+-
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 5: Global Presence ΓÇö Staggered reveals */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <section className="py-40 bg-white">
+-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center max-w-4xl">
+-          <ScrollFadeUp offset={["start 0.9", "start 0.5"]}>
+-            <span className="font-label text-secondary uppercase tracking-[0.3em] text-sm mb-6 block font-bold">Global Presence</span>
+-          </ScrollFadeUp>
+-
+-          <h2 className="font-headline text-4xl md:text-6xl text-primary leading-tight mb-16">
+-            <ScrollRevealText
+-              text="Boundaries are artificial. We engineer tax corridors for global liquidity."
+-              className="justify-center"
+-              tag="span"
+-            />
+-          </h2>
+-
+-          <ScrollLineGrow
+-            direction="horizontal"
+-            className="h-px bg-outline-variant/30 w-full mb-16"
+-            offset={["start 0.7", "start 0.4"]}
+-          />
++              </div>
+ 
+-          <ScrollStagger staggerAmount={0.12} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4" offset={["start 0.75", "start 0.3"]}>
+-            <div className="text-center">
+-              <span className="material-symbols-outlined text-4xl text-secondary mb-4">public</span>
+-              <p className="font-headline text-xl text-primary">North America</p>
+-            </div>
+-            <div className="text-center">
+-              <span className="material-symbols-outlined text-4xl text-secondary mb-4">account_balance</span>
+-              <p className="font-headline text-xl text-primary">European Union</p>
+-            </div>
+-            <div className="text-center">
+-              <span className="material-symbols-outlined text-4xl text-secondary mb-4">language</span>
+-              <p className="font-headline text-xl text-primary">MENA Region</p>
+-            </div>
+-            <div className="text-center">
+-              <span className="material-symbols-outlined text-4xl text-secondary mb-4">flight_takeoff</span>
+-              <p className="font-headline text-xl text-primary">Asia Pacific</p>
++              <div className="flex flex-col justify-center items-start lg:pl-12 lg:border-l border-gray-200">
++                <h4 className="font-bold text-xl mb-1">Estimated Annual Savings</h4>
++                <p className="text-xs text-gray-400 mb-6">Based on common deduction and tax strategies</p>
++                <div className="text-5xl md:text-6xl font-extrabold text-brand-orange mb-8 tabular-nums">
++                  {calculateSavings()}
++                </div>
++                <Link to="/contact" className="w-full text-center inline-flex items-center justify-center bg-[#1b75ff] hover:bg-[#155bcd] text-white font-bold rounded-full px-8 py-4 shadow-md transition-all">
++                  Schedule a Free Consultation
++                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
++                </Link>
++              </div>
+             </div>
+-          </ScrollStagger>
++          </div>
+         </div>
+       </section>
+ 
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      {/* SECTION 6: Fullscreen CTA ΓÇö Scale + parallax */}
+-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
+-      <section className="min-h-[80vh] bg-surface flex items-center relative overflow-hidden">
+-        {/* Parallax SVG lines */}
+-        <ScrollParallax speed={0.3} className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
+-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+-            <line x1="0" y1="100" x2="100" y2="0" stroke="currentColor" strokeWidth="0.5" />
+-            <line x1="0" y1="90" x2="100" y2="-10" stroke="currentColor" strokeWidth="0.5" />
+-            <line x1="0" y1="80" x2="100" y2="-20" stroke="currentColor" strokeWidth="0.5" />
+-          </svg>
+-        </ScrollParallax>
+-
+-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
+-          <ScrollScale scaleRange={[0.8, 1]} className="max-w-4xl text-center md:text-left" offset={["start 0.9", "center 0.7"]}>
+-            <h2 className="font-headline text-6xl md:text-8xl text-primary leading-[0.9] mb-8">
+-              Your Blueprint <br className="hidden md:block"/>
+-              <ScrollSlideIn direction="right" distance={40} className="inline-block" offset={["start 0.9", "center 0.7"]}>
+-                <span className="italic text-secondary">Awaits.</span>
+-              </ScrollSlideIn>
+-            </h2>
+-          </ScrollScale>
+-
+-          <ScrollBlurReveal className="max-w-2xl" offset={["start 0.9", "center 0.8"]}>
+-            <p className="font-body text-xl md:text-2xl text-on-surface-variant mb-12">
+-              Connect with a managing director to audit your current ecosystem and map your financial architecture.
+-            </p>
+-          </ScrollBlurReveal>
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 9. BLOG / TAX TIPS */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-[#f8f8f8]">
++        <div className="max-w-[1200px] mx-auto px-6">
++          <h2 className="text-center text-3xl md:text-[2.75rem] font-extrabold mb-16">
++            Business & <span className="text-brand-orange">tax tips</span>
++          </h2>
++          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
++            {[
++              { img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80', date: 'May 28, 2026', title: 'How to Prepare Your Business for Tax Changes in 2027', desc: 'With new regulations around the corner, here\'s what every small business owner needs to know.' },
++              { img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', date: 'May 15, 2026', title: 'Small Business Tax Deductions You Might Be Missing', desc: 'The 2026 tax year is already over. Ensure you\'re claiming every deduction available to your business.' },
++              { img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80', date: 'Apr 30, 2026', title: 'How to Set Up Bookkeeping for Your Small Business', desc: 'A step-by-step guide that walks you through setting up clean, organized financial records.' },
++            ].map((post, i) => (
++              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
++                <Link to="/resources" className="group block bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.1)] transition-shadow">
++                  <div className="aspect-[16/10] overflow-hidden">
++                    <img src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
++                  </div>
++                  <div className="p-6">
++                    <p className="text-xs text-brand-orange font-bold mb-3">{post.date}</p>
++                    <h3 className="font-bold text-lg mb-3 leading-snug group-hover:text-brand-orange transition-colors">{post.title}</h3>
++                    <p className="text-sm text-gray-500 leading-relaxed">{post.desc}</p>
++                    <span className="inline-flex items-center text-brand-orange font-bold text-sm mt-4 group-hover:underline">
++                      Read More
++                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-1"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
++                    </span>
++                  </div>
++                </Link>
++              </motion.div>
++            ))}
++          </div>
++        </div>
++      </section>
+ 
+-          <ScrollFadeUp offset={["start 0.9", "center 0.85"]}>
+-            <Link to="/contact" className="inline-block bg-primary text-white px-14 py-6 rounded-sm font-label font-bold text-sm tracking-[0.2em] uppercase hover:bg-primary-container transition-all hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1">
+-              Initiate Consultation
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      {/* 10. FINAL CTA */}
++      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
++      <section className="py-24 bg-gray-900 text-white">
++        <div className="max-w-[800px] mx-auto px-6 text-center">
++          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
++            Ready to take control of your <span className="text-brand-orange">finances?</span>
++          </h2>
++          <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
++            Join 100,000+ businesses that trust EazyTaxes with their bookkeeping, payroll, and taxes.
++          </p>
++          <div className="flex flex-col sm:flex-row gap-4 justify-center">
++            <Link to="/contact" className="inline-flex items-center justify-center bg-[#1b75ff] hover:bg-[#155bcd] text-white font-bold rounded-full px-10 py-4 text-lg shadow-[0_6px_25px_rgba(27,117,255,0.4)] transition-all hover:-translate-y-0.5">
++              Schedule a Free Consultation
++              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+             </Link>
+-          </ScrollFadeUp>
++            <Link to="/pricing" className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-bold rounded-full px-10 py-4 text-lg border border-white/20 transition-all">
++              View Pricing
++            </Link>
++          </div>
++          <div className="flex flex-wrap justify-center gap-8 mt-16 text-sm text-gray-500">
++            <span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-brand-orange">verified</span> Licensed CPAs</span>
++            <span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-brand-orange">lock</span> 256-bit Encrypted</span>
++            <span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-brand-orange">public</span> All 50 States</span>
++            <span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-brand-orange">star</span> 4.8/5 Rated</span>
++          </div>
+         </div>
+       </section>
++
+     </div>
+   );
+ }
+diff --git a/eazytaxes-site/tailwind.config.js b/eazytaxes-site/tailwind.config.js
+index 5a4d9f9..48960b4 100644
+--- a/eazytaxes-site/tailwind.config.js
++++ b/eazytaxes-site/tailwind.config.js
+@@ -4,65 +4,39 @@ export default {
+   theme: {
+     extend: {
+       colors: {
+-        'secondary-fixed-dim': '#ffb86b',
+-        'outline': '#71787d',
+-        'surface-dim': '#b1e0ff',
+-        'on-primary': '#ffffff',
+-        'on-error': '#ffffff',
+-        'error-container': '#ffdad6',
+-        'on-background': '#001e2d',
+-        'surface-container-high': '#d1ecff',
+-        'surface': '#f5faff',
+-        'inverse-primary': '#9ecde9',
+-        'secondary': '#895100',
+-        'background': '#f5faff',
+-        'on-surface-variant': '#41484c',
+-        'error': '#ba1a1a',
+-        'on-secondary-fixed': '#2c1700',
+-        'secondary-container': '#ffa024',
+-        'tertiary': '#002838',
+-        'on-primary-fixed': '#001e2c',
+-        'surface-container': '#ddf0ff',
+-        'inverse-on-surface': '#e3f3ff',
+-        'inverse-surface': '#00344a',
+-        'outline-variant': '#c1c7cd',
+-        'surface-bright': '#f5faff',
+-        'on-surface': '#001e2d',
+-        'primary-container': '#043f56',
+-        'secondary-fixed': '#ffdcbc',
+-        'on-secondary-container': '#693d00',
+-        'surface-container-lowest': '#ffffff',
+-        'primary-fixed-dim': '#9ecde9',
+-        'surface-container-highest': '#c5e7ff',
+-        'primary-fixed': '#c3e8ff',
+-        'primary': '#002839',
+-        'on-tertiary': '#ffffff',
+-        'on-secondary': '#ffffff',
+-        'surface-tint': '#35647c',
+-        'surface-container-low': '#e9f5ff',
+-        'on-primary-container': '#7caac5',
+-        'tertiary-container': '#003f56',
+-        'surface-variant': '#c5e7ff',
+-        'on-secondary-fixed-variant': '#683d00',
++        brand: {
++          orange: '#fa8200',
++          orangeDark: '#f96502',
++          blue: '#1b75ff',
++          blueHover: '#155bcd',
++          dark: '#333333',
++          gray: '#f5f5f5',
++          light: '#ffffff'
++        },
++        primary: '#333333',
++        secondary: '#fa8200',
++        background: '#ffffff',
++        surface: '#f5f5f5',
+       },
+       fontFamily: {
+-        headline: ['"Noto Serif"', 'Georgia', 'serif'],
++        headline: ['Inter', 'system-ui', 'sans-serif'],
+         body: ['Inter', 'system-ui', 'sans-serif'],
+-        label: ['"Work Sans"', 'system-ui', 'sans-serif'],
++        label: ['Inter', 'system-ui', 'sans-serif'],
+       },
+       borderRadius: {
+-        DEFAULT: '0.125rem',
+-        lg: '0.25rem',
+-        xl: '0.5rem',
+-        full: '0.75rem',
+-      },
+-      backgroundImage: {
+-        'editorial-gradient': 'linear-gradient(135deg, #002839 0%, #043f56 100%)',
++        DEFAULT: '0.25rem',
++        lg: '0.5rem',
++        xl: '1rem',
++        full: '9999px', // strict pill
+       },
+       boxShadow: {
+-        'ambient': '0 20px 50px rgba(0, 30, 45, 0.08)',
+-        'editorial': '0 4px 30px rgba(0, 40, 57, 0.15)',
++        'header': '0 4px 20px rgba(0, 0, 0, 0.08)',
++        'card': '0 10px 30px rgba(0, 0, 0, 0.1)',
+       },
++      backgroundImage: {
++        'orange-gradient': 'linear-gradient(180deg, rgba(251,160,0,1) 0%, rgba(249,99,0,1) 100%)',
++        'orange-gradient-hover': 'linear-gradient(180deg, rgba(252,191,0,1) 0%, rgba(248,69,0,1) 100%)',
++      }
+     },
+   },
+   plugins: [],

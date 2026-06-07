@@ -1,127 +1,121 @@
 import { Link } from 'react-router-dom';
-import { ScrollFadeUp, ScrollSlideIn, ScrollStagger, ScrollClipReveal, ScrollScale } from './animations/ScrollAnimations';
-
-const serviceLinks = [
-  { label: 'Tax & Compliance', href: '/ustax' },
-  { label: 'Tax Resolution', href: '/tax-resolution' },
-  { label: 'Assurance & SOC 2', href: '/assurance-soc2' },
-  { label: 'CFO & Advisory', href: '/cfo-advisory' },
-];
-
-const resourceLinks = [
-  { label: 'Tax Guides', href: '/resources' },
-  { label: 'White Papers', href: '/resources' },
-  { label: 'Calculator Tools', href: '/resources' },
-  { label: 'Knowledge Base', href: '/resources' },
-];
-
-const legalLinks = [
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms of Service', href: '/terms-of-service' },
-  { label: 'Cookie Settings', href: '#' },
-  { label: 'Contact Us', href: '/contact' },
-];
 
 export default function Footer() {
   return (
-    <ScrollClipReveal direction="bottom" offset={["start 0.95", "start 0.65"]}>
-      <footer className="bg-primary pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
-            {/* Brand */}
-            <ScrollSlideIn direction="down" distance={40} offset={["start 0.95", "start 0.55"]}>
-              <div className="sm:col-span-2 md:col-span-1">
-                <div className="text-3xl font-headline italic text-secondary-container mb-6">EazyTaxes</div>
-                <p className="text-on-primary-container text-sm leading-relaxed mb-8 max-w-xs">
-                  Editorial Financial Excellence for the modern enterprise. Defining the new standard in tax resolution and strategic advisory.
-                </p>
-                <div className="flex space-x-3">
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-primary hover:bg-secondary-container hover:text-on-secondary-container transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-sm">public</span>
-                  </a>
-                  <a
-                    href="mailto:support@eazytaxes.com"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-primary hover:bg-secondary-container hover:text-on-secondary-container transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-sm">alternate_email</span>
-                  </a>
-                </div>
+    <footer className="bg-[#242424] text-white pt-12 pb-6 font-label">
+      <div className="max-w-[1200px] mx-auto px-6">
+        
+        {/* Top Section - Logo & Button */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-16 pb-8 border-b border-gray-700 gap-8">
+          <div className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-2">
+              <svg viewBox="0 0 40 40" className="h-10 w-10 text-brand-orange">
+                <path fill="currentColor" d="M20 2L2 34h36L20 2zm0 8.5l11.5 20.5H8.5L20 10.5z" />
+              </svg>
+              <div className="flex flex-col">
+                <span className="font-headline font-bold text-lg text-white leading-none uppercase tracking-tight">Eazy<span className="font-light">Taxes</span></span>
               </div>
-            </ScrollSlideIn>
+            </Link>
+            
+            <div className="hidden md:flex gap-6 text-sm font-bold ml-8">
+              <Link to="/services" className="hover:text-brand-orange transition-colors">Services</Link>
+              <Link to="/company" className="hover:text-brand-orange transition-colors">The Company</Link>
+              <Link to="/pricing" className="hover:text-brand-orange transition-colors">Pricing</Link>
+              <Link to="/blog" className="hover:text-brand-orange transition-colors">Blog</Link>
+              <Link to="/support" className="hover:text-brand-orange transition-colors">Support</Link>
+            </div>
+          </div>
+          
+          <Link to="/contact" className="inline-block bg-[#1b75ff] hover:bg-[#155bcd] text-white font-bold rounded-full px-6 py-3 transition-all text-sm">
+            Schedule a Consultation {'>'}
+          </Link>
+        </div>
 
-            {/* Services */}
-            <ScrollFadeUp offset={["start 0.95", "start 0.55"]}>
-              <div>
-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Services</h4>
-                <ul className="space-y-3">
-                  {serviceLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        to={link.href}
-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollFadeUp>
-
-            {/* Resources */}
-            <ScrollFadeUp offset={["start 0.95", "start 0.5"]}>
-              <div>
-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Resources</h4>
-                <ul className="space-y-3">
-                  {resourceLinks.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        to={link.href}
-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollFadeUp>
-
-            {/* Legal */}
-            <ScrollFadeUp offset={["start 0.95", "start 0.45"]}>
-              <div>
-                <h4 className="font-label font-bold text-xs text-on-primary uppercase tracking-[0.2em] mb-6">Legal</h4>
-                <ul className="space-y-3">
-                  {legalLinks.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        to={link.href}
-                        className="text-on-primary-container/60 hover:text-secondary-container hover:translate-x-1 inline-block transition-all text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollFadeUp>
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          
+          <div>
+            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">Services</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link to="/support" className="hover:text-white transition-colors">Small Business Support</Link></li>
+              <li><Link to="/tax-prep" className="hover:text-white transition-colors">Tax Preparation</Link></li>
+              <li><Link to="/advisory" className="hover:text-white transition-colors">Tax Advisory</Link></li>
+              <li><Link to="/quarterly" className="hover:text-white transition-colors">Quarterly Est. Taxes</Link></li>
+              <li><Link to="/audit" className="hover:text-white transition-colors">Audit Defense</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider opacity-0 hidden md:block">Services Cont.</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link to="/income-taxes" className="hover:text-white transition-colors">Income Taxes</Link></li>
+              <li><Link to="/start" className="hover:text-white transition-colors">Start a Business</Link></li>
+              <li><Link to="/ein" className="hover:text-white transition-colors">File an EIN</Link></li>
+              <li><Link to="/bookkeeping" className="hover:text-white transition-colors">Bookkeeping</Link></li>
+              <li><Link to="/payroll" className="hover:text-white transition-colors">Payroll</Link></li>
+            </ul>
           </div>
 
-          {/* Bottom bar */}
-          <ScrollFadeUp offset={["start 0.98", "start 0.8"]}>
-            <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-on-primary-container/50 text-xs gap-4">
-              <p>© 2024 EazyTaxes. Editorial Financial Excellence.</p>
-              <div className="flex space-x-6">
-                <span>Certified Public Accountants</span>
-                <span>SEC Registered</span>
-              </div>
-            </div>
-          </ScrollFadeUp>
+          <div>
+            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">The Company</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/locations" className="hover:text-white transition-colors">Locations</Link></li>
+              <li><Link to="/partnerships" className="hover:text-white transition-colors">Partnerships</Link></li>
+              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-brand-orange font-bold text-xs uppercase mb-4 tracking-wider">Resource Hub</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/industries" className="hover:text-white transition-colors">Industries</Link></li>
+              <li><Link to="/calculators" className="hover:text-white transition-colors">Calculators</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
         </div>
-      </footer>
-    </ScrollClipReveal>
+
+        {/* Bottom Social & Certs */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700 gap-6">
+          <div className="flex gap-4">
+            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">facebook</span>
+            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">camera_alt</span>
+            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">play_circle</span>
+            <span className="material-symbols-outlined text-gray-400 hover:text-white cursor-pointer transition-colors">work</span>
+          </div>
+
+          <div className="flex gap-8 items-center">
+             <div className="flex items-center gap-2 text-xs text-gray-400">
+                <span className="material-symbols-outlined text-2xl">verified_user</span>
+                <div>
+                  <p className="font-bold text-white">A+ Rating</p>
+                  <p>Accredited Business</p>
+                </div>
+             </div>
+             <div className="flex items-center gap-2 text-xs text-gray-400">
+                <span className="material-symbols-outlined text-2xl">security</span>
+                <div>
+                  <p className="font-bold text-white">SOC 2 Type 1</p>
+                  <p>Tested & Approved</p>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-[10px] text-gray-500">
+          <div className="flex gap-4 mb-4 md:mb-0">
+            <Link to="/terms" className="hover:text-gray-300">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-gray-300">Privacy Policy</Link>
+            <Link to="/do-not-sell" className="hover:text-gray-300">Do Not Sell My Info</Link>
+          </div>
+          <p>© Copyright {new Date().getFullYear()}. All Rights Reserved.</p>
+        </div>
+
+      </div>
+    </footer>
   );
 }

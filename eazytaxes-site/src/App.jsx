@@ -18,6 +18,31 @@ import FormationBanking from './pages/FormationBanking';
 import Resources from './pages/Resources';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import Pricing from './pages/Pricing';
+import Calculators from './pages/Calculators';
+import StartBusiness from './pages/StartBusiness';
+import FileEIN from './pages/FileEIN';
+import BusinessBanking from './pages/BusinessBanking';
+import SmallBusinessTaxes from './pages/SmallBusinessTaxes';
+import TaxAdvisory from './pages/TaxAdvisory';
+import TaxPreparation from './pages/TaxPreparation';
+import AuditDefense from './pages/AuditDefense';
+import QuarterlyEstimates from './pages/QuarterlyEstimates';
+import BookkeepingPage from './pages/BookkeepingPage';
+import PayrollServices from './pages/PayrollServices';
+import IndustryStartup from './pages/IndustryStartup';
+import IndustryEcommerce from './pages/IndustryEcommerce';
+import IndustryRealEstate from './pages/IndustryRealEstate';
+import IndustrySelfEmployed from './pages/IndustrySelfEmployed';
+import IndustryTrucking from './pages/IndustryTrucking';
+import IndustryRestaurant from './pages/IndustryRestaurant';
+import IndustryHealthcare from './pages/IndustryHealthcare';
+import IndustryNonProfit from './pages/IndustryNonProfit';
+import SupportFAQ from './pages/SupportFAQ';
+import Locations from './pages/Locations';
+import AboutUs from './pages/AboutUs';
+import Reviews from './pages/Reviews';
+import Partnerships from './pages/Partnerships';
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -48,6 +73,31 @@ function AnimatedRoutes() {
           <Route path="/resources" element={<Resources />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/calculators" element={<Calculators />} />
+          <Route path="/start-business" element={<StartBusiness />} />
+          <Route path="/file-ein" element={<FileEIN />} />
+          <Route path="/business-banking" element={<BusinessBanking />} />
+          <Route path="/small-business-taxes" element={<SmallBusinessTaxes />} />
+          <Route path="/tax-advisory" element={<TaxAdvisory />} />
+          <Route path="/tax-preparation" element={<TaxPreparation />} />
+          <Route path="/audit-defense" element={<AuditDefense />} />
+          <Route path="/quarterly-estimates" element={<QuarterlyEstimates />} />
+          <Route path="/bookkeeping" element={<BookkeepingPage />} />
+          <Route path="/payroll-services" element={<PayrollServices />} />
+          <Route path="/industry/startup" element={<IndustryStartup />} />
+          <Route path="/industry/ecommerce" element={<IndustryEcommerce />} />
+          <Route path="/industry/real-estate" element={<IndustryRealEstate />} />
+          <Route path="/industry/self-employed" element={<IndustrySelfEmployed />} />
+          <Route path="/industry/trucking" element={<IndustryTrucking />} />
+          <Route path="/industry/restaurant" element={<IndustryRestaurant />} />
+          <Route path="/industry/healthcare" element={<IndustryHealthcare />} />
+          <Route path="/industry/non-profit" element={<IndustryNonProfit />} />
+          <Route path="/support" element={<SupportFAQ />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/partnerships" element={<Partnerships />} />
           {/* Fallback */}
           <Route path="*" element={<Home />} />
         </Routes>
@@ -60,9 +110,9 @@ function App() {
   return (
     <Router>
       <LenisProvider>
-        <div className="flex flex-col min-h-screen bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+        <div className="flex flex-col min-h-screen bg-white text-gray-900 font-body selection:bg-orange-100 selection:text-brand-orange">
           <Navbar />
-          <main className="flex-grow pt-20">
+          <main className="flex-grow">
             <AnimatedRoutes />
           </main>
           <Footer />
