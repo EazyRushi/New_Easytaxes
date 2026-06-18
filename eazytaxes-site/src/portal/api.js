@@ -59,9 +59,19 @@ export const api = {
   markRead: (id) => request('PATCH', `/notifications/${id}/read`),
   markAllRead: () => request('POST', '/notifications/read-all'),
 
+  // Folders
+  getFolders: (params = {}) => request('GET', `/folders?${new URLSearchParams(params)}`),
+  getFolderContents: (folderId, params = {}) => request('GET', `/folders/${folderId}/contents?${new URLSearchParams(params)}`),
+  createFolder: (data) => request('POST', '/folders', data),
+  renameFolder: (id, name) => request('PATCH', `/folders/${id}`, { name }),
+  moveFolder: (id, parentId) => request('PATCH', `/folders/${id}`, { parentId }),
+  deleteFolder: (id) => request('DELETE', `/folders/${id}`),
+
   // Documents
   getDocuments: (params = {}) => request('GET', `/documents?${new URLSearchParams(params)}`),
   getDocumentUrl: (id) => request('GET', `/documents/${id}/url`),
+  renameDocument: (id, name) => request('PATCH', `/documents/${id}`, { name }),
+  moveDocument: (id, folderId) => request('PATCH', `/documents/${id}`, { folderId: folderId ?? null }),
   deleteDocument: (id) => request('DELETE', `/documents/${id}`),
   uploadDocument: (formData) => {
     const token = getToken();
