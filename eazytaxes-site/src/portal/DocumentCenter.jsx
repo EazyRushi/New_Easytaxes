@@ -1,6 +1,7 @@
-import { useState, useRef, useCallback } from 'react';
+﻿import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePortal } from './portalStore';
+import { api } from './api';
 
 const CATEGORIES = [
   { value: 'ALL', label: 'All Files' },
@@ -35,31 +36,41 @@ const FILE_ICONS = {
   'text/csv': '📊',
 };
 
+const MOCK_DOCS = [
+  { id: 'd1', name: '2024 Federal Tax Return', originalName: '2024_federal_return.pdf', mimeType: 'application/pdf', category: 'TAX_RETURN', fileSize: 2340000, taxYear: 2024, createdAt: '2025-06-01', description: 'Filed federal return for 2024', fileUrl: null },
+  { id: 'd2', name: 'January Bank Statement', originalName: 'jan_2025_statement.pdf', mimeType: 'application/pdf', category: 'BANK_STATEMENT', fileSize: 540000, taxYear: null, createdAt: '2025-06-05', description: null, fileUrl: null },
+  { id: 'd3', name: 'Q1 P&L Report', originalName: 'q1_2025_pnl.xlsx', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', category: 'FINANCIAL_REPORT', fileSize: 180000, taxYear: null, createdAt: '2025-06-10', description: 'Profit & Loss for Q1 2025', fileUrl: null },
+];
+
 function fileIcon(mime) { return FILE_ICONS[mime] ?? '📎'; }
 function formatSize(bytes) {
+  if (!bytes) return '—';
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-// Mock documents for the frontend prototype (will be replaced by API calls)
-const MOCK_DOCS = [
-  { id: 'd1', name: '2024 Federal Tax Return', originalName: '2024_federal_return.pdf', mimeType: 'application/pdf', category: 'TAX_RETURN', fileSize: 2340000, taxYear: 2024, createdAt: '2025-06-01', description: 'Filed federal return for 2024' },
-  { id: 'd2', name: 'January Bank Statement', originalName: 'jan_2025_statement.pdf', mimeType: 'application/pdf', category: 'BANK_STATEMENT', fileSize: 540000, taxYear: null, createdAt: '2025-06-05', description: null },
-  { id: 'd3', name: 'Q1 P&L Report', originalName: 'q1_2025_pnl.xlsx', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', category: 'FINANCIAL_REPORT', fileSize: 180000, taxYear: null, createdAt: '2025-06-10', description: 'Profit & Loss for Q1 2025' },
-  { id: 'd4', name: 'W-2 Form 2024', originalName: 'w2_2024.pdf', mimeType: 'application/pdf', category: 'TAX_RETURN', fileSize: 210000, taxYear: 2024, createdAt: '2025-05-20', description: null },
-];
-
 export default function DocumentCenter() {
-  const { currentUser } = usePortal();
+  const { currentUser, apiConnected } = usePortal();
   const [docs, setDocs] = useState(MOCK_DOCS);
+  const [loading, setLoading] = useState(false);
   const [filterCategory, setFilterCategory] = useState('ALL');
   const [search, setSearch] = useState('');
   const [dragging, setDragging] = useState(false);
-  const [uploading, setUploading] = useState(false);
   const [uploadModal, setUploadModal] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
   const fileInputRef = useRef();
+
+  // Fetch documents from real API
+  useEffect(() => {
+    if (!apiConnected) return;
+    setLoading(true);
+    api.getDocuments()
+      .then(data => setDocs(Array.isArray(data) ? data : []))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [apiConnected]);
 
   const filtered = docs.filter(d => {
     const matchCat = filterCategory === 'ALL' || d.category === filterCategory;
@@ -70,39 +81,69 @@ export default function DocumentCenter() {
   const handleDrop = useCallback((e) => {
     e.preventDefault();
     setDragging(false);
-    const files = Array.from(e.dataTransfer.files);
-    if (files.length > 0) {
-      setUploadModal(true);
-    }
+    if (e.dataTransfer.files.length > 0) setUploadModal(true);
   }, []);
 
-  const simulateUpload = (file, category, description, taxYear) => {
+  const handleUpload = async (file, category, description, taxYear) => {
+    setUploadError('');
     setUploading(true);
-    setUploadProgress(0);
-    const interval = setInterval(() => {
-      setUploadProgress(p => {
-        if (p >= 100) {
-          clearInterval(interval);
-          setUploading(false);
-          setUploadProgress(null);
-          setUploadModal(false);
-          // Add mock uploaded doc
-          setDocs(prev => [{
-            id: `d${Date.now()}`,
-            name: file.name.replace(/\.[^.]+$/, ''),
-            originalName: file.name,
-            mimeType: file.type || 'application/octet-stream',
-            category,
-            fileSize: file.size,
-            taxYear: taxYear || null,
-            description: description || null,
-            createdAt: new Date().toISOString().split('T')[0],
-          }, ...prev]);
-          return 0;
-        }
-        return p + 10;
-      });
-    }, 150);
+
+    if (apiConnected) {
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('category', category);
+        if (description) formData.append('description', description);
+        if (taxYear) formData.append('taxYear', String(taxYear));
+
+        const { document } = await api.uploadDocument(formData);
+        setDocs(prev => [document, ...prev]);
+        setUploadModal(false);
+      } catch (err) {
+        setUploadError(err.message ?? 'Upload failed. Please try again.');
+      } finally {
+        setUploading(false);
+      }
+    } else {
+      // Mock upload for demo mode
+      await new Promise(r => setTimeout(r, 1200));
+      setDocs(prev => [{
+        id: `d${Date.now()}`,
+        name: file.name.replace(/\.[^.]+$/, ''),
+        originalName: file.name,
+        mimeType: file.type || 'application/octet-stream',
+        category,
+        fileSize: file.size,
+        taxYear: taxYear || null,
+        description: description || null,
+        createdAt: new Date().toISOString().split('T')[0],
+        fileUrl: null,
+      }, ...prev]);
+      setUploading(false);
+      setUploadModal(false);
+    }
+  };
+
+  const handleDownload = async (doc) => {
+    if (apiConnected && doc.fileUrl) {
+      try {
+        const { url } = await api.getDocumentUrl(doc.id);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      } catch {
+        alert('Could not get download link. Please try again.');
+      }
+    } else if (doc.fileUrl) {
+      window.open(doc.fileUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      alert('This is a demo document — no file is stored yet.');
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (apiConnected) {
+      try { await api.deleteDocument(id); } catch { /* ignore */ }
+    }
+    setDocs(prev => prev.filter(d => d.id !== id));
   };
 
   return (
@@ -127,12 +168,14 @@ export default function DocumentCenter() {
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4 mb-6 flex items-center gap-4">
         <div className="text-2xl">☁</div>
         <div className="flex-1">
-          <p className="text-sm font-semibold text-blue-900">Powered by Supabase Storage</p>
+          <p className="text-sm font-semibold text-blue-900">
+            {apiConnected ? 'Powered by Vercel Blob Storage' : 'Demo Mode — connect backend to enable storage'}
+          </p>
           <p className="text-xs text-blue-600 mt-0.5">Files are encrypted at rest and served via signed URLs. Max 25MB per file.</p>
         </div>
         <div className="text-right">
           <p className="text-xs text-blue-500">{docs.length} files stored</p>
-          <p className="text-xs text-blue-400">{formatSize(docs.reduce((sum, d) => sum + d.fileSize, 0))} used</p>
+          <p className="text-xs text-blue-400">{formatSize(docs.reduce((sum, d) => sum + (d.fileSize ?? 0), 0))} used</p>
         </div>
       </div>
 
@@ -182,7 +225,11 @@ export default function DocumentCenter() {
       </div>
 
       {/* Document grid */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="text-center py-16">
+          <p className="text-gray-400 text-sm">Loading documents…</p>
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="text-center py-16">
           <p className="text-4xl mb-3">📭</p>
           <p className="text-gray-500 font-medium">No documents found</p>
@@ -191,7 +238,7 @@ export default function DocumentCenter() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map(doc => (
-            <DocCard key={doc.id} doc={doc} onDelete={id => setDocs(prev => prev.filter(d => d.id !== id))} />
+            <DocCard key={doc.id} doc={doc} onDownload={handleDownload} onDelete={handleDelete} />
           ))}
         </div>
       )}
@@ -200,10 +247,10 @@ export default function DocumentCenter() {
       <AnimatePresence>
         {uploadModal && (
           <UploadModal
-            onClose={() => setUploadModal(false)}
-            onUpload={simulateUpload}
+            onClose={() => { setUploadModal(false); setUploadError(''); }}
+            onUpload={handleUpload}
             uploading={uploading}
-            progress={uploadProgress}
+            error={uploadError}
           />
         )}
       </AnimatePresence>
@@ -211,12 +258,15 @@ export default function DocumentCenter() {
   );
 }
 
-function DocCard({ doc, onDelete }) {
+function DocCard({ doc, onDownload, onDelete }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
-  const handleDownload = () => {
-    // In production: call GET /api/documents/:id/url then open signed URL
-    alert('In production this downloads from Supabase Storage via a signed URL.');
+  const handleDownloadClick = async () => {
+    setMenuOpen(false);
+    setDownloading(true);
+    await onDownload(doc);
+    setDownloading(false);
   };
 
   return (
@@ -238,7 +288,7 @@ function DocCard({ doc, onDelete }) {
             >⋮</button>
             {menuOpen && (
               <div className="absolute right-0 top-6 bg-white shadow-lg border border-gray-200 rounded-lg z-10 w-36 overflow-hidden">
-                <button onClick={() => { handleDownload(); setMenuOpen(false); }} className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50">⬇ Download</button>
+                <button onClick={handleDownloadClick} className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50">⬇ Download</button>
                 <button onClick={() => { onDelete(doc.id); setMenuOpen(false); }} className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50">🗑 Delete</button>
               </div>
             )}
@@ -258,20 +308,21 @@ function DocCard({ doc, onDelete }) {
           {doc.taxYear && <span className="text-xs bg-purple-50 text-purple-600 px-2 py-0.5 rounded">{doc.taxYear}</span>}
           <span className="text-xs text-gray-400">{formatSize(doc.fileSize)}</span>
         </div>
-        <span className="text-xs text-gray-400">{doc.createdAt}</span>
+        <span className="text-xs text-gray-400">{doc.createdAt ? String(doc.createdAt).split('T')[0] : '—'}</span>
       </div>
 
       <button
-        onClick={handleDownload}
-        className="mt-3 w-full text-xs text-center bg-gray-50 hover:bg-orange-50 hover:text-orange-600 text-gray-500 py-1.5 rounded-lg border border-gray-100 hover:border-orange-200 transition-colors"
+        onClick={handleDownloadClick}
+        disabled={downloading}
+        className="mt-3 w-full text-xs text-center bg-gray-50 hover:bg-orange-50 hover:text-orange-600 text-gray-500 py-1.5 rounded-lg border border-gray-100 hover:border-orange-200 transition-colors disabled:opacity-50"
       >
-        ⬇ Download
+        {downloading ? 'Getting link…' : '⬇ Download'}
       </button>
     </motion.div>
   );
 }
 
-function UploadModal({ onClose, onUpload, uploading, progress }) {
+function UploadModal({ onClose, onUpload, uploading, error }) {
   const [file, setFile] = useState(null);
   const [category, setCategory] = useState('OTHER');
   const [description, setDescription] = useState('');
@@ -297,7 +348,7 @@ function UploadModal({ onClose, onUpload, uploading, progress }) {
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
-      onClick={e => e.target === e.currentTarget && onClose()}
+      onClick={e => e.target === e.currentTarget && !uploading && onClose()}
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
@@ -305,7 +356,7 @@ function UploadModal({ onClose, onUpload, uploading, progress }) {
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
           <h2 className="text-lg font-bold text-gray-900">Upload Document</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl">×</button>
+          <button onClick={onClose} disabled={uploading} className="text-gray-400 hover:text-gray-600 text-xl disabled:opacity-40">×</button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -357,20 +408,16 @@ function UploadModal({ onClose, onUpload, uploading, progress }) {
             <input type="text" placeholder="e.g. January 2025 bank statement" value={description} onChange={e => setDescription(e.target.value)} className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400" />
           </div>
 
-          {/* Upload progress */}
-          {uploading && progress !== null && (
-            <div>
-              <div className="flex justify-between text-xs text-gray-500 mb-1">
-                <span>Uploading to Supabase Storage…</span>
-                <span>{progress}%</span>
-              </div>
-              <div className="w-full h-2 bg-gray-100 rounded-full">
-                <motion.div
-                  className="h-full bg-orange-500 rounded-full"
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.15 }}
-                />
-              </div>
+          {/* Error */}
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-2 text-sm text-red-600">{error}</div>
+          )}
+
+          {/* Uploading state */}
+          {uploading && (
+            <div className="flex items-center gap-3 bg-orange-50 border border-orange-200 rounded-lg px-4 py-3">
+              <div className="w-4 h-4 border-2 border-orange-500 border-t-transparent rounded-full animate-spin flex-shrink-0" />
+              <span className="text-sm text-orange-700">Uploading to secure storage…</span>
             </div>
           )}
 

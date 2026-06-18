@@ -58,6 +58,23 @@ export const api = {
   getNotifications: () => request('GET', '/notifications'),
   markRead: (id) => request('PATCH', `/notifications/${id}/read`),
   markAllRead: () => request('POST', '/notifications/read-all'),
+
+  // Documents
+  getDocuments: (params = {}) => request('GET', `/documents?${new URLSearchParams(params)}`),
+  getDocumentUrl: (id) => request('GET', `/documents/${id}/url`),
+  deleteDocument: (id) => request('DELETE', `/documents/${id}`),
+  uploadDocument: (formData) => {
+    const token = getToken();
+    return fetch(`${BASE}/documents/upload`, {
+      method: 'POST',
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      body: formData,
+    }).then(async r => {
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error ?? `HTTP ${r.status}`);
+      return data;
+    });
+  },
 };
 
 export function saveToken(token) {
