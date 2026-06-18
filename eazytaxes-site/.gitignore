@@ -11,6 +11,18 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+.claude/
+build_err.txt
+build_out.txt
+build_log.txt
+*.pdf
+scratch_*.js
+scratch_*.cjs
+screenshot.cjs
+diff*.txt
+error.txt
 
 # Editor directories and files
 .vscode/*

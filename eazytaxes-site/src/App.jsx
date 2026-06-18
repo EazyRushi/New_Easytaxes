@@ -7,6 +7,33 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LenisProvider from './components/LenisProvider';
 
+// Portal
+import { PortalProvider } from './portal/portalStore';
+import LoginPage from './portal/LoginPage';
+import PortalLayout from './portal/PortalLayout';
+import Dashboard from './portal/Dashboard';
+import TaskManager from './portal/TaskManager';
+import DocumentCenter from './portal/DocumentCenter';
+
+// Portal pages
+import MessagesPage from './portal/pages/MessagesPage';
+import SettingsPage from './portal/pages/SettingsPage';
+import TaxCenterPage from './portal/pages/TaxCenterPage';
+import PortalBookkeepingPage from './portal/pages/BookkeepingPage';
+import ClientsPage from './portal/pages/ClientsPage';
+import FilingsPage from './portal/pages/FilingsPage';
+import TransactionsPage from './portal/pages/TransactionsPage';
+import ReconciliationPage from './portal/pages/ReconciliationPage';
+import MonthlyClosePage from './portal/pages/MonthlyClosePage';
+import TaxReturnsPage from './portal/pages/TaxReturnsPage';
+import CompliancePage from './portal/pages/CompliancePage';
+import ApprovalsPage from './portal/pages/ApprovalsPage';
+import TicketsPage from './portal/pages/TicketsPage';
+import UsersPage from './portal/pages/UsersPage';
+import AnalyticsPage from './portal/pages/AnalyticsPage';
+import WorkflowsPage from './portal/pages/WorkflowsPage';
+import ReportsPage from './portal/pages/ReportsPage';
+
 // Pages
 import Home from './pages/Home';
 import TaxCompliance from './pages/TaxCompliance';
@@ -109,15 +136,45 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <LenisProvider>
-        <div className="flex flex-col min-h-screen bg-white text-gray-900 font-body selection:bg-orange-100 selection:text-brand-orange">
-          <Navbar />
-          <main className="flex-grow">
-            <AnimatedRoutes />
-          </main>
-          <Footer />
-        </div>
-      </LenisProvider>
+      <PortalProvider>
+        <Routes>
+          {/* Portal routes — no Navbar/Footer */}
+          <Route path="/portal/login" element={<LoginPage />} />
+          <Route path="/portal/dashboard" element={<PortalLayout><Dashboard /></PortalLayout>} />
+          <Route path="/portal/tasks" element={<PortalLayout><TaskManager /></PortalLayout>} />
+          <Route path="/portal/documents" element={<PortalLayout><DocumentCenter /></PortalLayout>} />
+          <Route path="/portal/messages" element={<PortalLayout><MessagesPage /></PortalLayout>} />
+          <Route path="/portal/settings" element={<PortalLayout><SettingsPage /></PortalLayout>} />
+          <Route path="/portal/taxes" element={<PortalLayout><TaxCenterPage /></PortalLayout>} />
+          <Route path="/portal/bookkeeping" element={<PortalLayout><PortalBookkeepingPage /></PortalLayout>} />
+          <Route path="/portal/clients" element={<PortalLayout><ClientsPage /></PortalLayout>} />
+          <Route path="/portal/filings" element={<PortalLayout><FilingsPage /></PortalLayout>} />
+          <Route path="/portal/transactions" element={<PortalLayout><TransactionsPage /></PortalLayout>} />
+          <Route path="/portal/reconciliation" element={<PortalLayout><ReconciliationPage /></PortalLayout>} />
+          <Route path="/portal/monthly-close" element={<PortalLayout><MonthlyClosePage /></PortalLayout>} />
+          <Route path="/portal/returns" element={<PortalLayout><TaxReturnsPage /></PortalLayout>} />
+          <Route path="/portal/compliance" element={<PortalLayout><CompliancePage /></PortalLayout>} />
+          <Route path="/portal/approvals" element={<PortalLayout><ApprovalsPage /></PortalLayout>} />
+          <Route path="/portal/tickets" element={<PortalLayout><TicketsPage /></PortalLayout>} />
+          <Route path="/portal/users" element={<PortalLayout><UsersPage /></PortalLayout>} />
+          <Route path="/portal/analytics" element={<PortalLayout><AnalyticsPage /></PortalLayout>} />
+          <Route path="/portal/workflows" element={<PortalLayout><WorkflowsPage /></PortalLayout>} />
+          <Route path="/portal/reports" element={<PortalLayout><ReportsPage /></PortalLayout>} />
+
+          {/* Marketing routes */}
+          <Route path="/*" element={
+            <LenisProvider>
+              <div className="flex flex-col min-h-screen bg-white text-gray-900 font-body selection:bg-orange-100 selection:text-brand-orange">
+                <Navbar />
+                <main className="flex-grow">
+                  <AnimatedRoutes />
+                </main>
+                <Footer />
+              </div>
+            </LenisProvider>
+          } />
+        </Routes>
+      </PortalProvider>
     </Router>
   );
 }
