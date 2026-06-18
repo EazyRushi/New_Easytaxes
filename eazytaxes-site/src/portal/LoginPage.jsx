@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { usePortal } from './portalStore';
@@ -19,17 +19,16 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  if (currentUser) {
-    navigate('/portal/dashboard');
-    return null;
-  }
+  // Redirect already-logged-in users instead of rendering a blank page
+  useEffect(() => {
+    if (currentUser) navigate('/portal/dashboard');
+  }, [currentUser, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    await new Promise(r => setTimeout(r, 400));
-    const result = login(email, password);
+    const result = await login(email, password);
     setLoading(false);
     if (result.success) {
       navigate('/portal/dashboard');
