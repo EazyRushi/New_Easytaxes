@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BarChart2 } from 'lucide-react';
 import { usePortal } from '../portalStore';
 import { MOCK_USERS } from '../portalData';
 
@@ -118,7 +119,7 @@ export default function ReportsPage() {
 
         {['BALANCE','CASH_FLOW','TAX_SUMMARY'].includes(reportType) && (
           <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
-            <p className="text-3xl mb-3">📊</p>
+            <BarChart2 size={40} className="text-gray-300 mx-auto mb-3" />
             <p className="font-medium text-gray-500">{REPORT_TYPES.find(r=>r.key===reportType)?.label}</p>
             <p className="text-sm text-gray-400 mt-1">Connect backend data source to generate this report</p>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FileText, ArrowRight } from 'lucide-react';
 import { usePortal } from '../portalStore';
 import { MOCK_USERS } from '../portalData';
 
@@ -155,7 +156,7 @@ export default function TaxReturnsPage() {
           ) : (
             <div className="bg-white rounded-xl border border-gray-200 h-64 flex items-center justify-center text-center">
               <div>
-                <p className="text-3xl mb-2">📄</p>
+                <FileText size={36} className="text-gray-300 mx-auto mb-2" />
                 <p className="text-sm text-gray-400">Select a return to view details</p>
               </div>
             </div>

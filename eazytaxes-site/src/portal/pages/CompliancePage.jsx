@@ -1,3 +1,4 @@
+import { AlertCircle, Clock, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { usePortal } from '../portalStore';
 import { MOCK_USERS } from '../portalData';
 
@@ -60,7 +61,7 @@ export default function CompliancePage() {
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Compliance</h1>
+        <h1 className="text-2xl font-bold text-gray-900"><ShieldCheck size={22} className="text-orange-500 inline mr-2" />Compliance</h1>
         <p className="text-sm text-gray-500 mt-0.5">Filing deadlines, estimated payments, and compliance tracking</p>
       </div>
 
@@ -78,9 +79,9 @@ export default function CompliancePage() {
         ))}
       </div>
 
-      {overdue.length > 0 && <Section title="🔴 Overdue" items={overdue} emptyMsg="" />}
-      <Section title="🟡 Upcoming" items={pending} emptyMsg="No upcoming deadlines." />
-      <Section title="✅ Completed" items={completed} emptyMsg="Nothing completed yet." />
+      {overdue.length > 0 && <Section title={<span className="flex items-center gap-2"><AlertCircle size={16} className="text-red-500" /> Overdue</span>} items={overdue} emptyMsg="" />}
+      <Section title={<span className="flex items-center gap-2"><Clock size={16} className="text-yellow-600" /> Upcoming</span>} items={pending} emptyMsg="No upcoming deadlines." />
+      <Section title={<span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-green-600" /> Completed</span>} items={completed} emptyMsg="Nothing completed yet." />
     </div>
   );
 }

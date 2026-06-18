@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MessageSquare } from 'lucide-react';
 import { usePortal } from '../portalStore';
 import { MOCK_USERS } from '../portalData';
 
@@ -183,7 +184,7 @@ export default function MessagesPage() {
         ) : (
           <div className="flex-1 flex items-center justify-center text-center">
             <div>
-              <p className="text-4xl mb-3">💬</p>
+              <MessageSquare size={40} className="text-gray-300 mx-auto mb-3" />
               <p className="font-medium text-gray-500">Select a conversation</p>
               <p className="text-sm text-gray-400 mt-1">or start a new message</p>
             </div>

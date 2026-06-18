@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ClipboardList, Check, AlertTriangle } from 'lucide-react';
 import { usePortal } from './portalStore';
 import { MOCK_USERS, TASK_STATUS, TASK_PRIORITY, TASK_CATEGORY } from './portalData';
 import TaskModal from './TaskModal';
@@ -193,7 +194,7 @@ function ListView({ tasks, onEdit, onDelete, onStatusChange }) {
   if (tasks.length === 0) {
     return (
       <div className="bg-white rounded-xl border border-gray-200 p-16 text-center">
-        <p className="text-4xl mb-3">📋</p>
+        <ClipboardList size={40} className="text-gray-300 mx-auto mb-3" />
         <p className="text-gray-500 font-medium">No tasks found</p>
         <p className="text-gray-400 text-sm mt-1">Try adjusting your filters or create a new task.</p>
       </div>
@@ -244,7 +245,7 @@ function TaskRow({ task, onEdit, onDelete, onStatusChange }) {
           className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${task.status === 'COMPLETED' ? 'border-green-500 bg-green-500 text-white' : 'border-gray-300 hover:border-orange-400'}`}
           title="Advance status"
         >
-          {task.status === 'COMPLETED' && <span className="text-xs">✓</span>}
+          {task.status === 'COMPLETED' && <Check size={11} />}
         </button>
       </td>
       <td className="px-4 py-3">
@@ -269,7 +270,7 @@ function TaskRow({ task, onEdit, onDelete, onStatusChange }) {
       <td className="px-4 py-3 hidden md:table-cell">
         {task.dueDate && (
           <span className={`text-xs ${overdue ? 'text-red-600 font-semibold' : 'text-gray-500'}`}>
-            {overdue && '⚠ '}{task.dueDate}
+            {overdue && <AlertTriangle size={11} className="inline mr-0.5 text-red-500" />}{task.dueDate}
           </span>
         )}
       </td>
@@ -350,7 +351,7 @@ function BoardCard({ task, onEdit, onStatusChange }) {
         <span className="text-xs text-gray-400">{userName(task.assignedTo).split(' ')[0]}</span>
         {task.dueDate && (
           <span className={`text-xs ${overdue ? 'text-red-500 font-semibold' : 'text-gray-400'}`}>
-            {overdue && '⚠ '}{task.dueDate}
+            {overdue && <AlertTriangle size={11} className="inline mr-0.5 text-red-500" />}{task.dueDate}
           </span>
         )}
       </div>

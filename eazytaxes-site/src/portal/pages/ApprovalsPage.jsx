@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CheckCircle2, PenLine, FileCheck, Clock } from 'lucide-react';
 import { usePortal } from '../portalStore';
 import { MOCK_USERS } from '../portalData';
 
@@ -56,11 +57,11 @@ export default function ApprovalsPage() {
                   <div className="flex flex-col gap-2 items-end">
                     <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">Awaiting Signature</span>
                     {signed[f.id] ? (
-                      <span className="text-xs text-green-600 font-semibold">✓ Approved</span>
+                      <span className="flex items-center gap-1 text-xs text-green-600 font-semibold"><CheckCircle2 size={14} /> Approved</span>
                     ) : (
                       <div className="flex gap-2 mt-2">
                         <button onClick={() => {}} className="text-xs border border-gray-300 text-gray-600 px-3 py-1.5 rounded-lg hover:bg-gray-50">Preview Return</button>
-                        <button onClick={() => approve(f.id,'filing')} className="text-xs bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-lg transition-colors font-semibold">✍ Approve & Sign</button>
+                        <button onClick={() => approve(f.id,'filing')} className="text-xs bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-lg transition-colors font-semibold"><span className="flex items-center gap-1"><PenLine size={13} /> Approve & Sign</span></button>
                       </div>
                     )}
                   </div>
@@ -83,10 +84,10 @@ export default function ApprovalsPage() {
                   <p className="text-xs text-gray-400 mt-0.5">{clientName(t.clientId)} · Due {t.dueDate ?? '—'}</p>
                 </div>
                 {signed[t.id] ? (
-                  <span className="text-xs text-green-600 font-semibold">✓ Approved</span>
+                  <span className="flex items-center gap-1 text-xs text-green-600 font-semibold"><CheckCircle2 size={14} /> Approved</span>
                 ) : (
                   <button onClick={() => approve(t.id,'task')} className="text-xs bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-lg transition-colors font-semibold">
-                    ✍ Approve
+                    <span className="flex items-center gap-1"><PenLine size={13} /> Approve</span>
                   </button>
                 )}
               </div>
@@ -97,7 +98,7 @@ export default function ApprovalsPage() {
 
       {pendingApprovals.length === 0 && pendingTaskApprovals.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-4xl mb-3">✅</p>
+          <CheckCircle2 size={40} className="text-green-400 mx-auto mb-3" />
           <p className="font-medium text-gray-500">No pending approvals</p>
           <p className="text-sm text-gray-400 mt-1">All returns and documents are up to date.</p>
         </div>
